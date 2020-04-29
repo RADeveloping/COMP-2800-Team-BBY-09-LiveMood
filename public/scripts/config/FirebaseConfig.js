@@ -2,13 +2,13 @@
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-	apiKey            : 'AIzaSyAlUAfKSgPwd1WLJ2_vRNQliOZ9Ki9RiJE',
-	authDomain        : 'timeego-d54c4.firebaseapp.com',
-	databaseURL       : 'https://timeego-d54c4.firebaseio.com',
-	projectId         : 'timeego-d54c4',
-	storageBucket     : 'timeego-d54c4.appspot.com',
-	messagingSenderId : '1035464350924',
-	appId             : '1:1035464350924:web:90c8599298e8c8b5d37669'
+	apiKey            : 'AIzaSyDq71zvp0RBrSyrrlThTsGfPRVPp4hIDco',
+	authDomain        : 'livemood-a14e0.firebaseapp.com',
+	databaseURL       : 'https://livemood-a14e0.firebaseio.com',
+	projectId         : 'livemood-a14e0',
+	storageBucket     : 'livemood-a14e0.appspot.com',
+	messagingSenderId : '1067638898956',
+	appId             : '1:1067638898956:web:c8d393bcbe54dc004a8929'
 };
 
 // This file holds and exports our firebase auth config settings

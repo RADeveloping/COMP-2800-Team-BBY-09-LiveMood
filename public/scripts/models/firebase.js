@@ -23,7 +23,7 @@ const ui = new firebaseui.auth.AuthUI(firebase.auth());
 // This is only needed on login page, needed for login
 export const firebaseAuth = {
 	authUI : function() {
-		ui.start('---', uiConfig);
+		ui.start('#firebase-auth-container', uiConfig);
 	}
 };
 const db = firebase.firestore();
@@ -39,7 +39,7 @@ export const global = {
 		firebase.auth().onAuthStateChanged(function(user) {
 			// If no user is currently logged in, redirects to sign in page
 			if (!user) {
-				window.location.href = './login.html';
+				window.location.href = './signup.html';
 			}
 			// DB Reference to logged in user's collection
 			const dbRef = db.collection('users').doc(user.uid);
@@ -47,6 +47,7 @@ export const global = {
 			// If the current user logged in, user is authenticated
 			dbRef.set(
 				{
+					id    : user.id,
 					name  : user.name,
 					email : user.email
 				},

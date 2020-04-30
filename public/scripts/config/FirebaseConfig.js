@@ -1,7 +1,7 @@
 // This file holds and exports our firebase config information
 
 // Your web app's Firebase configuration
-export const firebaseConfig = {
+const firebaseConfig = {
     apiKey: 'AIzaSyDq71zvp0RBrSyrrlThTsGfPRVPp4hIDco',
     authDomain: 'livemood-a14e0.firebaseapp.com',
     databaseURL: 'https://livemood-a14e0.firebaseio.com',
@@ -19,8 +19,7 @@ export const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 db = firebase.firestore();
 
-
-export const uiConfig = {
+const uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
             // User successfully signed in.

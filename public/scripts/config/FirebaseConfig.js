@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // This file holds and exports our firebase config information
 
 // Your web app's Firebase configuration
@@ -21,12 +20,12 @@ export const uiConfig = {
 			// Return type determines whether we continue the redirect automatically
 			// or whether we leave that to developer to handle.
 			return true;
-		},
-		uiShown                     : function() {
-			// The widget is rendered.
-			// Hide the loader.
-			document.getElementById('loader').style.display = 'none';
 		}
+		// uiShown                     : function() {
+		// 	// The widget is rendered.
+		// 	// Hide the loader.
+		// 	document.getElementById('loader').style.display = 'none';
+		// }
 	},
 	credentialHelper : firebaseui.auth.CredentialHelper.NONE,
 	// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
@@ -38,19 +37,3 @@ export const uiConfig = {
 	// Privacy policy url.
 	privacyPolicyUrl : 'dashboard.html'
 };
-=======
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDq71zvp0RBrSyrrlThTsGfPRVPp4hIDco",
-        authDomain: "livemood-a14e0.firebaseapp.com",
-        databaseURL: "https://livemood-a14e0.firebaseio.com",
-        projectId: "livemood-a14e0",
-        storageBucket: "livemood-a14e0.appspot.com",
-        messagingSenderId: "1067638898956",
-        appId: "1:1067638898956:web:c8d393bcbe54dc004a8929"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const storageRef = firebase.storage().ref();
->>>>>>> a5acbe827ec237a7ffdb7c0b44ec33b68c0e6f4c

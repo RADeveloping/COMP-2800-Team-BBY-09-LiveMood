@@ -25,11 +25,21 @@ function login() {
     let email = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorMessage = error.message;
-        window.alert(errorMessage);
-    }).then(function() {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+
         window.location = "index.html";
+
+    }).catch(function(error) {
+        switch (error.code) {
+            case "auth/user-not-found":
+                window.alert("Email address not found. Please try again!");
+                break;
+            case "auth/wrong-password":
+                window.alert("Incorrect Password. Please try again!");
+                break;
+            default:
+                var errorMessage = error.message;
+                window.alert(errorMessage);
+        }
     });
 }

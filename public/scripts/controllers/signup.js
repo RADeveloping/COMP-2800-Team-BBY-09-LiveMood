@@ -34,7 +34,6 @@ function register() {
         db.collection("users").doc(user.uid).set({
             name: name,
             email: email,
-            // dateOfCreation : event.toString()
         }).then(function() {
             window.location = "index.html";
         })

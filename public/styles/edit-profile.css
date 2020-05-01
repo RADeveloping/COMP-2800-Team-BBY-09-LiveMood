@@ -1,8 +1,43 @@
+@import url('./main.css');
+.card-body {
+	background: var(--color-primar);
+}
+
 .cancelchanges {
 	text-align: center;
-	color: indianred;
+	color: var(--color-third);
 	margin-top: 5%;
 }
+
 .card {
 	max-width: 500px;
+}
+.toggle.ios,
+.toggle-on.ios,
+.toggle-off.ios {
+	border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+	border-radius: 20px;
+}
+.toggle.android {
+	border-radius: 0px;
+}
+.toggle.android .toggle-handle {
+	border-radius: 0px;
+}
+.custom-control,
+.custom-switch {
+	padding-left: 0%;
+}
+.custom-control-label {
+	margin-right: 40%;
+}
+.img_logo {
+	width: 80px;
+	height: auto;
+}
+.navbar {
+	display: flex;
+	flex-direction: row;
 }

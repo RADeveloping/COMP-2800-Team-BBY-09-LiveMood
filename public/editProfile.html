@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Welcome to LiveMood</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/landing.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/edit-profile.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- <script src='./scripts/.js'></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="landing.html">LiveMood</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div>user name</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
+                <div class="card card-signin my-5 rounded">
+                    <div class="card-body" id="firebaseui-auth-container">
+                        <h5 class="card-title text-center">Edit Details</h5>
+                        <p class="text-center">User Name</p>
+                        <form class="form-edit-profile">
+                            <div class="form-label-group">
+                                <input type="name" id="editName" class="form-control" placeholder="New Name" required
+                                    autofocus>
+                                <label for="editName">Name</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="New Email address"
+                                    required autofocus>
+                                <label for="inputEmail">Email address</label>
+                            </div>
+
+                        </form>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" id="savechangs">Save
+                            Changes</button>
+                        <div class="cancelchanges">
+                            <p class="cancelchanges">Cancel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <!-- <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
+            </div>
+
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <p>A COMP_2800 Project.</p>
+                <p>By Rahim, Laura, Kyle and Jason </p>
+            </div>
+
+            <div class="col-6 col-md">
+                <h5>Resources Used</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="https://firebase.google.com/">Google Firebase</a></li>
+                    <li><a class="text-muted" href="#">Resource2</a></li>
+                    <li><a class="text-muted" href="#">Resource3</a></li>
+                    <li><a class="text-muted" href="#">Resource4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md">
+                <h5>Our GitHub</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="https://github.com/RADeveloping/LiveMood">LiveMood's Source Code</a>
+                    </li>
+                    <li><a class="text-muted" href="https://github.com/RADeveloping">Rahim's GitHub</a></li>
+                    <li><a class="text-muted" href="https://github.com/legillespie5">Laura's GitHub</a></li>
+                    <li><a class="text-muted" href="https://github.com/kyle-herrmann">Kyle's GitHub</a></li>
+                    <li><a class="text-muted" href="https://github.com/Spoonzio">Jason's GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

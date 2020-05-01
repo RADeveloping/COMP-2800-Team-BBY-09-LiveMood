@@ -1,0 +1,10 @@
+:root {
+	/*** Colors - Regular ***/
+	--color-primary: #f15946;
+	--color-secondary: #f9c22e;
+	--color-third: #e01a4f;
+	--color-third: #53b3cb;
+
+	--color-background-main: #e7e7e7;
+	--color-background-card: #ffffff;
+}

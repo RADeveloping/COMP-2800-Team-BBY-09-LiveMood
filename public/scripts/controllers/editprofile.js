@@ -80,8 +80,6 @@ function loadUserInfo() {
 }
 
 
-
-
 /**
  * @desc update user info. 
  */
@@ -106,7 +104,8 @@ function updateProfile() {
                         name: inputname.value,
                         email: inputemail.value,
                     }).then(function() {
-                        window.location.reload();
+                        window.alert("Succesfully updated changes!")
+                        window.location.assign("index.html");
                     }).catch(function(error) {
                         //error updating database
                         window.alert(error);
@@ -119,7 +118,6 @@ function updateProfile() {
                     window.alert(error.message);
                     document.getElementById("savechanges").disabled = false;
                     document.getElementById("savechanges").innerHTML = "Save Changes"
-
 
                 });
             }).catch(function(error) {

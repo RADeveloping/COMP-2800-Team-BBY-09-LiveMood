@@ -6,9 +6,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Welcome to LiveMood</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles/landing.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles/edit-profile.css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
@@ -20,7 +17,7 @@
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="styles/signup.css">
+    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
 
 </head>
 
@@ -31,7 +28,7 @@
         <div class="navbar justify-content-stretch" id="navbar7">
             <ul class="navbar-nav ml-auto">
                 <li>
-                    <div id="username">user name</div>
+                    <div id="username"></div>
                 </li>
             </ul>
         </div>
@@ -40,31 +37,26 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
-                <div class="card card-signin my-5 rounded">
-                    <div class="card-body" id="firebaseui-auth-container">
+                <div class="card card-edit my-5 rounded">
+                    <div class="card-body">
                         <h5 class="card-title text-center">Edit Profile</h5>
-                        <p class="text-subtitle text-center">Let's help you edit your details!</p>
-                        <form class="form-edit-profile">
+                        <p class="text-center">Use the form below to make your changes!</p>
+                        <form class="form-edit">
                             <div class="form-label-group">
-                                <input type="name" id="inputName" class="form-control" placeholder="New Name" required autofocus>
-                                <label for="inputName">Name</label>
+                                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                                <label for="inputName">Full Name</label>
                             </div>
-
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="New Email address" required autofocus>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label for="inputEmail">Email address</label>
                             </div>
-
                         </form>
-                        <br>
-                        <button class="btn btn-lg btn-primary btn-block" id="savechanges">Save
-                            Changes</button>
+                        <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- jQuery Script - Needed for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -1,0 +1,70 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
+@import url("main.css");
+
+/* Display */
+.mainContent {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-around;
+	text-align: center;
+	padding: 3%;
+	background-color: var(--color-background-main);
+}
+
+/* Month select */
+#select {
+	font-family: "Manrope", sans-serif;
+	text-align: center;
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+	width: 20%;
+	height: 300px;
+	overflow-y: scroll;
+	background-color: var(--color-background-card);
+}
+
+#select p {
+	text-align: left;
+	padding-left: 20px;
+	line-height: 1;
+}
+
+/* Main graph */
+#graph {
+	font-family: "Manrope", sans-serif;
+	text-align: center;
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+	height: 300px;
+	background-color: var(--color-background-card);
+}
+
+.graphdisplay {
+	width: 60%;
+}
+
+/* Friends list */
+.friendslist ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	overflow-y: scroll;
+}
+
+.friendslist li {
+	list-style: none;
+}
+
+.friendslist img {
+	width: 70px;
+	height: auto;
+}
+
+.friendslist {
+	font-family: "Manrope", sans-serif;
+	text-align: left;
+	background-color: var(--color-calm);
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+	padding: 1%;
+	margin-bottom: 1%;
+	margin-top: 2%;
+}

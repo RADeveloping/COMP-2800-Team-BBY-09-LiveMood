@@ -50,11 +50,8 @@ const helpers = {
 	getFirstName : function(currentUser) {
 		// Current User's full name
 		const name = currentUser.name;
-		// First letter to upper case
-		const upperCaseName = name[0].toUpperCase() + name.substring(1);
-		// Splits name at first space
-		const firstName = upperCaseName.split(' ')[0];
-		return firstName;
+
+		return name;
 	}
 };
 const dashboardViews = {

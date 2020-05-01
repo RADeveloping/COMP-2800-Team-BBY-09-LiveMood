@@ -6,41 +6,29 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Welcome to LiveMood</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles/landing.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles/edit-profile.css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
+    <!-- Boostrap Modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
+
 </head>
 
 <body>
-
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="landing.html">
-            <img class="img_logo" src="images/logo.png">
-        </a>
-        <a class="navbar-brand" href="landing.html">
-            <p>LiveMood</p>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="landing.html">LiveMood</a>
+        <div class="navbar justify-content-stretch" id="navbar7">
             <ul class="navbar-nav ml-auto">
                 <li>
-                    <p id="heading__username">user name</p>
+                    <div id="username"></div>
                 </li>
             </ul>
         </div>
@@ -49,78 +37,54 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
-                <div class="card card-signin my-5 rounded">
+                <div class="card card-edit my-5 rounded">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Edit Details</h5>
-                        <p class="text-center">User Name</p>
-                        <form class="form-edit-profile">
+                        <h5 class="card-title text-center">Edit Profile</h5>
+                        <p class="text-center">Use the form below to make your changes!</p>
+                        <form class="form-edit">
                             <div class="form-label-group">
-                                <input type="name" id="editName" class="form-control" placeholder="New Name" required
-                                    autofocus>
-                                <label for="editName">Name</label>
+                                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                                <label for="inputName">Full Name</label>
                             </div>
-
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="New Email address"
-                                    required autofocus>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                                 <label for="inputEmail">Email address</label>
                             </div>
-                            <!-- Default checked -->
-                            <div class="custom-control custom-switch">
-                                <label class="custom-control-label" for="customSwitch1">Notifications</label>
-                                <input type="checkbox" checked data-toggle="toggle" data-style="ios">
-
-                            </div>
                         </form>
-                        <br>
-                        <button class="btn btn-lg btn-primary btn-block" id="savechangs">Save
-                            Changes</button>
-                        <div class="cancelchanges" id="cancelchangbtn">
-                            <p class="cancelchanges">Cancel</p>
-                        </div>
+                        <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- jQuery Script - Needed for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <!-- popper.js Script - Needed for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <!-- Footer -->
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <!-- <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
-            </div>
+    <!-- Firebase Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <!-- Firebase Auth Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!-- Firebase Firestore Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
 
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <p>A COMP_2800 Project.</p>
-                <p>By Rahim, Laura, Kyle and Jason </p>
-            </div>
+    <!--Firebase Config-->
+    <script src="scripts/config/FirebaseConfig.js"></script>
+    <!-- Local Scripts -->
+    <script src="scripts/controllers/editprofile.js"></script>
 
-            <div class="col-6 col-md">
-                <h5>Resources Used</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="https://firebase.google.com/">Google Firebase</a></li>
-                    <li><a class="text-muted" href="#">Resource2</a></li>
-                    <li><a class="text-muted" href="#">Resource3</a></li>
-                    <li><a class="text-muted" href="#">Resource4</a></li>
-                </ul>
-            </div>
-
-            <div class="col-6 col-md">
-                <h5>Our GitHub</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="https://github.com/RADeveloping/LiveMood">LiveMood's Source Code</a>
-                    </li>
-                    <li><a class="text-muted" href="https://github.com/RADeveloping">Rahim's GitHub</a></li>
-                    <li><a class="text-muted" href="https://github.com/legillespie5">Laura's GitHub</a></li>
-                    <li><a class="text-muted" href="https://github.com/kyle-herrmann">Kyle's GitHub</a></li>
-                    <li><a class="text-muted" href="https://github.com/Spoonzio">Jason's GitHub</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
 </body>
+
+<footer class="footer text-muted text-center">
+    <p>Copyright 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</p>
+</footer>
 
 </html>

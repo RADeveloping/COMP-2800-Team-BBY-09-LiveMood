@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- <script src='./scripts/.js'></script> -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -21,6 +20,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
                 <div class="card card-signin my-5 rounded">
-                    <div class="card-body" id="firebaseui-auth-container">
+                    <div class="card-body">
                         <h5 class="card-title text-center">Edit Details</h5>
                         <p class="text-center">User Name</p>
                         <form class="form-edit-profile">
@@ -59,7 +60,12 @@
                                     required autofocus>
                                 <label for="inputEmail">Email address</label>
                             </div>
+                            <!-- Default checked -->
+                            <div class="custom-control custom-switch">
+                                <label class="custom-control-label" for="customSwitch1">Notifications</label>
+                                <input type="checkbox" checked data-toggle="toggle" data-style="ios">
 
+                            </div>
                         </form>
                         <br>
                         <button class="btn btn-lg btn-primary btn-block" id="savechangs">Save

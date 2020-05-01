@@ -1,3 +1,7 @@
+.card-body {
+	background: rgb(231, 231, 231);
+}
+
 .cancelchanges {
 	text-align: center;
 	color: indianred;
@@ -5,4 +9,25 @@
 }
 .card {
 	max-width: 500px;
+}
+.toggle.ios,
+.toggle-on.ios,
+.toggle-off.ios {
+	border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+	border-radius: 20px;
+}
+.toggle.android {
+	border-radius: 0px;
+}
+.toggle.android .toggle-handle {
+	border-radius: 0px;
+}
+.custom-control,
+.custom-switch {
+	padding-left: 0%;
+}
+.custom-control-label {
+	margin-right: 40%;
 }

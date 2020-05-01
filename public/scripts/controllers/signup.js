@@ -27,22 +27,32 @@ function register() {
     let name = document.getElementById("inputName").value;
     let email = document.getElementById("inputEmail").value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, pw).catch(function(error) {
-        // Handle Errors here.
-        var errorMessage = error.message;
-        window.alert(errorMessage);
-        console.log("error");
-
-        return false;
-    }).then(function() {
-        console.log("success");
-
+    firebase.auth().createUserWithEmailAndPassword(email, pw).then(function() {
         let user = firebase.auth().currentUser;
-        db.collection("users").doc(user.uid).set({
-            name: name,
-            email: email,
+        user.updateProfile({
+            displayName: name
         }).then(function() {
-            window.location.assign("index.html");
-        })
+            // Display name set successfully, add data to firestore. 
+            db.collection("users").doc(user.uid).set({
+                name: name,
+                email: email,
+            }).then(function() {
+                window.location.assign("index.html");
+            })
+        }).catch(function(error) {
+            // An error happened while adding data to firestore. 
+            window.alert(error.message);
+        });
+
+    }).catch(function(error) {
+        // Handle Errors here.
+        window.alert(error.message);
     });
+
+
+
+
+
+
+
 }

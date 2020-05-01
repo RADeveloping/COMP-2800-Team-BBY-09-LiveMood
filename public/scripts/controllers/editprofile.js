@@ -100,7 +100,7 @@ function updateProfile() {
                 // User re-authenticated.
                 user.updateEmail(inputemail.value).then(function() {
                     // update firstore DB 
-                    db.collection("users").doc(user.uid).set({
+                    db.collection("users").doc(user.uid).update({
                         name: inputname.value,
                         email: inputemail.value,
                     }).then(function() {

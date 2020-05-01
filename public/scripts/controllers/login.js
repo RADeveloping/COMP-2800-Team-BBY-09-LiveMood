@@ -14,7 +14,6 @@ addOnClickHandlers();
  */
 function goToSignUpPage() {
     window.location.assign("signup.html");
-
 }
 
 
@@ -22,6 +21,9 @@ function goToSignUpPage() {
  * @desc login user and redirect to index page 
  */
 function login() {
+    document.getElementById("signinbutton").disabled = true;
+    document.getElementById("signinbutton").innerHTML = '<span class="spinner-border spinner-border-sm mr-2 disabled" role="status" aria-hidden="true"></span>Loading...';
+
     let email = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
 
@@ -33,13 +35,20 @@ function login() {
         switch (error.code) {
             case "auth/user-not-found":
                 window.alert("Email address not found. Please try again!");
+                document.getElementById("signinbutton").disabled = false;
+                document.getElementById("signinbutton").innerHTML = "Sign in"
+
                 break;
             case "auth/wrong-password":
                 window.alert("Incorrect Password. Please try again!");
+                document.getElementById("signinbutton").disabled = false;
+                document.getElementById("signinbutton").innerHTML = "Sign in"
                 break;
             default:
                 var errorMessage = error.message;
                 window.alert(errorMessage);
+                document.getElementById("signinbutton").disabled = false;
+                document.getElementById("signinbutton").innerHTML = "Sign in"
         }
     });
 }

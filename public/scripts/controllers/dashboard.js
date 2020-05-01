@@ -1,6 +1,6 @@
 function addOnClickHandlers() {
 	document.getElementById('goto-editProfilePage').onclick = goToProfilePage;
-	document.getElementById('signinbutton').onclick = login;
+	// document.getElementById('signinbutton').onclick = login;
 }
 addOnClickHandlers();
 

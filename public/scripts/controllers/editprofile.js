@@ -105,7 +105,7 @@ function updateProfile() {
                         email: inputemail.value,
                     }).then(function() {
                         window.alert("Succesfully updated changes!")
-                        window.location.assign("index.html");
+                        window.location.assign("dashboard.html");
                     }).catch(function(error) {
                         //error updating database
                         window.alert(error);

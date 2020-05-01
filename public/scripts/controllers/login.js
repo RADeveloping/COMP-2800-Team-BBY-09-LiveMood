@@ -29,7 +29,7 @@ function login() {
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
 
-        window.location = "index.html";
+        window.location = "dashboard.html";
 
     }).catch(function(error) {
         switch (error.code) {

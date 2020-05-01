@@ -1,0 +1,142 @@
+<!--
+LiveMood: Dashboard
+Last edit by: Kyle Herrmann [2020-04-29]
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LiveMood: DashBoard</title>
+    <meta charset="utf-8" />
+    <!-- Fit to screen -->
+    <meta name="viewport" content="width=device-width" />
+
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+      integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
+      crossorigin="anonymous"
+    ></script>
+
+    <!--BOOTSTRAP-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--FontAwesome-->
+    <script
+      src="https://kit.fontawesome.com/30575d44de.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Boostrap Modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css" />
+    <link rel="stylesheet" type="text/css" href="styles/dashboard.css" />
+
+  </head>
+
+  <body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="landing.html">LiveMood</a>
+      <div class="navbar justify-content-stretch" id="navbar7">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <div id="username"></div>
+          </li>
+          <li>
+              <a href="editProfile.html"><p>Edit Profile</p></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mainContent">
+      <!-- Month selection -->
+      <div id="select">
+        <h3>Month</h3>
+        <p>Januray</p>
+        <p>February</p>
+        <p>March</p>
+        <p>April</p>
+        <p>May</p>
+        <p>June</p>
+        <p>July</p>
+        <p>August</p>
+        <p>Sepetember</p>
+        <p>October</p>
+        <p>November</p>
+        <p>December</p>
+      </div>
+
+      <div class="graphdisplay">
+
+        <!-- Month graph -->
+        <div id="graph">
+          <br />
+          <div class="container">
+              <div class="row my-3">
+                  <div class="col">
+                      <h4>Bootstrap 4 Chart.js - Line Chart</h4>
+                  </div>
+              </div>
+              <div class="row my-2">
+                  <div class="col-md-12">
+                      <div class="card">
+                          <div class="card-body">
+                              <canvas id="chLine" height="100"></canvas>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- Friends -->
+        <div class="friendslist">
+          <h5>My Groups</h5>
+          <ul>
+            <li>
+              <img src="./images/logo.png" />
+            </li>
+            <li>
+              <img src="./images/logo.png" />
+            </li>
+            <li>
+              <img src="./images/logo.png" />
+            </li>
+            <li>
+              <img src="./images/logo.png" />
+            </li>
+            <li>
+              <img src="./images/logo.png" />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer text-muted text-center">
+      <p>
+        Copyright 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason
+      </p>
+    </footer>
+
+    <script src="scripts/views/dashboard.js"></script>
+
+  </body>
+
+</html>

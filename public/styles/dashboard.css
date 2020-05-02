@@ -30,15 +30,8 @@
 
 /* Main graph */
 
-#graph {
-    font-family: "Manrope", sans-serif;
-    text-align: center;
-    border: 1px solid black;
-    height: 300px;
-}
-
-.graphdisplay {
-    width: 60%;
+.container {
+    margin: 0;
 }
 
 

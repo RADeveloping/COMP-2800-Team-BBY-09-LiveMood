@@ -1,0 +1,74 @@
+/* Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
+@import url("main.css");
+
+/* Display */
+
+.mainContent {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    text-align: center;
+    margin: 3%;
+}
+
+
+/* Month select */
+
+#select {
+    font-family: "Manrope", sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    width: 20%;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#select p {
+    text-align: left;
+    padding-left: 20px;
+    line-height: 1;
+}
+
+
+/* Main graph */
+
+#graph {
+    font-family: "Manrope", sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    height: 300px;
+}
+
+.graphdisplay {
+    width: 60%;
+}
+
+
+/* Friends list */
+
+.friendslist ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.friendslist li {
+    list-style: none;
+}
+
+.friendslist img {
+    width: 70px;
+    height: auto;
+}
+
+.friendslist {
+    font-family: "Manrope", sans-serif;
+    text-align: left;
+    background-color: var(--color-calm);
+    padding: 1%;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    border: 1px solid black;
+}

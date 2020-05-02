@@ -6,48 +6,53 @@ Last edit by: Kyle Herrmann [2020-04-29]
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LiveMood: DashBoard</title>
+    <!-- Document format -->
+    <title>DashBoard</title>
     <meta charset="utf-8" />
-    <!-- Fit to screen -->
     <meta name="viewport" content="width=device-width" />
-
-    <!--jQuery-->
-    <script
-      src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
-      integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
-      crossorigin="anonymous"
-    ></script>
-
-    <!--BOOTSTRAP-->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet" />
+    <!-- JQuery -->
     <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     ></script>
-
-    <!--FontAwesome-->
+    <!-- Bootstrap tooltips -->
     <script
-      src="https://kit.fontawesome.com/30575d44de.js"
-      crossorigin="anonymous"
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
     ></script>
-
-    <!-- Boostrap Modal-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-
-    <!-- CSS -->
+    <!-- Bootstrap core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+    ></script>
+    <!-- MDB core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"
+    ></script>
+    <!-- Style sheets -->
     <link rel="stylesheet" type="text/css" href="styles/edit-profile.css" />
     <link rel="stylesheet" type="text/css" href="styles/dashboard.css" />
-
   </head>
 
   <body>
-
     <!-- Nav Bar -->
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="landing.html">LiveMood</a>
@@ -57,7 +62,7 @@ Last edit by: Kyle Herrmann [2020-04-29]
             <div id="username"></div>
           </li>
           <li>
-              <a href="editProfile.html"><p>Edit Profile</p></a>
+            <a href="editProfile.html"><p>Edit Profile</p></a>
           </li>
         </ul>
       </div>
@@ -65,42 +70,42 @@ Last edit by: Kyle Herrmann [2020-04-29]
 
     <div class="mainContent">
       <!-- Month selection -->
-      <div id="select">
-        <h3>Month</h3>
-        <p>Januray</p>
-        <p>February</p>
-        <p>March</p>
-        <p>April</p>
-        <p>May</p>
-        <p>June</p>
-        <p>July</p>
-        <p>August</p>
-        <p>Sepetember</p>
-        <p>October</p>
-        <p>November</p>
-        <p>December</p>
-      </div>
+      <table class="select">
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td class="btn-primary">Januray</td>
+            <td class="btn-primary">February</td>
+            <td class="btn-primary">March</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td class="btn-primary">April</td>
+            <td class="btn-primary">May</td>
+            <td class="btn-primary">June</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td class="btn-primary">July</td>
+            <td class="btn-primary">August</td>
+            <td class="btn-primary">Sepetember</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td class="btn-primary">October</td>
+            <td class="btn-primary">November</td>
+            <td class="btn-primary">December</td>
+          </tr>
+        </tbody>
+      </table>
 
+      <!-- Month graph -->
       <div class="graphdisplay">
-
-        <!-- Month graph -->
         <div id="graph">
-          <br />
           <div class="container">
-              <div class="row my-3">
-                  <div class="col">
-                      <h4>Bootstrap 4 Chart.js - Line Chart</h4>
-                  </div>
-              </div>
-              <div class="row my-2">
-                  <div class="col-md-12">
-                      <div class="card">
-                          <div class="card-body">
-                              <canvas id="chLine" height="100"></canvas>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <div class="card-body">
+              <canvas id="chLine" height="100"></canvas>
+            </div>
           </div>
         </div>
 
@@ -126,7 +131,6 @@ Last edit by: Kyle Herrmann [2020-04-29]
           </ul>
         </div>
       </div>
-
     </div>
 
     <footer class="footer text-muted text-center">
@@ -136,7 +140,5 @@ Last edit by: Kyle Herrmann [2020-04-29]
     </footer>
 
     <script src="scripts/views/dashboard.js"></script>
-
   </body>
-
 </html>

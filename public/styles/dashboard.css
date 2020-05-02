@@ -1,14 +1,16 @@
 /* Fonts */
+
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
 @import url("main.css");
 
 /* Display */
+
 .mainContent {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  text-align: center;
-  margin: 3%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    text-align: center;
+    margin: 3%;
 }
 
 
@@ -25,42 +27,44 @@
   width: 100px;
 }
 
+
 /* Main graph */
+
 #graph {
-  font-family: "Manrope", sans-serif;
-  text-align: center;
-  border: 1px solid black;
-  height: 300px;
+    font-family: "Manrope", sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    height: 300px;
 }
 
 .graphdisplay {
-  width: 60%;
+    width: 60%;
 }
-
 
 
 /* Friends list */
+
 .friendslist ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .friendslist li {
-  list-style: none;
+    list-style: none;
 }
 
 .friendslist img {
-  width: 70px;
-  height: auto;
+    width: 70px;
+    height: auto;
 }
 
 .friendslist {
-  font-family: "Manrope", sans-serif;
-  text-align: left;
-  background-color: var(--color-calm);
-  padding: 1%;
-  margin-bottom: 1%;
-  margin-top: 0.5%;
-  border: 1px solid black;
+    font-family: "Manrope", sans-serif;
+    text-align: left;
+    background-color: var(--color-calm);
+    padding: 1%;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    border: 1px solid black;
 }

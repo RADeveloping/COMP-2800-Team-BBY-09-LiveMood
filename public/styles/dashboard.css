@@ -8,8 +8,7 @@
 .mainContent {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
-    text-align: center;
+    justify-content: space-evenly;
     margin: 3%;
 }
 
@@ -29,21 +28,16 @@
 
 
 /* Main graph */
-
-#graph {
-    font-family: "Manrope", sans-serif;
-    text-align: center;
+.graph {
     border: 1px solid black;
-    height: 300px;
 }
 
-.graphdisplay {
-    width: 60%;
+.container {
+    margin: 0;
 }
 
 
 /* Friends list */
-
 .friendslist ul {
     display: flex;
     flex-direction: row;
@@ -56,7 +50,7 @@
 
 .friendslist img {
     width: 70px;
-    height: auto;
+    height: 70px;
 }
 
 .friendslist {

@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
 	/*** Colors - Regular ***/
 	--color-primary: #f15946;
 	--color-secondary: #f9c22e;
@@ -7,3 +8,13 @@
 	--color-background-main: #e7e7e7;
 	--color-background-card: #ffffff;
 }
+=======
+    /*** Colors - Regular ***/
+    --color-primary: #f15946;
+    --color-secondary: #f9c22e;
+    --color-third: #e01a4f;
+    --color-calm: #53b3cb;
+    --color-background-main: #e7e7e7;
+    --color-background-card: #ffffff;
+}
+>>>>>>> a7b9c078bafc23ec0e0c7bedb292fd8f5eab3ed7

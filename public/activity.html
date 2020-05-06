@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Welcome to LiveMood</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+        integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/activity.css">
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="landing.html">LiveMood</a>
+        <div class="navbar justify-content-stretch" id="navbar7">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div id="username"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="activity">
+        <div class="suggestion">
+
+        </div>
+
+    </div>
+    <footer class="footer text-muted text-center">
+        <p>Copyright 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</p>
+    </footer>
+
+    <!-- jQuery Script - Needed for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+
+    <!-- Firebase Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <!-- Firebase Auth Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!-- Firebase Firestore Script -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <!--Firebase Config-->
+    <script src="scripts/config/FirebaseConfig.js"></script>
+    <!-- Local Scripts -->
+    <script src="scripts/controllers/indActivity.js"></script>
+
+</body>
+
+
+</html>

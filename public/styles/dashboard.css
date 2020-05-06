@@ -1,104 +1,62 @@
 /* Fonts */
-<<<<<<< HEAD
-=======
-
->>>>>>> a7b9c078bafc23ec0e0c7bedb292fd8f5eab3ed7
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
 @import url("main.css");
 
 /* Display */
-<<<<<<< HEAD
+
 .mainContent {
 	display: flex;
 	flex-direction: row-reverse;
-	justify-content: space-around;
-	text-align: center;
+	justify-content: space-evenly;
 	margin: 3%;
 }
 
 /* Month select */
-#select {
+.select {
 	font-family: "Manrope", sans-serif;
 	text-align: center;
-	border: 1px solid black;
-	width: 20%;
-	height: 300px;
-	overflow-y: scroll;
+	border-collapse: separate;
+	border-spacing: 20px 20px;
 }
 
-#select p {
-	text-align: left;
-	padding-left: 20px;
-	line-height: 1;
+.select td {
+	height: 50px;
+	width: 100px;
 }
-=======
-
-.mainContent {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    text-align: center;
-    margin: 3%;
-}
-
-
-/* Month select */
-
-#select {
-    font-family: "Manrope", sans-serif;
-    text-align: center;
-    border: 1px solid black;
-    width: 20%;
-    height: 300px;
-    overflow-y: scroll;
-}
-
-#select p {
-    text-align: left;
-    padding-left: 20px;
-    line-height: 1;
-}
-
->>>>>>> a7b9c078bafc23ec0e0c7bedb292fd8f5eab3ed7
 
 /* Main graph */
+/* HEAD */
 #graph {
-<<<<<<< HEAD
 	font-family: "Manrope", sans-serif;
 	text-align: center;
 	border: 1px solid black;
 	height: 300px;
-=======
-    font-family: "Manrope", sans-serif;
-    text-align: center;
-    border: 1px solid black;
-    height: 300px;
->>>>>>> a7b9c078bafc23ec0e0c7bedb292fd8f5eab3ed7
+}
+.graph {
+	border: 1px solid black;
 }
 
-.graphdisplay {
-    width: 60%;
+.container {
+	margin: 0;
 }
-
 
 /* Friends list */
 .friendslist ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .friendslist li {
-    list-style: none;
+	list-style: none;
 }
 
 .friendslist img {
-    width: 70px;
-    height: auto;
+	width: 70px;
+	height: 70px;
 }
 
 .friendslist {
-<<<<<<< HEAD
 	font-family: "Manrope", sans-serif;
 	text-align: left;
 	background-color: var(--color-calm);
@@ -107,13 +65,3 @@
 	margin-top: 0.5%;
 	border: 1px solid black;
 }
-=======
-    font-family: "Manrope", sans-serif;
-    text-align: left;
-    background-color: var(--color-calm);
-    padding: 1%;
-    margin-bottom: 1%;
-    margin-top: 0.5%;
-    border: 1px solid black;
-}
->>>>>>> a7b9c078bafc23ec0e0c7bedb292fd8f5eab3ed7

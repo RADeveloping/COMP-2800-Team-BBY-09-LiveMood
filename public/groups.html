@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Helping people through tough times">
+    <meta name="author" content="LiveMood">
+    <title>LiveMood - Signup</title>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
+
+    <!--Firebase-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/groups.css">
+
+</head>
+
+<body>
+
+    <!----------------------------------------------->
+    <!--  LOAD FIREBASE JS -->
+    <!----------------------------------------------->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+
+    <!-- Boostrap Modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+    <div class="container">
+        <button id="creategroup">Create Group</button>
+        <hr>
+        <div class="groups">
+            <h1>Groups</h1>
+            <ul class="list-group" id="groupslist">
+            </ul>
+        </div>
+
+
+    </div>
+
+    <!--Firebase Config-->
+    <script src="scripts/config/FirebaseConfig.js"></script>
+    <!-- Local Scripts -->
+    <script src="scripts/controllers/groups.js"></script>
+
+</body>
+
+</html>

@@ -168,7 +168,6 @@ function showGroups() {
                     divCard.appendChild(divCardBody);
 
                     groupElement.appendChild(divCard);
-                    document.body.appendChild(groupElement);
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");

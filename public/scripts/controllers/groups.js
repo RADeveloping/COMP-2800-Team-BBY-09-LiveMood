@@ -230,9 +230,4 @@ function removeSelfFromGroup(groupID) {
         })
     })
 
-
-
-
-
-
 }

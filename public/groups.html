@@ -33,6 +33,9 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/groups.css">
 
+    <!-- Custom sidebar for this template -->
+    <link href="styles/sidebar.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -56,25 +59,64 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
 
-    <div class="card mb-3 mt-4" id="addnew">
-        <div class="card-body">
-            <h5 class="card-title text-center">+</h5>
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">LiveMood</div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Edit Profile</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Groups</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">About Us</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
+            </div>
         </div>
-    </div>
-    <div class="card mb-3 mt-4" id="joingroup">
-        <div class="card-body">
-            <h5 class="card-title text-center">Join Group</h5>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-light bg-light border-bottom">
+                <button class="navbar-toggler" id="menu-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+
+            <div class="card mb-3 mt-4" id="addnew">
+                <div class="card-body">
+                    <h5 class="card-title text-center">+</h5>
+                </div>
+            </div>
+            <div class="card mb-3 mt-4" id="joingroup">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Join Group</h5>
+                </div>
+            </div>
+            <div class="container-flex">
+                <div class="card-deck" id="groupslist">
+                </div>
+            </div>
+
         </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-    <div class="container-flex">
-        <div class="card-deck" id="groupslist">
-        </div>
-    </div>
+    <!-- /#wrapper -->
 
     <!--Firebase Config-->
     <script src="scripts/config/FirebaseConfig.js"></script>
     <!-- Local Scripts -->
     <script src="scripts/controllers/groups.js"></script>
+
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
 
 </body>
 

@@ -40,6 +40,7 @@ function setUserName() {
 function addOnClickHandlers() {
     document.getElementById("addnew").onclick = createGroup;
     document.getElementById("joingroup").onclick = joinGroup;
+    document.getElementById("logoutButton").onclick = logout;
 
 
 }

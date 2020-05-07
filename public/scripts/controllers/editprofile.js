@@ -5,6 +5,7 @@ let credential;
  */
 function init() {
     document.getElementById("savechanges").onclick = updateProfile;
+    document.getElementById("logoutButton").onclick = logout;
 
     // Prompt the user to re-provide their sign-in credentials
 
@@ -14,7 +15,12 @@ function init() {
         callback: function(result) {
 
             if (result === null) {
-                window.location.assign("index.html");
+                document.getElementById("inputName").readOnly = true;
+                document.getElementById("inputEmail").readOnly = true;
+                document.getElementById("savechanges").disabled = true;
+
+
+
             } else {
                 let user = firebase.auth().currentUser;
                 credential = firebase.auth.EmailAuthProvider.credential(

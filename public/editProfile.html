@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Welcome to LiveMood</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Helping people through tough times">
+    <meta name="author" content="LiveMood">
+    <title>LiveMood - Edit Profile</title>
+
+    <!----------------------------------------------->
+    <!----------------  FAVICON --------------------->
+    <!----------------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
@@ -14,77 +25,210 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
-    <!-- Boostrap Modal-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+    <!--Firebase-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
     <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
+
 
 </head>
 
 <body>
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="landing.html">LiveMood</a>
-        <div class="navbar justify-content-stretch" id="navbar7">
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div id="username"></div>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
-                <div class="card card-edit my-5 rounded">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Edit Profile</h5>
-                        <p class="text-center">Use the form below to make your changes!</p>
-                        <form class="form-edit">
-                            <div class="form-label-group">
-                                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                                <label for="inputName">Full Name</label>
-                            </div>
-                            <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                                <label for="inputEmail">Email address</label>
-                            </div>
-                        </form>
-                        <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
+    <!----------------------------------------------->
+    <!--  LOAD FIREBASE JS -->
+    <!----------------------------------------------->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+
+    <!-- Boostrap Modal-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <img src="images/logo.png" width="38px" height="38px">
                     </div>
+                    <div class="sidebar-brand-text mx-3">LiveMood</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Groups -->
+                <li class="nav-item">
+                    <a class="nav-link" href="groups.html">
+                        <i class="fas fa-users"></i>
+                        <span>Groups</span></a>
+                </li>
+
+
+                <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span></a>
+                </li>
+
+
+                <!-- Nav Item - Edit Profile -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="editProfile.html">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Profile</span></a>
+                </li>
+
+                <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- jQuery Script - Needed for Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <!-- popper.js Script - Needed for Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            </ul>
+            <!-- End of Sidebar -->
 
-    <!-- Firebase Script -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-    <!-- Firebase Auth Script -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <!-- Firebase Firestore Script -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
 
-    <!--Firebase Config-->
-    <script src="scripts/config/FirebaseConfig.js"></script>
-    <!-- Local Scripts -->
-    <script src="scripts/controllers/editprofile.js"></script>
+                <!-- Main Content -->
+                <div id="content">
 
-</body>
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-<footer class="footer text-muted text-center">
-    <p>Copyright 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</p>
-</footer>
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+              </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"></span></span>
+                                </a>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+                            <!-- Area Chart -->
+                            <div class="col-xl-12">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="content-area">
+                                            <!-- ADDDD MAIN CONTENT HERE-->
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
+                                                        <div class="card card-edit my-5 rounded">
+                                                            <div class="card-body">
+                                                                <p class="text-center">Use the form below to make your changes!</p>
+                                                                <form class="form-edit">
+                                                                    <div class="form-label-group">
+                                                                        <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                                                                        <label for="inputName">Full Name</label>
+                                                                    </div>
+                                                                    <div class="form-label-group">
+                                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                                                        <label for="inputEmail">Email address</label>
+                                                                    </div>
+                                                                </form>
+                                                                <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ENDDD MAIN CONTENT HERE-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Main Content -->
+
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+                    </div>
+                    <!-- End of Content Wrapper -->
+                </div>
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+                <!--Firebase Config-->
+                <script src="scripts/config/FirebaseConfig.js"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script src="scripts/vendor/sb-admin-2.min.js"></script>
+                <script src="scripts/controllers/editprofile.js"></script>
+
+
+
+    </body>
 
 </html>

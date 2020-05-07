@@ -32,9 +32,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/groups.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="styles/vendor/sb-admin-2.min.css.css" rel="stylesheet">
 
-    <!-- Custom sidebar for this template -->
-    <link href="styles/sidebar.css" rel="stylesheet">
 
 </head>
 
@@ -43,7 +43,6 @@
     <!----------------------------------------------->
     <!--  LOAD FIREBASE JS -->
     <!----------------------------------------------->
-
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
 
@@ -58,66 +57,166 @@
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-    <div class="d-flex" id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">LiveMood</div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Edit Profile</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Groups</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">About Us</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
-            </div>
-        </div>
-        <!-- /#sidebar-wrapper -->
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <img src="images/logo.png" width="38px" height="38px">
+                    </div>
+                    <div class="sidebar-brand-text mx-3">LiveMood</div>
+                </a>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-light bg-light border-bottom">
-                <button class="navbar-toggler" id="menu-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
-            <div class="card mb-3 mt-4" id="addnew">
-                <div class="card-body">
-                    <h5 class="card-title text-center">+</h5>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Groups -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="groups.html">
+                        <i class="fas fa-users"></i>
+                        <span>Groups</span></a>
+                </li>
+
+
+                <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span></a>
+                </li>
+
+
+                <!-- Nav Item - Edit Profile -->
+                <li class="nav-item">
+                    <a class="nav-link" href="editprofile.html">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Profile</span></a>
+                </li>
+
+                <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
-            </div>
-            <div class="card mb-3 mt-4" id="joingroup">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Join Group</h5>
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+              </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"></span></span>
+                                </a>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Groups</h1>
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+                            <!-- Area Chart -->
+                            <div class="col-xl-12">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row">
+                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="addnew">Create New Group</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary text-right" id="joingroup">Join Group</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="content-area">
+                                            <!-- ADDDD MAIN CONTENT HERE-->
+                                            <div class="container-flex">
+                                                <div class="card-deck" id="groupslist">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- End of Main Content -->
+
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+                    </div>
+                    <!-- End of Content Wrapper -->
                 </div>
-            </div>
-            <div class="container-flex">
-                <div class="card-deck" id="groupslist">
-                </div>
-            </div>
+                <!-- End of Page Wrapper -->
 
-        </div>
-        <!-- /#page-content-wrapper -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-    </div>
-    <!-- /#wrapper -->
-
-    <!--Firebase Config-->
-    <script src="scripts/config/FirebaseConfig.js"></script>
-    <!-- Local Scripts -->
-    <script src="scripts/controllers/groups.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="scripts/vendor/sb-admin-2.min.js"></script>
+                <!--Firebase Config-->
+                <script src="scripts/config/FirebaseConfig.js"></script>
+                <!-- Local Scripts -->
+                <script src="scripts/controllers/groups.js"></script>
 
 
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-
-
-</body>
+    </body>
 
 </html>

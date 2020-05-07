@@ -7,6 +7,9 @@ function logout() {
     })
 }
 
+
+checkCred();
+
 function checkCred() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
@@ -17,16 +20,20 @@ function checkCred() {
     });
 }
 
-checkCred();
 
 let user;
 
 function init() {
     user = firebase.auth().currentUser;
     showGroups();
+    setUserName();
 }
 
 
+function setUserName() {
+    document.getElementById("username").innerText = user.displayName;
+
+}
 /**
  * @desc adds the onclick handlers to buttons
  */
@@ -52,7 +59,8 @@ function createGroup() {
         },
         callback: function(result) {
 
-            if (result === null) {
+            console.log(result.length);
+            if (result === null || result.length == 0) {
 
             } else {
 
@@ -128,7 +136,7 @@ function joinGroup() {
                                 });
                             });
                         } else {
-                            alert("not valid");
+                            alert("Oops. That's not a valid invitation code!");
                         }
                     });
             }
@@ -141,6 +149,7 @@ function joinGroup() {
 
 
 function showGroups() {
+
     let groupsRef = db.collection("groups");
     var query = groupsRef.where("users", "array-contains", user.uid)
     query.get()

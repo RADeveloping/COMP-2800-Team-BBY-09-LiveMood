@@ -1,4 +1,4 @@
-const moodScore = 1;
+const moodScore = Math.floor(Math.random() * 10);
 
 // function logout() {
 // 	firebase
@@ -36,20 +36,20 @@ const actSuggestion = document.querySelector('.suggestion');
 function renderSuggestion(doc) {
 	let activity = document.createElement('div');
 	let activityName = document.createElement('h2');
-	let activityLink = document.createElement('a');
+	let activityInfo = document.createElement('p');
 	activity.setAttribute('data-id', doc.id);
 	activityName.textContent = doc.data().name;
-	activityLink.textContent = doc.data().link;
+	activityInfo.textContent = doc.data().info;
 
 	activity.appendChild(activityName);
-	activity.appendChild(activityLink);
+	activity.appendChild(activityInfo);
 
 	actSuggestion.appendChild(activity);
 }
-
+document.getElementById('curMood').onclick = indActivity;
 // get the activity base on current mood score
 function indActivity() {
-	db.collection('individualActivities ').get().then((snapshot) => {
+	db.collection('individualActivities').get().then((snapshot) => {
 		snapshot.docs.forEach((doc) => {
 			console.log(doc.data());
 			if (doc.data().rating == moodScore) {
@@ -58,4 +58,4 @@ function indActivity() {
 		});
 	});
 }
-indActivity();
+// indActivity();

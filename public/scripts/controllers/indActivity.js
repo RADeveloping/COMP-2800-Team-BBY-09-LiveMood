@@ -32,7 +32,7 @@ const moodScore = 1;
 // 	indActivity();
 // }
 const actSuggestion = document.querySelector('.suggestion');
-
+// Render the suggestion to the user
 function renderSuggestion(doc) {
 	let activity = document.createElement('div');
 	let activityName = document.createElement('h2');
@@ -47,6 +47,7 @@ function renderSuggestion(doc) {
 	actSuggestion.appendChild(activity);
 }
 
+// get the activity base on current mood score
 function indActivity() {
 	db.collection('individualActivities ').get().then((snapshot) => {
 		snapshot.docs.forEach((doc) => {

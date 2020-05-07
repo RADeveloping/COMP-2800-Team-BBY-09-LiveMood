@@ -2,7 +2,6 @@
  * @desc adds the onclick handlers to buttons
  */
 function addOnClickHandlers() {
-    document.getElementById("back").onclick = goToLoginPage;
     document.getElementById("signupbutton").onclick = register;
 
 }
@@ -44,7 +43,7 @@ function register() {
             // An error happened while adding data to firestore. 
             window.alert(error.message);
             document.getElementById("signupbutton").disabled = false;
-            document.getElementById("signupbutton").innerHTML = "Sign up"
+            document.getElementById("signupbutton").innerHTML = "Register"
 
         });
 
@@ -52,7 +51,7 @@ function register() {
         // Handle Errors here.
         window.alert(error.message);
         document.getElementById("signupbutton").disabled = false;
-        document.getElementById("signupbutton").innerHTML = "Sign up"
+        document.getElementById("signupbutton").innerHTML = "Register"
 
     });
 

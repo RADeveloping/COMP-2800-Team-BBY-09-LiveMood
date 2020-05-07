@@ -1,19 +1,11 @@
-ul {
-    list-style-type: none;
-    /* Remove bullets */
-    padding: 0;
-    /* Remove padding */
-    margin: 0;
-    /* Remove margins */
+#groupslist,
+#addnew,
+#joingroup {
+    width: 90%;
+    margin: auto;
 }
 
-ul li {
-    border: 1px solid #ddd;
-    /* Add a thin border to each list item */
-    margin-top: -1px;
-    /* Prevent double borders */
-    background-color: #f6f6f6;
-    /* Add a grey background color */
-    padding: 12px;
-    /* Add some padding */
+#addnew,
+#joingroup {
+    background-color: whitesmoke;
 }

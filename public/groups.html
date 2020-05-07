@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Helping people through tough times">
     <meta name="author" content="LiveMood">
-    <title>LiveMood - Signup</title>
+    <title>LiveMood - Groups</title>
 
     <!----------------------------------------------->
     <!----------------  FAVICON --------------------->
@@ -55,16 +55,20 @@
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
-    <div class="container">
-        <button id="creategroup">Create Group</button>
-        <hr>
-        <div class="groups">
-            <h1>Groups</h1>
-            <ul class="list-group" id="groupslist">
-            </ul>
+
+    <div class="card mb-3 mt-4" id="addnew">
+        <div class="card-body">
+            <h5 class="card-title text-center">+</h5>
         </div>
-
-
+    </div>
+    <div class="card mb-3 mt-4" id="joingroup">
+        <div class="card-body">
+            <h5 class="card-title text-center">Join Group</h5>
+        </div>
+    </div>
+    <div class="container-flex">
+        <div class="card-deck" id="groupslist">
+        </div>
     </div>
 
     <!--Firebase Config-->

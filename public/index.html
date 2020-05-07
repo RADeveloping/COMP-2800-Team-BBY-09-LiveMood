@@ -1,55 +1,121 @@
+<!--
+LiveMood: Dashboard
+Last edit by: Kyle Herrmann [2020-04-29]
+-->
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!----------------------------------------------->
-    <!--  Meta tag for rendering on mobile devices -->
-    <!----------------------------------------------->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Helping people through tough times">
-    <meta name="author" content="LiveMood">
-    <title>LiveMood - Index</title>
-
-    <!----------------------------------------------->
-    <!----------------  FAVICON --------------------->
-    <!----------------------------------------------->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-
-
-    <!--Firebase-->
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-
+    <!-- Document format -->
+    <title>DashBoard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet" />
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+    <!-- Style sheets -->
+    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css" />
+    <link rel="stylesheet" type="text/css" href="styles/dashboard.css" />
 </head>
 
 <body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="landing.html">LiveMood</a>
+        <div class="navbar justify-content-stretch" id="navbar7">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div id="username"></div>
+                </li>
+                <li>
+                    <a href="editProfile.html">
+                        <p>Edit Profile</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <!----------------------------------------------->
-    <!--  LOAD FIREBASE JS -->
-    <!----------------------------------------------->
+    <div class="mainContent">
+        <!-- Month selection -->
+        <table class="select">
+            <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td class="btn-primary">Januray</td>
+                    <td class="btn-primary">February</td>
+                    <td class="btn-primary">March</td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td class="btn-primary">April</td>
+                    <td class="btn-primary">May</td>
+                    <td class="btn-primary">June</td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td class="btn-primary">July</td>
+                    <td class="btn-primary">August</td>
+                    <td class="btn-primary">Sepetember</td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td class="btn-primary">October</td>
+                    <td class="btn-primary">November</td>
+                    <td class="btn-primary">December</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+        <!-- Month graph -->
+        <div class="container">
+            <div class="card-body">
+                <canvas id="chLine" height="100"></canvas>
+            </div>
+            <!-- Friends -->
+            <div class="friendslist">
+                <h5>My Groups</h5>
+                <ul>
+                    <li>
+                        <img src="./images/logo.png" />
+                    </li>
+                    <li>
+                        <img src="./images/logo.png" />
+                    </li>
+                    <li>
+                        <img src="./images/logo.png" />
+                    </li>
+                    <li>
+                        <img src="./images/logo.png" />
+                    </li>
+                    <li>
+                        <img src="./images/logo.png" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-muted text-center">
+        <p>
+            Copyright 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason
+        </p>
+    </footer>
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
-
-    <a href="editProfile.html">Edit Profile</a>
-    <a href="#" onclick="logout()">Logout</a>
-
-    <!--Firebase Config-->
-    <script src="scripts/config/FirebaseConfig.js"></script>
-    <!-- Local Scripts -->
-    <script src="scripts/controllers/index.js"></script>
-
+    <script src="scripts/views/dashboard.js"></script>
 </body>
 
 </html>

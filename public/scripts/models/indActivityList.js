@@ -60,14 +60,13 @@
 // 		info   : 'You’re doing amazing. Call a friend that might be struggling.'
 // 	}
 // ];
-
+let count = 1;
 function addArrToFirebase() {
-	// for (i = 0; i < individualActivitiesArr.length; i++) {
+	// for (let i = 0; i < individualActivitiesArr.length; i++) {
 	console.log('hi');
 	db
 		.collection('individualActivities')
-		.doc()
-		.set({
+		.add({
 			name   : 'Help a Friend',
 			rating : 10,
 			link   : null,
@@ -77,6 +76,7 @@ function addArrToFirebase() {
 			// info   : individualActivitiesArr[i].info.value,
 			// link   : individualActivitiesArr[i].link.value
 		})
+		.then(console.log('then'))
 		.catch(function(error) {
 			console.error('Error adding document: ', error);
 		});

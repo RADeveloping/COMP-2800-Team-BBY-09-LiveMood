@@ -1,0 +1,15 @@
+.sliderCont{
+    display: flex;
+}
+
+.descWord{
+    margin: 5px;
+    width: min-content;
+}
+
+.card {
+    padding: 1.5rem ;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}

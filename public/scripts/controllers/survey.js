@@ -4,6 +4,7 @@ let ansWords = [
     [],
     []
 ];
+let scoreList = [];
 let minMood = "0";
 let defaultMood = "50";
 let maxMood = "100";
@@ -16,6 +17,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         userId = user.uid;
         setUserName();
+        readDB();
         document.getElementById("logoutButton").onclick = logout;
     } else {
         window.location = "login.html";
@@ -55,26 +57,37 @@ function readDB() {
     let month = new Date().getMonth();
     let year = new Date().getFullYear();
     let today = new Date(year, month, day, 0, 0, 0);
-
-    // Load user's score
-    db.collection("surveyTaken").orderBy("date").get()
-        .then((querySnapshot) => {
-            let doc = querySnapshot.docs[querySnapshot.docs.length - 1].data();
-            let docDate = new Date(doc["date"]);
-            if (docDate > today) {
-                // Doc for today
-                loadPage(doc["scoreList"]);
-            } else {
-                // No doc for today, load blank
-                loadPage(new Array(5).fill(defaultMood));
+    db.collection("surveyTaken").where("userId", "==", userId).get()
+    .then((querySnapshot) => {
+        // File exists
+        querySnapshot.forEach((doc) =>{
+            
+            let docDate = new Date(doc.data()["date"]);
+            if(docDate > today){
+                scoreList = doc.data()["scoreList"];
             }
         });
+        
+        // See today's score length
+        if(!scoreList.length){
+            // New score
+            scoreList = new Array(5).fill(defaultMood,0,4)
+        }
+        
+        // Load data onto page
+        loadPage();
+    });
+}
+
+function getUser(){
+    user = firebase.auth().currentUser;
 }
 
 // Create survey dynamically
-function loadPage(scoreList) {
+function loadPage() {
+
     for (let i = 0; i < questions.length; i++) {
-        const q = questions[i];
+        let q = questions[i];
 
         // Question text
         let questionPara = document.createElement("p");
@@ -149,5 +162,5 @@ function save() {
         });
 }
 
-readDB();
+
 document.getElementById("saveButton").addEventListener("click", save);

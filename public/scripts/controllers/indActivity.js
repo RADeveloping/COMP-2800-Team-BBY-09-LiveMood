@@ -49,6 +49,7 @@ function renderSuggestion(doc) {
     let activityInfo = document.createElement('h2');
     let activityImg = document.createElement('img');
     let activityLink = document.createElement('a');
+    activityLink.classList.add("link");
     activityName.textContent = doc.data().name;
     activityInfo.textContent = doc.data().info;
     activityLink.innerHTML = '<br>Click here for more info';

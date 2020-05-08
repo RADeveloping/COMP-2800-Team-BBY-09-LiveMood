@@ -11,14 +11,31 @@ let intervalMood = "10";
 
 // Get userId
 let userId;
-firebase.auth().onAuthStateChanged(function (user) {
+let user;
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         userId = user.uid;
+        setUserName();
+        document.getElementById("logoutButton").onclick = logout;
     } else {
-        //redirect
+        window.location = "login.html";
     }
 });
 
+function setUserName() {
+    user = firebase.auth().currentUser;
+    document.getElementById("username").innerText = user.displayName;
+
+}
+
+function logout() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        window.location = "login.html";
+    }).catch(function(error) {
+        window.alert(error);
+    })
+}
 
 // Read DB data, questions and scores
 function readDB() {
@@ -120,10 +137,10 @@ function save() {
             date: Date(),
             scoreList: scoreList
         })
-        .then(function (docRef) {
+        .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.error("Error adding document: ", error);
         });
 }

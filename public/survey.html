@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
- <!----------------------------------------------->
+    <!----------------------------------------------->
     <!--  Meta tag for rendering on mobile devices -->
     <!----------------------------------------------->
     <meta charset="utf-8">
@@ -31,12 +31,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="styles/survey.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
+    <link href="styles/survey.css" rel="stylesheet">
 
 
 </head>
+
 <body>
 
     <!----------------------------------------------->
@@ -56,183 +57,179 @@
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
-    <!-- <h1 class="title">How are you feeling today?</h1> -->
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-    <div id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="images/logo.png" width="38px" height="38px">
-                </div>
-                <div class="sidebar-brand-text mx-3">LiveMood</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Groups -->
-            <li class="nav-item">
-                <a class="nav-link" href="groups.html">
-                    <i class="fas fa-users"></i>
-                    <span>Groups</span></a>
-            </li>
-
-
-            <!-- Nav Item - About -->
-            <li class="nav-item active">
-                <a class="nav-link" href="about.html">
-                    <i class="fas fa-info-circle"></i>
-                    <span>About Us</span></a>
-            </li>
-
-
-            <!-- Nav Item - Edit Profile -->
-            <li class="nav-item">
-                <a class="nav-link" href="editprofile.html">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Edit Profile</span></a>
-            </li>
-
-            <!-- Nav Item - About -->
-            <li class="nav-item">
-                <a class="nav-link" href="" id="logoutButton">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"></span></span>
-                            </a>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Survey</h1>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <img src="images/logo.png" width="38px" height="38px">
                     </div>
+                    <div class="sidebar-brand-text mx-3">LiveMood</div>
+                </a>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
-                        <!-- Area Chart -->
-                        <div class="col-xl-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="content-area">
-                                        <!-- ADDDD MAIN CONTENT HERE-->
-                                        <!----------------------------------------------->
-                                        <!--  SERVICES CONTAINER  -->
-                                        <!----------------------------------------------->
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
 
-                                        <div class="container">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-                                            <div class="container mt-5">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                        
-                                                        <!-- Card Regular -->
-                                                        <div class="card card-cascade">
-                                                
-                                                            <!-- Card content -->
-                                                            <div class="card-body card-body-cascade text-center">
-                                                                <!-- Title -->
-                                                                <h4 class="card-title"><strong>Mood survey</strong></h4>
-                                                            </div>
-                                                            <hr>
-                                        
-                                                            <div class = "qContainer"></div>
-                                        
-                                                            <hr>
-                                                            <div class="survey-footer clearfix">
-                                                                <a id = "saveButton" type="button" class="btn btn-outline-primary waves-effect waves-light ml-3 mb-3">Save
-                                                                    <i class="fa fa-paper-plane ml-1"></i>
-                                                                </a>
-                                                                <a type="button" class="btn btn-outline-warning waves-effect float-right mr-3 mb-3">Cancel</a>
-                                                            </div>
+                <!-- Nav Item - Groups -->
+                <li class="nav-item">
+                    <a class="nav-link" href="groups.html">
+                        <i class="fas fa-users"></i>
+                        <span>Groups</span></a>
+                </li>
+
+                <!-- Nav Item - Survey -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="survey.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Survey</span></a>
+                </li>
+
+                <!-- Nav Item - Activities -->
+                <li class="nav-item">
+                    <a class="nav-link" href="activity.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Activities</span></a>
+                </li>
+
+                <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span></a>
+                </li>
+
+
+                <!-- Nav Item - Edit Profile -->
+                <li class="nav-item">
+                    <a class="nav-link" href="editprofile.html">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Profile</span></a>
+                </li>
+
+                <!-- Nav Item - logout -->
+                <li class="nav-item">
+                    <a class="nav-link" href="" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+              </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"></span></span>
+                                </a>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Survey</h1>
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+                            <!-- Area Chart -->
+                            <div class="col-xl-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Mood Survey</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="content-area">
+                                            <!-- ADDDD MAIN CONTENT HERE-->
+
+                                            <div class="row">
+                                                <div class="d-lg-flex col-md-12 align-items-center justify-content-between mb-4 m-auto">
+                                                    <div class="col-md-12 d-fluid">
+                                                        <div class="qContainer">
+                                                        </div>
+                                                        <hr>
+                                                        <div class="survey-footer clearfix">
+                                                            <button class="btn btn-primary" id="saveButton" type="button" class="btn btn-outline-primary waves-effect waves-light ml-3 mb-3">Save
+                                                            <i class="fa fa-paper-plane ml-1"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-warning waves-effect float-right mr-3 mb-3">Cancel</button>
                                                         </div>
                                                     </div>
-                                                  <!-- Card Regular -->
+
                                                 </div>
                                             </div>
-
+                                            <!-- ENDDD MAIN CONTENT HERE-->
 
                                         </div>
-                                        <!-- ENDDD MAIN CONTENT HERE-->
-
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- End of Main Content -->
+                            <!-- End of Main Content -->
 
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                            <!-- Footer -->
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </footer>
-                        <!-- End of Footer -->
-
+                            </footer>
+                            <!-- End of Footer -->
+                        </div>
+                        <!-- End of Content Wrapper -->
                     </div>
-                    <!-- End of Content Wrapper -->
-                </div>
-                <!-- End of Page Wrapper -->
-            </div>
-        </div>
+                    <!-- End of Page Wrapper -->
 
                     <!-- Scroll to Top Button-->
                     <a class="scroll-to-top rounded" href="#page-top">
@@ -244,20 +241,9 @@
                     <!-- Custom scripts for all pages-->
                     <script src="scripts/vendor/sb-admin-2.min.js"></script>
                     <script src="scripts/controllers/survey.js"></script>
-    </div>
-
-<
 
 
 
+    </body>
 
-    
-    <!--Firebase Config-->
-    <script src="scripts/config/FirebaseConfig.js"></script>
-    
-    <!-- Local Scripts -->
-    <script src="scripts/controllers/survey.js"></script>
-    <script src="scripts/vendor/sb-admin-2.min.js"></script>
-
-</body>
 </html>

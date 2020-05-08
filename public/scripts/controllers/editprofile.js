@@ -60,6 +60,7 @@ function checkCred() {
             loadUserInfo();
         }
     });
+    
 }
 
 checkCred();

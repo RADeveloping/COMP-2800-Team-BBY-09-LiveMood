@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Helping people through tough times">
     <meta name="author" content="LiveMood">
-    <title>LiveMood - Groups</title>
+    <title>LiveMood - Dashboard</title>
 
     <!----------------------------------------------->
     <!----------------  FAVICON --------------------->
@@ -91,6 +91,19 @@
                         <span>Groups</span></a>
                 </li>
 
+                <!-- Nav Item - Survey -->
+                <li class="nav-item">
+                    <a class="nav-link" href="survey.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Survey</span></a>
+                </li>
+
+                <!-- Nav Item - Activities -->
+                <li class="nav-item">
+                    <a class="nav-link" href="activity.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Activities</span></a>
+                </li>
 
                 <!-- Nav Item - About -->
                 <li class="nav-item">
@@ -167,7 +180,7 @@
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3 d-flex flex-row">
-                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="addnew">Personal Chart</h6>
+                                        <h6 id="chartText" class="m-0 font-weight-bold text-primary text-left" id="addnew">Personal Chart</h6>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
@@ -197,73 +210,73 @@
                                     <div class="card-body">
                                         <div class="content-area">
                                             <!-- ADDDD MAIN CONTENT HERE-->
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('January')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">January</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary m-1">
+                                            <a href="#" onclick="setGraph('February')" class="btn btn-primary m-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">February</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('March')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">March</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('April')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">April</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('May')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">May</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('June')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">June</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('July')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">July</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('August')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">August</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('September')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">September</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('October')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">October</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('November')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">November</span>
                                             </a>
 
-                                            <a href="#" class="btn btn-primary mb-1">
+                                            <a href="#" onclick="setGraph('December')" class="btn btn-primary mb-1">
                                                 <span class="icon text-white-50">
                                                 </span>
                                                 <span class="text">December</span>

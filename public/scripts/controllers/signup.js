@@ -37,7 +37,8 @@ function register() {
                 name: name,
                 email: email,
             }).then(function() {
-                window.location.assign("dashboard.html");
+                window.location.assign("index.html");
+                
             })
         }).catch(function(error) {
             // An error happened while adding data to firestore. 

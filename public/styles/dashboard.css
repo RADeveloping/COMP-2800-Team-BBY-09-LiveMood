@@ -16,33 +16,23 @@
 
 /* Month select */
 
-#select {
+.select {
     font-family: "Manrope", sans-serif;
     text-align: center;
-    border: 1px solid black;
-    width: 20%;
-    height: 300px;
-    overflow-y: scroll;
+    border-collapse: separate;
+    border-spacing: 20px 20px;
 }
 
-#select p {
-    text-align: left;
-    padding-left: 20px;
-    line-height: 1;
+.select td {
+    height: 50px;
+    width: 100px;
 }
 
 
 /* Main graph */
 
-#graph {
-    font-family: "Manrope", sans-serif;
-    text-align: center;
-    border: 1px solid black;
-    height: 300px;
-}
-
-.graphdisplay {
-    width: 60%;
+.container {
+    margin: 0;
 }
 
 

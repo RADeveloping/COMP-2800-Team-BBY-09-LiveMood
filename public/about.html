@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Helping people through tough times">
     <meta name="author" content="LiveMood">
-    <title>LiveMood - Edit Profile</title>
+    <title>LiveMood - About</title>
 
     <!----------------------------------------------->
     <!----------------  FAVICON --------------------->
@@ -33,7 +33,6 @@
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
 
 
 </head>
@@ -106,9 +105,8 @@
                         <span>Activities</span></a>
                 </li>
 
-
                 <!-- Nav Item - About -->
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="about.html">
                         <i class="fas fa-info-circle"></i>
                         <span>About Us</span></a>
@@ -116,8 +114,8 @@
 
 
                 <!-- Nav Item - Edit Profile -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="editProfile.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="editprofile.html">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Edit Profile</span></a>
                 </li>
@@ -172,7 +170,7 @@
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
+                            <h1 class="h3 mb-0 text-gray-800">About Us</h1>
                         </div>
 
                         <!-- Content Row -->
@@ -185,59 +183,73 @@
                                     <div class="card-body">
                                         <div class="content-area">
                                             <!-- ADDDD MAIN CONTENT HERE-->
+                                            <!----------------------------------------------->
+                                            <!--  SERVICES CONTAINER  -->
+                                            <!----------------------------------------------->
+
                                             <div class="container">
+                                                <h6>LiveMood is a small company operating out of Vancouver, BC. The COVID-19 pandemic has had a negative impact on countless lives and left many people without work or support. At LiveMood we foster an atmosphere
+                                                    of inclusion and respect. We inspire each other everyday to be better versions of ourselves. Our mission is to bring people together during these trying times, and promote support among peers.</h6>
                                                 <div class="row">
-                                                    <div class="col-sm-12 col-md-12 col-lg-10 mx-auto mt-2">
-                                                        <div class="card-body">
-                                                            <p class="text-center">Use the form below to make your changes!</p>
-                                                            <form class="form-edit">
-                                                                <div class="form-label-group">
-                                                                    <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                                                                    <label for="inputName">Full Name</label>
-                                                                </div>
-                                                                <div class="form-label-group">
-                                                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                                                                    <label for="inputEmail">Email address</label>
-                                                                </div>
-                                                            </form>
-                                                            <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
+
+                                                    <div class="d-lg-flex align-items-center justify-content-between mb-4 m-auto">
+                                                        <div class="mt-5 mr-5 text-center">
+                                                            <img class="rounded-circle mb-3" src="images/avatars/rahim.png" width="124px" height="124px">
+                                                            <h3 class="h4 mb-2">Rahim Askarzadeh</h3>
+                                                            <p class="text-muted mb-0">CST - Term 1</p>
+                                                        </div>
+                                                        <div class="mt-5 mr-5 text-center">
+                                                            <img class="rounded-circle mb-3" src="images/avatars/laura.png" width="124px" height="124px">
+                                                            <h3 class="h4 mb-2">Laura Gillespie</h3>
+                                                            <p class="text-muted mb-0">CST - Term 2</p>
+                                                        </div>
+                                                        <div class="mt-5 mr-5 text-center">
+                                                            <img class="rounded-circle mb-3" src="images/avatars/jason.png" width="124px" height="124px">
+                                                            <h3 class="h4 mb-2">Jason Pan</h3>
+                                                            <p class="text-muted mb-0">CST - Term 1</p>
+                                                        </div>
+                                                        <div class="mt-5 mr-5 text-center">
+                                                            <img class="rounded-circle mb-3" src="images/avatars/kyle.png" width="124px" height="124px">
+                                                            <h3 class="h4 mb-2">Kyle Herrmann</h3>
+                                                            <p class="text-muted mb-0">CST - Term 2</p>
                                                         </div>
                                                     </div>
+
+
                                                 </div>
+                                                <!-- ENDDD MAIN CONTENT HERE-->
+
                                             </div>
-                                            <!-- ENDDD MAIN CONTENT HERE-->
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- End of Main Content -->
+
+                                <!-- Footer -->
+                                <footer class="sticky-footer bg-white">
+                                    <div class="container my-auto">
+                                        <div class="copyright text-center my-auto">
+                                            <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                                        </div>
+                                    </div>
+                                </footer>
+                                <!-- End of Footer -->
                             </div>
+                            <!-- End of Content Wrapper -->
                         </div>
+                        <!-- End of Page Wrapper -->
 
-                        <!-- End of Main Content -->
+                        <!-- Scroll to Top Button-->
+                        <a class="scroll-to-top rounded" href="#page-top">
+                            <i class="fas fa-angle-up"></i>
+                        </a>
+                        <!--Firebase Config-->
+                        <script src="scripts/config/FirebaseConfig.js"></script>
 
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- End of Footer -->
-                    </div>
-                    <!-- End of Content Wrapper -->
-                </div>
-                <!-- End of Page Wrapper -->
-
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
-                <!--Firebase Config-->
-                <script src="scripts/config/FirebaseConfig.js"></script>
-
-                <!-- Custom scripts for all pages-->
-                <script src="scripts/vendor/sb-admin-2.min.js"></script>
-                <script src="scripts/controllers/editprofile.js"></script>
+                        <!-- Custom scripts for all pages-->
+                        <script src="scripts/vendor/sb-admin-2.min.js"></script>
+                        <script src="scripts/controllers/about.js"></script>
 
 
 

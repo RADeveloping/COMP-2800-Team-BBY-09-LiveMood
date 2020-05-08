@@ -2,10 +2,7 @@
  * @desc adds the onclick handlers to buttons
  */
 function addOnClickHandlers() {
-    document.getElementById("signupbutton").onclick = goToSignUpPage;
     document.getElementById("signinbutton").onclick = login;
-
-
 }
 addOnClickHandlers();
 
@@ -28,27 +25,24 @@ function login() {
     let password = document.getElementById("inputPassword").value;
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
-
-        window.location = "dashboard.html";
-
+        window.location = "index.html";
     }).catch(function(error) {
         switch (error.code) {
             case "auth/user-not-found":
                 window.alert("Email address not found. Please try again!");
                 document.getElementById("signinbutton").disabled = false;
-                document.getElementById("signinbutton").innerHTML = "Sign in"
-
+                document.getElementById("signinbutton").innerHTML = "Login"
                 break;
             case "auth/wrong-password":
                 window.alert("Incorrect Password. Please try again!");
                 document.getElementById("signinbutton").disabled = false;
-                document.getElementById("signinbutton").innerHTML = "Sign in"
+                document.getElementById("signinbutton").innerHTML = "Login"
                 break;
             default:
                 var errorMessage = error.message;
                 window.alert(errorMessage);
                 document.getElementById("signinbutton").disabled = false;
-                document.getElementById("signinbutton").innerHTML = "Sign in"
+                document.getElementById("signinbutton").innerHTML = "Login"
         }
     });
 }

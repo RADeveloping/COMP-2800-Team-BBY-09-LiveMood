@@ -8,7 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Helping people through tough times">
     <meta name="author" content="LiveMood">
-    <title>LiveMood - Signup</title>
+    <title>LiveMood - Register</title>
+
+    <!----------------------------------------------->
+    <!----------------  FAVICON --------------------->
+    <!----------------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
 
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
@@ -23,12 +31,16 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/signup.css">
 
 </head>
 
-<body>
 
+<body class="bg-gradient-primary">
     <!----------------------------------------------->
     <!--  LOAD FIREBASE JS -->
     <!----------------------------------------------->
@@ -44,38 +56,56 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
 
+    <div class="container mt-5">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="inputName" aria-describedby="nameHelp" placeholder="Enter Name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="inputPassword" placeholder="Password" required>
+                                        </div>
+                                        <button class="btn btn-primary btn-user btn-block register-button" id="signupbutton">
+                                            Register
+                                        </button>
+                                    </form>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-2">
-                <div class="card card-signin my-5 rounded">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Welcome To LiveMood!</h5>
-                        <p class="text-center">Sign Up</p>
-                        <form class="form-signin">
-                            <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                <label for="inputEmail">Email address</label>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="login.html">Already have an account? Login!</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-label-group">
-                                <input type="text" id="inputName" class="form-control" placeholder="Full Name" required>
-                                <label for="inputName">Full Name</label>
-                            </div>
-                            <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                <label for="inputPassword">Password</label>
-                            </div>
-                        </form>
-
-                        <button class="btn-lg btn btn-primary btn-block text-uppercase button-style" id="signupbutton">Sign up</button>
-                        <hr class="my-4">
-                        <button class="btn-lg btn btn-dark btn-block text-uppercase button-style" id="back">Back</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
+    <!-- Custom scripts for all pages-->
+    <script src="scripts/vendor/sb-admin-2.min.js"></script>
     <!--Firebase Config-->
     <script src="scripts/config/FirebaseConfig.js"></script>
     <!-- Local Scripts -->

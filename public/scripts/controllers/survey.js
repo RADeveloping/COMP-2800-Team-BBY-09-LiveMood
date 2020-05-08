@@ -1,20 +1,61 @@
+// Global variables
 let questions = [];
-let ansWords = [[],[]];
-readDB();
-document.getElementById("saveButton").addEventListener("click", save);
+let ansWords = [
+    [],
+    []
+];
+let minMood = "0";
+let defaultMood = "50";
+let maxMood = "100";
+let intervalMood = "10";
 
-function readDB(){
-    db.collection("survey").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            questions.push(doc.data()["question"]);
-            ansWords[0].push(doc.data()["minWord"]);
-            ansWords[1].push(doc.data()["maxWord"]);
+// Get userId
+let userId;
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        userId = user.uid;
+    } else {
+        //redirect
+    }
+});
+
+
+// Read DB data, questions and scores
+function readDB() {
+
+    // Read questions
+    db.collection("survey").get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                questions.push(doc.data()["question"]);
+                ansWords[0].push(doc.data()["minWord"]);
+                ansWords[1].push(doc.data()["maxWord"]);
+            });
         });
-        loadPage();
-    });
+
+    // Get today's date without time
+    let day = new Date().getDate();
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+    let today = new Date(year, month, day, 0, 0, 0);
+
+    // Load user's score
+    db.collection("surveyTaken").orderBy("date").get()
+        .then((querySnapshot) => {
+            let doc = querySnapshot.docs[querySnapshot.docs.length - 1].data();
+            let docDate = new Date(doc["date"]);
+            if (docDate > today) {
+                // Doc for today
+                loadPage(doc["scoreList"]);
+            } else {
+                // No doc for today, load blank
+                loadPage(new Array(5).fill(defaultMood));
+            }
+        });
 }
 
-function loadPage(){
+// Create survey dynamically
+function loadPage(scoreList) {
     for (let i = 0; i < questions.length; i++) {
         const q = questions[i];
 
@@ -31,15 +72,17 @@ function loadPage(){
         let slider = document.createElement("INPUT");
         slider.className = "form-control-range slider";
         slider.setAttribute("type", "range");
-        slider.setAttribute("min", "0");
-        slider.setAttribute("max", "100");
-        slider.setAttribute("value", "50");
-        slider.setAttribute("step", "10");
-        
+        slider.setAttribute("min", minMood);
+        slider.setAttribute("max", maxMood);
+        slider.setAttribute("value", scoreList[i]);
+        slider.setAttribute("step", intervalMood);
+
+        // Min descriptive word
         let textMin = document.createElement("p");
         textMin.className = "descWord";
         textMin.innerText = ansWords[0][i];
 
+        // Max descriptive word
         let textMax = document.createElement("p");
         textMax.className = "descWord";
         textMax.innerText = ansWords[1][i];
@@ -58,27 +101,32 @@ function loadPage(){
     };
 }
 
-function save(){
-    
+// Write scores to DB when save
+function save() {
+    let scoreList = [];
     let sum = 0;
-    let userId = firebase.auth().currentUser.uid;
-    sliderList = document.getElementsByClassName("slider");
 
+    sliderList = document.getElementsByClassName("slider");
     Array.from(sliderList).forEach(slider => {
+        scoreList.push(parseInt(slider.value));
         sum += parseInt(slider.value);
     });
 
-    let score = sum/sliderList.length;
-    console.log(userId +":" + score);
+    let score = sum / sliderList.length;
+
     db.collection("surveyTaken").add({
-        userId: userId,
-        score: score,
-        
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
+            userId: userId,
+            score: score,
+            date: Date(),
+            scoreList: scoreList
+        })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
 }
+
+readDB();
+document.getElementById("saveButton").addEventListener("click", save);

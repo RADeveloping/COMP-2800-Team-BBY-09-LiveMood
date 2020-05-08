@@ -122,11 +122,16 @@ function save() {
         })
         .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
+            $("#successMsg").css("display","block");
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         })
         .catch(function (error) {
             console.error("Error adding document: ", error);
+            $("#warnMsg").css("display","block");
         });
 }
 
 readDB();
 document.getElementById("saveButton").addEventListener("click", save);
+document.getElementById("cancelButton").setAttribute("href", "index.html");

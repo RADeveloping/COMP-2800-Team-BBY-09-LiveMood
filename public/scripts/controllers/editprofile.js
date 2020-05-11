@@ -13,29 +13,42 @@ function init() {
         title: "Please enter your password to make changes to your profile.",
         inputType: 'password',
         callback: function(result) {
+            console.log(result);
 
-            if (result === null) {
+            let user = firebase.auth().currentUser;
+            credential = firebase.auth.EmailAuthProvider.credential(
+                user.email,
+                result
+            );
+
+            user.reauthenticateWithCredential(credential).then(function() {
+
+                document.getElementById("inputName").readOnly = false;
+                document.getElementById("inputEmail").readOnly = false;
+                document.getElementById("inputPassword").readOnly = false;
+                document.getElementById("deleteuserbutton").disabled = false;
+                document.getElementById("inputPassword").value = "";
+                document.getElementById("savechanges").disabled = false;
+
+            }).catch(function(error) {
+                alert("Incorrect Password. Please refresh the page to try again!");
+
                 document.getElementById("inputName").readOnly = true;
                 document.getElementById("inputEmail").readOnly = true;
+                document.getElementById("inputPassword").readOnly = true;
+                document.getElementById("deleteuserbutton").disabled = true;
+                document.getElementById("inputPassword").value = "*********";
                 document.getElementById("savechanges").disabled = true;
+                document.getElementById("savechanges").style.opacity = 0.5;
 
-
-
-            } else {
-                let user = firebase.auth().currentUser;
-                credential = firebase.auth.EmailAuthProvider.credential(
-                    user.email,
-                    result
-                );
-            }
-
+            });
 
         }
     });
-
 }
 
 init();
+
 
 /**
  * @desc logs out current user
@@ -60,7 +73,7 @@ function checkCred() {
             loadUserInfo();
         }
     });
-    
+
 }
 
 checkCred();
@@ -86,6 +99,19 @@ function loadUserInfo() {
 
 }
 
+/**
+ * @desc update user password 
+ */
+function updatePassword() {
+    let newPassword = document.getElementById("inputPassword").value;
+    let user = firebase.auth().currentUser;
+    user.updatePassword(newPassword).then(function() {
+        window.alert("Succesfully updated changes and password!")
+        window.location.assign("login.html");
+    }).catch(function(error) {
+        alert(error);
+    });
+}
 
 /**
  * @desc update user info. 
@@ -96,7 +122,8 @@ function updateProfile() {
 
     let inputname = document.getElementById("inputName")
     let inputemail = document.getElementById("inputEmail");
-    console.log();
+    let inputpassword = document.getElementById("inputPassword")
+
 
     let user = firebase.auth().currentUser;
     if (user != null) {
@@ -111,8 +138,13 @@ function updateProfile() {
                         name: inputname.value,
                         email: inputemail.value,
                     }).then(function() {
-                        window.alert("Succesfully updated changes!")
-                        window.location.assign("index.html");
+                        if (inputpassword.value != "") {
+                            updatePassword();
+                        } else {
+                            window.alert("Succesfully updated changes!")
+                            window.location.assign("index.html");
+                        }
+
                     }).catch(function(error) {
                         //error updating database
                         window.alert(error);
@@ -144,4 +176,39 @@ function updateProfile() {
         });
     }
 
+}
+
+function deleteUser() {
+    // Prompt the user to re-provide their sign-in credentials
+
+    bootbox.confirm({
+        title: "MAYDAY MAYDAY!",
+        message: "Do you want to permanently delete your LiveMood account? This cannot be undone.",
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Cancel'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Confirm',
+                className: 'btn-danger'
+
+            }
+        },
+        callback: function(result) {
+            if (result == true) {
+                // delete all db items
+                let user = firebase.auth().currentUser;
+                db.collection("users").doc(user.uid).delete().then(function() {
+                    console.log("Document successfully deleted!");
+                    user.delete().then(function() {
+                        window.location.assign = "login.html";
+                    }).catch(function(error) {
+                        alert(error);
+                    });
+                }).catch(function(error) {
+                    alert(error);
+                });
+            }
+        }
+    });
 }

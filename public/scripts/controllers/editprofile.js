@@ -73,7 +73,6 @@ function checkCred() {
             loadUserInfo();
         }
     });
-
 }
 
 checkCred();
@@ -89,14 +88,11 @@ function loadUserInfo() {
     let user = firebase.auth().currentUser;
     if (user != null) {
         user.providerData.forEach(function(profile) {
-
             name.innerHTML = profile.displayName;
             inputname.value = profile.displayName;
             inputemail.value = profile.email;
-
         });
     }
-
 }
 
 /**
@@ -180,7 +176,6 @@ function updateProfile() {
 
 function deleteUser() {
     // Prompt the user to re-provide their sign-in credentials
-
     bootbox.confirm({
         title: "MAYDAY MAYDAY!",
         message: "Do you want to permanently delete your LiveMood account? This cannot be undone.",

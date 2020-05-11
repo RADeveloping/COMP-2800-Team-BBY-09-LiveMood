@@ -3,7 +3,6 @@
  */
 function addOnClickHandlers() {
     document.getElementById("signupbutton").onclick = register;
-
 }
 
 addOnClickHandlers();
@@ -37,8 +36,12 @@ function register() {
                 name: name,
                 email: email,
             }).then(function() {
-                window.location.assign("index.html");
-                
+                user.sendEmailVerification().then(function() {
+                    // Email sent.
+                    window.location.assign("index.html");
+                }).catch(function(error) {
+                    alert(error);
+                });
             })
         }).catch(function(error) {
             // An error happened while adding data to firestore. 

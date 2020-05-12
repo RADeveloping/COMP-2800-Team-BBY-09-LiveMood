@@ -13,26 +13,7 @@ function init() {
         title: "Please enter your password to make changes to your profile.",
         inputType: 'password',
         callback: function(result) {
-            console.log(result);
-
-            let user = firebase.auth().currentUser;
-            credential = firebase.auth.EmailAuthProvider.credential(
-                user.email,
-                result
-            );
-
-            user.reauthenticateWithCredential(credential).then(function() {
-
-                document.getElementById("inputName").readOnly = false;
-                document.getElementById("inputEmail").readOnly = false;
-                document.getElementById("inputPassword").readOnly = false;
-                document.getElementById("deleteuserbutton").disabled = false;
-                document.getElementById("inputPassword").value = "";
-                document.getElementById("savechanges").disabled = false;
-
-            }).catch(function(error) {
-                alert("Incorrect Password. Please refresh the page to try again!");
-
+            if (result == null) {
                 document.getElementById("inputName").readOnly = true;
                 document.getElementById("inputEmail").readOnly = true;
                 document.getElementById("inputPassword").readOnly = true;
@@ -40,11 +21,42 @@ function init() {
                 document.getElementById("inputPassword").value = "*********";
                 document.getElementById("savechanges").disabled = true;
                 document.getElementById("savechanges").style.opacity = 0.5;
+            }
+            if (result != null) {
+                let user = firebase.auth().currentUser;
+                credential = firebase.auth.EmailAuthProvider.credential(
+                    user.email,
+                    result
+                );
 
-            });
 
+                user.reauthenticateWithCredential(credential).then(function() {
+
+                    document.getElementById("inputName").readOnly = false;
+                    document.getElementById("inputEmail").readOnly = false;
+                    document.getElementById("inputPassword").readOnly = false;
+                    document.getElementById("deleteuserbutton").disabled = false;
+                    document.getElementById("inputPassword").value = "";
+                    document.getElementById("savechanges").disabled = false;
+
+                }).catch(function(error) {
+                    alert("Incorrect Password. Please refresh the page to try again!");
+
+                    document.getElementById("inputName").readOnly = true;
+                    document.getElementById("inputEmail").readOnly = true;
+                    document.getElementById("inputPassword").readOnly = true;
+                    document.getElementById("deleteuserbutton").disabled = true;
+                    document.getElementById("inputPassword").value = "*********";
+                    document.getElementById("savechanges").disabled = true;
+                    document.getElementById("savechanges").style.opacity = 0.5;
+
+                });
+
+            }
         }
+
     });
+
 }
 
 init();
@@ -84,6 +96,7 @@ function loadUserInfo() {
     let name = document.getElementById("username")
     let inputname = document.getElementById("inputName")
     let inputemail = document.getElementById("inputEmail");
+    let notverifiedbar = document.getElementById("notverifiedbar");
 
     let user = firebase.auth().currentUser;
     if (user != null) {
@@ -91,10 +104,23 @@ function loadUserInfo() {
             name.innerHTML = profile.displayName;
             inputname.value = profile.displayName;
             inputemail.value = profile.email;
+            if (user.emailVerified != true) {
+                notverifiedbar.classList.replace("d-none", "d-block");
+                notverifiedbar.innerHTML = 'Email not verified. Please check your email to verify your account. <p class="verify-button" onclick="sendVerificationEmail()">Tap here to resend verification email</button>'
+            }
         });
     }
 }
 
+
+function sendVerificationEmail() {
+    let user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+        notverifiedbar.innerHTML = 'Verification email has been resent. Please check your email.'
+    }).catch(function(error) {
+        alert(error);
+    });
+}
 /**
  * @desc update user password 
  */

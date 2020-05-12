@@ -36,8 +36,12 @@ function register() {
                 name: name,
                 email: email,
             }).then(function() {
-                window.location.assign("index.html");
-                
+                user.sendEmailVerification().then(function() {
+                    window.location.assign("index.html");
+                }).catch(function(error) {
+                    alert(error);
+                });
+
             })
         }).catch(function(error) {
             // An error happened while adding data to firestore. 
@@ -54,11 +58,6 @@ function register() {
         document.getElementById("signupbutton").innerHTML = "Register"
 
     });
-
-
-
-
-
 
 
 }

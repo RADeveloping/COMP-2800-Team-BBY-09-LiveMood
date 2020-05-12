@@ -10,6 +10,12 @@ let defaultMood = "50";
 let maxMood = "100";
 let intervalMood = "10";
 
+// Date variables
+let day = new Date().getDate();
+let month = new Date().getMonth();
+let year = new Date().getFullYear();
+let today = new Date(year, month, day, 0, 0, 0);
+
 // Get userId
 let userId;
 let user;
@@ -23,6 +29,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         window.location = "login.html";
     }
 });
+
 
 function setUserName() {
     user = firebase.auth().currentUser;
@@ -53,30 +60,25 @@ function readDB() {
         });
 
     // Get today's date without time
-    let day = new Date().getDate();
-    let month = new Date().getMonth();
-    let year = new Date().getFullYear();
-    let today = new Date(year, month, day, 0, 0, 0);
-    db.collection("surveyTaken").where("userId", "==", userId).get()
-    .then((querySnapshot) => {
-        // File exists
-        querySnapshot.forEach((doc) =>{
-            
-            let docDate = new Date(doc.data()["date"]);
-            if(docDate > today){
-                scoreList = doc.data()["scoreList"];
-            }
-        });
-        
-        // See today's score length
-        if(!scoreList.length){
-            // New score
+    let scoreId = getDocId();
+    let userDayScoreRef = db.collection("surveyTaken").doc(scoreId);
+
+    userDayScoreRef.get().then(function(doc) {
+
+        if (doc.exists) {
+            // Get past score
+            scoreList = doc.data()["scoreList"];
+        } else {
+            // New deafault score
             scoreList = new Array(5).fill(defaultMood,0,4)
         }
-        
+
         // Load data onto page
         loadPage();
-    });
+
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });   
 }
 
 function getUser(){
@@ -137,30 +139,75 @@ function save() {
     let sum = 0;
 
     sliderList = document.getElementsByClassName("slider");
+
     Array.from(sliderList).forEach(slider => {
         scoreList.push(parseInt(slider.value));
         sum += parseInt(slider.value);
     });
 
     let score = sum / sliderList.length;
+    
+    // Format Doc ID
+    let scoreId = getDocId();
+    let userDayScoreRef = db.collection("surveyTaken").doc(scoreId);
 
-    db.collection("surveyTaken").add({
+    // Update if exist
+    return userDayScoreRef.update({
+        score: score,
+        date: Date(),
+        scoreList: scoreList
+
+    })
+    .then(function() {
+        console.log("Updated Document");
+        $("#successMsg").css("display","block");
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    })
+    .catch(function(error) {
+        // Create new doc
+        userDayScoreRef.set({
             userId: userId,
             score: score,
             date: Date(),
             scoreList: scoreList
+
         })
-        .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            $("#successMsg").css("display","block");
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        .then(function() {
+            console.log("New document successfully written");
+
         })
         .catch(function(error) {
+            // The document doesn't exist.
             console.error("Error adding document: ", error);
             $("#warnMsg").css("display","block");
+            
         });
+    });
 }
 
+// Generate Doc ID (YYYYMMDD + first 12 char of user-ID)
+function getDocId(){
+    let tempMonth;
+    let tempDay;
+
+    if(month < 10){
+        tempMonth = "0" + (month + 1);
+    }else{
+        tempMonth = (month + 1);
+    }
+
+    if(day < 10){
+        tempDay = "0" + day;
+    }else{
+        tempDay = day;
+    }
+
+    return(""
+        + year + tempMonth + tempDay 
+        + userId.substring(0,13)
+    );
+}
 
 document.getElementById("saveButton").addEventListener("click", save);

@@ -8,14 +8,6 @@ function addOnClickHandlers() {
 addOnClickHandlers();
 
 /**
- * @desc redirect to login page 
- */
-function goToLoginPage() {
-    window.location.assign("login.html");
-
-}
-
-/**
  * @desc register user to Firebase.
  */
 function register() {

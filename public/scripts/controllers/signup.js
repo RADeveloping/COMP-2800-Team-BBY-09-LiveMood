@@ -37,7 +37,6 @@ function register() {
                 email: email,
             }).then(function() {
                 user.sendEmailVerification().then(function() {
-                    // Email sent.
                     window.location.assign("index.html");
                 }).catch(function(error) {
                     alert(error);
@@ -58,11 +57,6 @@ function register() {
         document.getElementById("signupbutton").innerHTML = "Register"
 
     });
-
-
-
-
-
 
 
 }

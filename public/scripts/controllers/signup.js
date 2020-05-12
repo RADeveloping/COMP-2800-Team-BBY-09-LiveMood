@@ -2,20 +2,10 @@
  * @desc adds the onclick handlers to buttons
  */
 function addOnClickHandlers() {
-    document.getElementById("back").onclick = goToLoginPage;
     document.getElementById("signupbutton").onclick = register;
-
 }
 
 addOnClickHandlers();
-
-/**
- * @desc redirect to login page 
- */
-function goToLoginPage() {
-    window.location.assign("login.html");
-
-}
 
 /**
  * @desc register user to Firebase.
@@ -38,13 +28,17 @@ function register() {
                 name: name,
                 email: email,
             }).then(function() {
-                window.location.assign("dashboard.html");
+                user.sendEmailVerification().then(function() {
+                    window.location.assign("index.html");
+                }).catch(function(error) {
+                    alert(error);
+                });
             })
         }).catch(function(error) {
             // An error happened while adding data to firestore. 
             window.alert(error.message);
             document.getElementById("signupbutton").disabled = false;
-            document.getElementById("signupbutton").innerHTML = "Sign up"
+            document.getElementById("signupbutton").innerHTML = "Register"
 
         });
 
@@ -52,14 +46,9 @@ function register() {
         // Handle Errors here.
         window.alert(error.message);
         document.getElementById("signupbutton").disabled = false;
-        document.getElementById("signupbutton").innerHTML = "Sign up"
+        document.getElementById("signupbutton").innerHTML = "Register"
 
     });
-
-
-
-
-
 
 
 }

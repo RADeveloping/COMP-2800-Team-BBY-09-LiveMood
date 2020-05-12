@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Helping people through tough times">
     <meta name="author" content="LiveMood">
-    <title>LiveMood - Edit Profile</title>
+    <title>LiveMood - Survey</title>
 
     <!----------------------------------------------->
     <!----------------  FAVICON --------------------->
@@ -19,10 +19,14 @@
     <link rel="manifest" href="images/favicon/site.webmanifest">
 
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+        integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
 
@@ -31,9 +35,11 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
+    <link href="styles/survey.css" rel="stylesheet">
 
 
 </head>
@@ -93,7 +99,7 @@
                 </li>
 
                 <!-- Nav Item - Survey -->
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="survey.html">
                         <i class="fas fa-info-circle"></i>
                         <span>Survey</span></a>
@@ -106,7 +112,6 @@
                         <span>Activities</span></a>
                 </li>
 
-
                 <!-- Nav Item - About -->
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">
@@ -116,13 +121,13 @@
 
 
                 <!-- Nav Item - Edit Profile -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="editProfile.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="editprofile.html">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Edit Profile</span></a>
                 </li>
 
-                <!-- Nav Item - About -->
+                <!-- Nav Item - logout -->
                 <li class="nav-item">
                     <a class="nav-link" href="" id="logoutButton">
                         <i class="fas fa-sign-out-alt"></i>
@@ -151,15 +156,17 @@
 
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
-              </button>
+                            <i class="fa fa-bars"></i>
+                        </button>
 
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"></span></span>
+                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span
+                                            id="username"></span></span>
                                 </a>
 
                         </ul>
@@ -172,13 +179,7 @@
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
-                        </div>
-
-                        <div class="alert alert-warning alert-dismissible fade show d-none" role="alert" id="notverifiedbar">
-                            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span> -->
-                            </button>
+                            <h1 class="h3 mb-0 text-gray-800">Survey</h1>
                         </div>
 
                         <!-- Content Row -->
@@ -186,90 +187,82 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12">
                                 <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Mood Survey</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
                                         <div class="content-area">
                                             <!-- ADDDD MAIN CONTENT HERE-->
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm-12 col-md-12 col-lg-10 mx-auto mt-2">
-                                                        <div class="card-body">
-                                                            <p class="text-center">Use the form below to make your changes!</p>
-                                                            <form class="form-edit">
-                                                                <div class="form-label-group">
-                                                                    <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                                                                    <label for="inputName">Full Name</label>
-                                                                </div>
-                                                                <div class="form-label-group">
-                                                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                                                                    <label for="inputEmail">Email address</label>
-                                                                </div>
-                                                                <div class="form-label-group">
-                                                                    <input type="password" id="inputPassword" class="form-control" placeholder="*******">
-                                                                    <label for="inputPassword">New Password</label>
-                                                                </div>
-                                                            </form>
-                                                            <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
+
+                                            <div class="row">
+                                                <div
+                                                    class="d-lg-flex col-md-12 align-items-center justify-content-between mb-4 m-auto">
+                                                    <div class="col-md-12 d-fluid">
+                                                        <div class="qContainer">
+                                                        </div>
+                                                        <hr>
+                                                        <div class="survey-footer clearfix">
+                                                            <button class="btn btn-primary" id="saveButton"
+                                                                type="button"
+                                                                class="btn btn-outline-primary waves-effect waves-light ml-3 mb-3">Save
+                                                                <i class="fa fa-paper-plane ml-1"></i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-outline-warning waves-effect float-right mr-3 mb-3">Cancel</button>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <!-- ENDDD MAIN CONTENT HERE-->
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Permanently Delete Account</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>By clicking the button below all your data will be deleted and you will no longer be able to use our services. You must create a new account to use LiveMood again.</p>
-                                        <button href="" id="deleteuserbutton" onclick="deleteUser()" class="btn btn-danger btn-icon-split float-right">
-                                            <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                          </span>
-                                            <span class="text">Delete My Account Forver</span>
-                                        </button>
+
+                            <!-- End of Main Content -->
+
+                            <!-- Footer -->
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and
+                                            Jason</span>
                                     </div>
                                 </div>
-
-                            </div>
+                            </footer>
+                            <!-- End of Footer -->
                         </div>
-
-                        <!-- End of Main Content -->
-
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- End of Footer -->
+                        <!-- End of Content Wrapper -->
                     </div>
-                    <!-- End of Content Wrapper -->
+                    <!-- End of Page Wrapper -->
+
+                    <!-- Scroll to Top Button-->
+                    <a class="scroll-to-top rounded" href="#page-top">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+
                 </div>
-                <!-- End of Page Wrapper -->
 
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
-                <!--Firebase Config-->
-                <script src="scripts/config/FirebaseConfig.js"></script>
+            </div>
+        </div>
+        <!--Firebase Config-->
+        <script src="scripts/config/FirebaseConfig.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="scripts/vendor/sb-admin-2.min.js"></script>
-                <script src="scripts/controllers/editprofile.js"></script>
-
-
-
+        <!-- Custom scripts for all pages-->
+        <script src="scripts/vendor/sb-admin-2.min.js"></script>
+        <script src="scripts/controllers/survey.js"></script>
+        
+        
     </body>
 
 </html>

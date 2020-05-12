@@ -1,0 +1,8 @@
+.sliderCont {
+    display: flex;
+}
+
+.descWord {
+    margin: 5px;
+    width: min-content;
+}

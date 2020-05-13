@@ -1,1 +1,43 @@
 /* easter egg css */
+@keyframes move_goose {
+	0% {
+		left: 0vw;
+		top: 0vh;
+		width: 50px;
+	}
+	25% {
+		left: 25vw;
+		top: 25vh;
+		width: 50px;
+	}
+	50% {
+		left: 50vw;
+		top: 50vh;
+		width: 100px;
+	}
+	75% {
+		left: 50vw;
+		top: 0vh;
+		width: 100px;
+	}
+	100% {
+		left: 0vw;
+		top: 0vh;
+		width: 50px;
+	}
+}
+#easterEgg {
+	color: rgba(254, 255, 255, 0);
+}
+.hideEgg {
+	display: none;
+}
+.walk {
+	/* transform: rotateY(180deg); */
+	position: relative;
+	width: 50px;
+	animation-name: move_goose;
+	animation-duration: 10s;
+	z-index: 1;
+	margin-bottom: -10%;
+}

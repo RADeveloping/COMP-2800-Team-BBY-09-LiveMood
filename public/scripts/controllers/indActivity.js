@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+function logout() {
+	firebase
+		.auth()
+		.signOut()
+		.then(function() {
+			// Sign-out successful.
+			window.location = 'login.html';
+		})
+		.catch(function(error) {
+			window.alert(error);
+		});
+}
+
+function checkCred() {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (!user) {
+			window.location = 'login.html';
+		} else {
+			init();
+		}
+	});
+}
+
+=======
 const moodScore = Math.ceil(Math.random() * 10);
 console.log(moodScore);
 
@@ -24,11 +49,42 @@ function checkCred() {
     });
 }
 
+>>>>>>> 91004bb39ef2c9787edf43c60956ffa339f55d51
 checkCred();
 
 let user;
 
 function init() {
+<<<<<<< HEAD
+	user = firebase.auth().currentUser;
+	indActivity();
+}
+
+let moodScore;
+
+let day = new Date().getDate();
+let month = new Date().getMonth();
+let year = new Date().getFullYear();
+let docId = '' + year + month + day + userId.substring(0, 13);
+
+function getUserMood() {
+	// Read questions
+	db
+		.collection('surveyTaken')
+		.get()
+		.then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				if ((doc.id = today)) {
+					console.log('got user');
+					moodScore = doc.data().score;
+					console.log(moodScore);
+				}
+			});
+		})
+		.catch((error) => console.log('error'));
+}
+
+=======
     user = firebase.auth().currentUser;
     document.getElementById("logoutButton").onclick = logout;
     setUserName();
@@ -39,9 +95,9 @@ function setUserName() {
     document.getElementById("username").innerText = user.displayName;
 
 }
+>>>>>>> 91004bb39ef2c9787edf43c60956ffa339f55d51
 const actSuggestion = document.querySelector('.suggestion');
 const actSug = document.querySelector('#actSug');
-
 // Render the suggestion to the user
 function renderSuggestion(doc) {
     let activity = document.createElement('div');

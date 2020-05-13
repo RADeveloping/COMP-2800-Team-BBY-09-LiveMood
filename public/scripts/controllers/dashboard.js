@@ -135,7 +135,7 @@ function getMonthScore(month) {
         console.log("Error getting document:", error);
       });
   }
-
+  console.log(monthScore);
   return monthScore;
 }
 

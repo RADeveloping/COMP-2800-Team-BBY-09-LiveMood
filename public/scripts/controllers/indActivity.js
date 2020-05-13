@@ -1,39 +1,61 @@
-const moodScore = Math.ceil(Math.random() * 10);
-console.log(moodScore);
-// function logout() {
-// 	firebase
-// 		.auth()
-// 		.signOut()
-// 		.then(function() {
-// 			// Sign-out successful.
-// 			window.location = 'login.html';
-// 		})
-// 		.catch(function(error) {
-// 			window.alert(error);
-// 		});
-// }
+function logout() {
+	firebase
+		.auth()
+		.signOut()
+		.then(function() {
+			// Sign-out successful.
+			window.location = 'login.html';
+		})
+		.catch(function(error) {
+			window.alert(error);
+		});
+}
 
-// function checkCred() {
-// 	firebase.auth().onAuthStateChanged(function(user) {
-// 		if (!user) {
-// 			window.location = 'login.html';
-// 		} else {
-// 			init();
-// 		}
-// 	});
-// }
+function checkCred() {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (!user) {
+			window.location = 'login.html';
+		} else {
+			init();
+		}
+	});
+}
 
-// checkCred();
+checkCred();
 
-// let user;
+let user;
 
-// function init() {
-// 	user = firebase.auth().currentUser;
-// 	indActivity();
-// }
+function init() {
+	user = firebase.auth().currentUser;
+	indActivity();
+}
+
+let moodScore;
+
+let day = new Date().getDate();
+let month = new Date().getMonth();
+let year = new Date().getFullYear();
+let docId = '' + year + month + day + userId.substring(0, 13);
+
+function getUserMood() {
+	// Read questions
+	db
+		.collection('surveyTaken')
+		.get()
+		.then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				if ((doc.id = today)) {
+					console.log('got user');
+					moodScore = doc.data().score;
+					console.log(moodScore);
+				}
+			});
+		})
+		.catch((error) => console.log('error'));
+}
+
 const actSuggestion = document.querySelector('.suggestion');
 const actSug = document.querySelector('#actSug');
-
 // Render the suggestion to the user
 function renderSuggestion(doc) {
 	let activity = document.createElement('div');

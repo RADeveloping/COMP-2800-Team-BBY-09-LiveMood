@@ -6,3 +6,16 @@
     margin: 5px;
     width: min-content;
 }
+
+@media screen and (max-width: 350px) {
+    div.card-body {
+        padding: 25px 10px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .descWord {
+        font-size: 0.5em;
+    }
+
+}

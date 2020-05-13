@@ -19,7 +19,7 @@ let today = new Date(year, month, day, 0, 0, 0);
 // Get userId
 let userId;
 let user;
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         userId = user.uid;
         setUserName();
@@ -38,10 +38,10 @@ function setUserName() {
 }
 
 function logout() {
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(function () {
         // Sign-out successful.
         window.location = "login.html";
-    }).catch(function(error) {
+    }).catch(function (error) {
         window.alert(error);
     })
 }
@@ -59,29 +59,32 @@ function readDB() {
             });
         });
 
-    // Get today's date without time
-    let scoreId = getDocId();
-    let userDayScoreRef = db.collection("surveyTaken").doc(scoreId);
+    // Sub-collection in each user
+    let userDayScoreRef = db
+        .collection('users')
+        .doc(userId)
+        .collection('surveyTaken')
+        .doc(getDocId());
 
-    userDayScoreRef.get().then(function(doc) {
+    userDayScoreRef.get().then(function (doc) {
 
         if (doc.exists) {
             // Get past score
             scoreList = doc.data()["scoreList"];
         } else {
             // New deafault score
-            scoreList = new Array(5).fill(defaultMood,0,4)
+            scoreList = new Array(5).fill(defaultMood, 0, 4)
         }
 
         // Load data onto page
         loadPage();
 
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log("Error getting document:", error);
-    });   
+    });
 }
 
-function getUser(){
+function getUser() {
     user = firebase.auth().currentUser;
 }
 
@@ -146,67 +149,65 @@ function save() {
     });
 
     let score = sum / sliderList.length;
-    
-    // Format Doc ID
-    let scoreId = getDocId();
-    let userDayScoreRef = db.collection("surveyTaken").doc(scoreId);
+
+    // Sub-collection in each user
+    let userDayScoreRef = db.collection('users').doc(userId)
+        .collection('surveyTaken').doc(getDocId());
 
     // Update if exist
     return userDayScoreRef.update({
-        score: score,
-        date: Date(),
-        scoreList: scoreList
-
-    })
-    .then(function() {
-        console.log("Updated Document");
-        $("#successMsg").css("display","block");
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-    })
-    .catch(function(error) {
-        // Create new doc
-        userDayScoreRef.set({
-            userId: userId,
             score: score,
             date: Date(),
             scoreList: scoreList
 
         })
-        .then(function() {
-            console.log("New document successfully written");
+        .then(function () {
+            console.log("Updated Document");
+            $("#successMsg").css("display", "block");
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
         })
-        .catch(function(error) {
-            // The document doesn't exist.
-            console.error("Error adding document: ", error);
-            $("#warnMsg").css("display","block");
-            
+        .catch(function (error) {
+            // Create new doc
+            userDayScoreRef.set({
+                    score: score,
+                    date: Date(),
+                    scoreList: scoreList
+
+                })
+                .then(function () {
+                    console.log("New document successfully written");
+
+                })
+                .catch(function (error) {
+                    // The document doesn't exist.
+                    console.error("Error adding document: ", error);
+                    $("#warnMsg").css("display", "block");
+
+                });
         });
-    });
 }
 
-// Generate Doc ID (YYYYMMDD + first 12 char of user-ID)
-function getDocId(){
+// Generate Doc ID (YYYYMMDD)
+function getDocId() {
     let tempMonth;
     let tempDay;
 
-    if(month < 10){
+    if (month < 10) {
         tempMonth = "0" + (month + 1);
-    }else{
+    } else {
         tempMonth = (month + 1);
     }
 
-    if(day < 10){
+    if (day < 10) {
         tempDay = "0" + day;
-    }else{
+    } else {
         tempDay = day;
     }
 
-    return(""
-        + year + tempMonth + tempDay 
-        + userId.substring(0,13)
+    return ("" +
+        year + tempMonth + tempDay
     );
 }
 

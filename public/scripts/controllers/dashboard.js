@@ -8,6 +8,9 @@ function goToProfilePage() {
 /* Handle month select */
 function setGraph(month) {
 
+  // Convert Month Name to number
+  let monthNum = new Date(Date.parse(month +" 1, 2020")).getMonth()+1
+
   // Display heading
   document.getElementById("chartText").innerText =
     "Personal Chart for " + month;
@@ -23,6 +26,8 @@ function setGraph(month) {
   ];
 
   var chLine = document.getElementById("chLine"); // Type of chart
+  let surveyData = getMonthScore(monthNum);
+  
   var chartData = {
     labels: [ // Labels
       "1",
@@ -58,7 +63,7 @@ function setGraph(month) {
     ],
     datasets: [
       {
-        data: getMonthScore(month), // Get user data!
+        data: surveyData, // Get user data!
         backgroundColor: "transparent",
         borderColor: colors[0],
         borderWidth: 4,
@@ -66,7 +71,7 @@ function setGraph(month) {
       },
     ],
   };
-
+  console.log(chartData);
   if (chLine) {
     new Chart(chLine, {
       type: "line",
@@ -116,8 +121,9 @@ function getMonthScore(month) {
     }
 
     // Form survey ID and reference
-    let scoreId = "" + year + formatMonth + day + userId.substring(0, 13);
-    let userDayScoreRef = db.collection("surveyTaken").doc(scoreId);
+    let surveyId = "" + year + formatMonth + day;
+    let userDayScoreRef = db.collection("users").doc(userId)
+      .collection("surveyTaken").doc(surveyId);
 
     // Add to array
     userDayScoreRef
@@ -128,7 +134,7 @@ function getMonthScore(month) {
           monthScore.push(doc.data()["score"]);
         } else {
           // No score for the day
-          monthScore.push(null);
+          monthScore.push(0);
         }
       })
       .catch(function (error) {
@@ -165,9 +171,10 @@ function checkCred() {
 }
 
 let user;
-
+let userId
 function init() {
     user = firebase.auth().currentUser;
+    userId = user.uid
     setUserName();
     document.getElementById("logoutButton").onclick = logout;
 }

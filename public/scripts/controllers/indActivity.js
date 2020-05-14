@@ -57,20 +57,17 @@ function getUserMood() {
 	getDocId();
 	console.log('in get user mood');
 	db
+		.collection('users')
+		.doc(userId)
 		.collection('surveyTaken')
 		.get()
 		.then((snapshot) => {
 			snapshot.docs.forEach((doc) => {
-				if (userId == doc.data().userId) {
-					let docDate = doc.id.substring(0, 8);
-					console.log(docDate);
-					console.log(today);
-					if (docDate == today) {
-						console.log('got user');
-						moodScore = Math.round(doc.data().score / 10);
-						// console.log(doc.id);
-						indActivity();
-					}
+				if (doc.id == today) {
+					console.log('got user');
+					moodScore = Math.round(doc.data().score / 10);
+					console.log(doc.id);
+					indActivity(doc);
 				}
 			});
 		})
@@ -80,12 +77,13 @@ function getUserMood() {
 const actSuggestion = document.querySelector('.suggestion');
 const actSug = document.querySelector('#actSug');
 // Render the suggestion to the user
-function renderSuggestion(doc) {
+function renderSuggestion(doc, userDoc) {
 	let activity = document.createElement('div');
 	let activityName = document.createElement('span');
 	let activityInfo = document.createElement('h2');
 	let activityImg = document.createElement('img');
 	let activityLink = document.createElement('a');
+	let activityRate = document.createElement('h3');
 	activityLink.classList.add('link');
 	activityName.textContent = doc.data().name;
 	activityInfo.textContent = doc.data().info;
@@ -93,7 +91,8 @@ function renderSuggestion(doc) {
 	activityImg.src = doc.data().image;
 	activityLink.href = doc.data().link;
 	activityInfo.href = doc.data().link;
-
+	activityRate.innerHTML = '<h3>Your personal mood score is: ' + userDoc.data().score + '</h2>';
+	actSug.prepend(activityRate);
 	actSug.appendChild(activityName);
 	activity.appendChild(activityInfo);
 	activity.appendChild(activityLink);
@@ -104,12 +103,12 @@ function renderSuggestion(doc) {
 }
 // document.getElementById('curMood').onclick = indActivity;
 // get the activity base on current mood score
-function indActivity() {
+function indActivity(userDoc) {
 	db.collection('individualActivities').get().then((snapshot) => {
 		snapshot.docs.forEach((doc) => {
 			// console.log(doc.data());
 			if (doc.data().rating == moodScore) {
-				renderSuggestion(doc);
+				renderSuggestion(doc, userDoc);
 			}
 		});
 	});

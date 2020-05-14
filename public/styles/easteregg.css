@@ -9,13 +9,22 @@
 	position: relative;
 	width: 50px;
 	animation-name: move_goose;
-	animation-duration: 15s;
+	animation-duration: 16s;
 	animation-timing-function: ease-in-out;
 	z-index: 1;
 	margin-bottom: -10%;
 }
+.eggend {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 5%;
+}
 /* easter egg css */
 @media (min-width: 1280px) {
+	.eggend img {
+		width: 40%;
+	}
 	@keyframes move_goose {
 		0% {
 			left: 0vw;

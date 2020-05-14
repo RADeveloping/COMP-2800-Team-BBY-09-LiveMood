@@ -84,51 +84,62 @@ $('#easterEgg').click(function() {
 		$('.fade16').addClass('hideEgg');
 	}
 	window.setTimeout(fade16, 11000);
-	// hide graph
+	// hide arrow
 	function fade17() {
 		$('.fade17').addClass('hideEgg');
 	}
 	window.setTimeout(fade17, 13500);
-	// hide graph
+	// hide logout
 	function fade18() {
 		$('.fade18').addClass('hideEgg');
 	}
-	window.setTimeout(fade18, 13700);
-	// hide graph
+	window.setTimeout(fade18, 13600);
+	// hide edit profile
 	function fade19() {
 		$('.fade19').addClass('hideEgg');
 	}
-	window.setTimeout(fade19, 13900);
-	// hide graph
+	window.setTimeout(fade19, 13700);
+	// hide about us
 	function fade20() {
 		$('.fade20').addClass('hideEgg');
 	}
-	window.setTimeout(fade20, 14100);
-	// hide graph
+	window.setTimeout(fade20, 13800);
+	// hide activity
 	function fade21() {
 		$('.fade21').addClass('hideEgg');
 	}
-	window.setTimeout(fade21, 14300);
-	// hide graph
+	window.setTimeout(fade21, 13900);
+	// hide survey
 	function fade22() {
 		$('.fade22').addClass('hideEgg');
 	}
-	window.setTimeout(fade22, 14500);
-	// hide graph
+	window.setTimeout(fade22, 14000);
+	// hide group
 	function fade23() {
 		$('.fade23').addClass('hideEgg');
 	}
-	window.setTimeout(fade23, 14700);
+	window.setTimeout(fade23, 14100);
 	// hide graph
 	function fade24() {
 		$('.fade24').addClass('hideEgg');
 	}
-	window.setTimeout(fade24, 14900);
-
+	window.setTimeout(fade24, 14500);
+	// hide dashboard
+	function fade25() {
+		$('.fade25').addClass('hideEgg');
+	}
+	window.setTimeout(fade25, 15500);
+	// hide goose
 	function fadedone() {
 		$('#easterEggImg').removeClass('walk');
 		// show goose
 		$('#easterEggImg').addClass('hideEgg');
 	}
-	window.setTimeout(fadedone, 15100);
+	window.setTimeout(fadedone, 16100);
+	// hide dashboard
+	function eggEnd() {
+		$('#eggend').removeClass('hideEgg');
+		$('#eggend').addClass('eggend');
+	}
+	window.setTimeout(eggEnd, 16100);
 });

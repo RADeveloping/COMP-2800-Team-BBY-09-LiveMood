@@ -22,6 +22,9 @@ function checkCred() {
 }
 
 checkCred();
+function setUserName() {
+	document.getElementById('username').innerText = user.displayName;
+}
 
 let user;
 let userId;
@@ -29,6 +32,7 @@ let userId;
 function init() {
 	user = firebase.auth().currentUser;
 	userId = user.uid;
+	setUserName();
 	getUserMood();
 }
 

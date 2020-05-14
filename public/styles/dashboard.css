@@ -35,30 +35,6 @@
     margin: 0;
 }
 
-
-/* Friends list */
-
-.friendslist ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.friendslist li {
-    list-style: none;
-}
-
-.friendslist img {
-    width: 70px;
-    height: auto;
-}
-
-.friendslist {
-    font-family: "Manrope", sans-serif;
-    text-align: left;
-    background-color: var(--color-calm);
-    padding: 1%;
-    margin-bottom: 1%;
-    margin-top: 0.5%;
-    border: 1px solid black;
+#graphview {
+    padding: 0;
 }

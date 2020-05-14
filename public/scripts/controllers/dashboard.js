@@ -77,11 +77,21 @@ function setGraph(month, data) {
       type: "line",
       data: chartData,
       options: {
+        maintainAspectRatio: true,
+        layout: {
+          padding: {
+            left: 5,
+            right: 5,
+            top: 0,
+            bottom: 0
+          }
+        },
         scales: {
           yAxes: [
             {
               ticks: {
-                beginAtZero: false,
+                maxTickLimit: 100,
+                beginAtZero: true,
               },
             },
           ],

@@ -24,10 +24,12 @@ function checkCred() {
 checkCred();
 
 let user;
+let userId;
 
 function init() {
 	user = firebase.auth().currentUser;
-	indActivity();
+	userId = user.uid;
+	getUserMood();
 }
 
 let moodScore;
@@ -35,19 +37,40 @@ let moodScore;
 let day = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
-let docId = '' + year + month + day + userId.substring(0, 13);
+let today;
+
+function getDocId() {
+	if (month < 10) {
+		month = '0' + (month + 1);
+	} else {
+		month++;
+	}
+
+	if (day < 10) {
+		day = '0' + day;
+	}
+	today = '' + year + month + day;
+	return today;
+}
 
 function getUserMood() {
-	// Read questions
+	getDocId();
+	console.log('in get user mood');
 	db
 		.collection('surveyTaken')
 		.get()
-		.then((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				if ((doc.id = today)) {
-					console.log('got user');
-					moodScore = doc.data().score;
-					console.log(moodScore);
+		.then((snapshot) => {
+			snapshot.docs.forEach((doc) => {
+				if (userId == doc.data().userId) {
+					let docDate = doc.id.substring(0, 8);
+					console.log(docDate);
+					console.log(today);
+					if (docDate == today) {
+						console.log('got user');
+						moodScore = Math.round(doc.data().score / 10);
+						// console.log(doc.id);
+						indActivity();
+					}
 				}
 			});
 		})

@@ -23,6 +23,7 @@ function checkCred() {
 
 let user;
 
+
 function init() {
     user = firebase.auth().currentUser;
     showGroups();
@@ -60,7 +61,6 @@ function createGroup() {
         },
         callback: function(result) {
 
-            console.log(result.length);
             if (result === null || result.length == 0) {
 
             } else {
@@ -92,7 +92,6 @@ function createGroup() {
                     });
 
             }
-
 
         }
     });
@@ -161,22 +160,11 @@ function showGroups() {
                     console.log(doc.id)
                     let groupElement = document.getElementById("groupslist");
 
-                    let divCard = document.createElement("div");
-                    divCard.classList.add("card");
-                    divCard.classList.add("ml-1");
-                    divCard.classList.add("mr-1");
+                    let divCard = document.createElement("li");
+                    divCard.classList.add("list-group-item");
                     divCard.id = doc.id;
                     divCard.onclick = groupClicked;
-
-                    let divCardBody = document.createElement("div");
-                    divCardBody.classList.add("card-body");
-
-                    let cardTitle = document.createElement("h5");
-                    cardTitle.classList.add("card-title");
-                    cardTitle.innerText = doc.data().name;
-                    divCardBody.appendChild(cardTitle);
-                    divCard.appendChild(divCardBody);
-
+                    divCard.innerText = doc.data().name;
                     groupElement.appendChild(divCard);
                 } else {
                     // doc.data() will be undefined in this case
@@ -193,7 +181,8 @@ function showGroups() {
 
 function groupClicked(event) {
 
-    let groupID = event.srcElement.offsetParent.id;
+    let groupID = event.srcElement.id;
+    let groupName = event.srcElement.innerText;
 
     bootbox.dialog({
         title: event.target.innerText,
@@ -205,6 +194,16 @@ function groupClicked(event) {
                 className: 'btn-info',
                 callback: function() {
                     console.log('Custom OK clicked');
+                }
+            },
+            chart: {
+                label: "View Chart",
+                className: 'btn-info',
+                callback: function() {
+                    if (typeof(groupID) == "string") {
+
+                        getGroupScoreToday(groupID, groupName);
+                    }
                 }
             },
             invite: {
@@ -243,7 +242,11 @@ function removeSelfFromGroup(groupID) {
 }
 
 //Group score
-function getGroupScoreToday(month) {
+function getGroupScoreToday(groupID, groupName) {
+    let d = new Date();
+    let n = d.getMonth();
+    month = n + 1;
+
     let groupScoreList;
     let formatYear = new Date().getFullYear();
     let formatMonth;
@@ -255,79 +258,176 @@ function getGroupScoreToday(month) {
     }
 
     // Get group IDs
-    let groupList;
     let userRef = db.collection('users').doc(user.uid);
 
     userRef.get().then(function(userDoc) {
         // Get groups the user is in
         groupList = userDoc.data()["groups"];
 
-        // Each group
-        groupList.forEach(groupId => {
-            let groupRef = db.collection('groups').doc(groupId);
+        let groupRef = db.collection('groups').doc(groupID);
 
-            // Get group members
-            groupRef.get().then(function(groupDoc) {
+        // Get group members
+        groupRef.get()
+            .then(function(groupDoc) {
                 let memberList = groupDoc.data()["users"];
                 groupScoreList = [];
-
 
                 // Get member's score
                 for (let i = 0; i < memberList.length; i++) {
                     let memberId = memberList[i];
-                    groupScoreList.push([])
-                        // Ref to memeber
-                    let memberRef = db.collection('users').doc(memberId);
+                    groupScoreList.push([]);
+                    // Ref to memeber
+                    /// [[.....]]
+                    // Iterate over days
+                    let daysInMonth = new Date(formatYear, formatMonth, 0).getDate();
+                    for (let dd = 1; dd <= daysInMonth; dd++) {
+                        // Format Day to 2 digit
+                        let day;
+                        if (dd < 10) {
+                            day = "0" + dd;
+                        } else {
+                            day = dd;
+                        }
+                        // Member's score in a day
+                        let scoreDocId = "" + formatYear + formatMonth + day;
 
-                    memberRef.get()
-                        .then(function(memberDoc) {
+                        let userDayScoreRef = db.collection('users').doc(memberId)
+                            .collection('surveyTaken').doc(scoreDocId);
 
-                            // Iterate over days
-                            let daysInMonth = new Date(formatYear, formatMonth, 0).getDate();
-                            for (let dd = 1; dd <= daysInMonth; dd++) {
-
-                                // Format Day to 2 digit
-                                let day;
-                                if (dd < 10) {
-                                    day = "0" + dd;
-                                } else {
-                                    day = dd;
-                                }
-                                // Member's score in a day
-                                let scoreDocId = "" + formatYear + formatMonth + day;
-
-                                let userDayScoreRef = db.collection('users').doc(user.uid)
-                                    .collection('surveyTaken').doc(scoreDocId);
-
-                                // Daily score
-                                userDayScoreRef.get().then(function(doc) {
-                                    groupScoreList[i].push(doc.data()["score"]);
-
-                                }).catch(function(error) {
-                                    groupScoreList[i].push(null);
-                                });
-
-                            }
-
+                        // Daily score
+                        userDayScoreRef.get().then(function(doc) {
+                            groupScoreList[i].push(doc.data()["score"]);
+                            // Debug info
                         }).catch(function(error) {
-                            console.log("Error getting document:", error);
-
+                            groupScoreList[i].push(null);
                         });
-                }; // End of day loop for a member
+                    }
 
-                // Debug info
-                console.log(groupScoreList)
+                };
+
+                calculateAverage(groupScoreList, groupName);
 
             }).catch(function(error) {
                 console.log("Error getting document:", error);
-
             }); // End of member loop for a group
 
-        }); // End of groups loop for a user 
-
-        return (groupScoreList);
 
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
+}
+
+function calculateAverage(groupScoreList, groupName) {
+
+    setTimeout(() => {
+
+        let groupAvgArray = [];
+        let num = 0;
+        //sEzBH6cBlqQ3JZkfAXNH
+        for (let day = 0; day < groupScoreList[0].length - 1; day++) {
+            let totalOfDay = 0
+
+            for (let mem = 0; mem <= groupScoreList.length - 1; mem++) {
+
+                if (groupScoreList[mem][day] != null) {
+                    totalOfDay += groupScoreList[mem][day];
+                    num++;
+                }
+            }
+
+            groupAvgArray.push(totalOfDay / num)
+            num = 0;
+        }
+
+        setGraph(groupAvgArray, groupName);
+        // Save to local storage 
+        localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
+
+
+
+
+    }, 2000);
+
+}
+
+
+/* Handle month select */
+function setGraph(chartData, groupName) {
+    // Display heading
+    document.getElementById("chartHelp").classList.add("d-none");
+    document.getElementById("groupName").innerText =
+        "Average Monthly Group Chart For " + groupName;
+
+    // Display graph
+    var colors = [ // Color
+        "#007bff",
+        "#28a745",
+        "#333333",
+        "#c3e6cb",
+        "#dc3545",
+        "#6c757d",
+    ];
+
+
+    var chLine = document.getElementById("chLine"); // Type of chart
+    var chartData = {
+        labels: [ // Labels
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+        ],
+        datasets: [{
+            data: chartData, // Get user data!
+            backgroundColor: "transparent",
+            borderColor: colors[0],
+            borderWidth: 4,
+            pointBackgroundColor: colors[0],
+        }, ],
+    };
+
+    if (chLine) {
+        new Chart(chLine, {
+            type: "line",
+            data: chartData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                    }, ],
+                },
+                legend: {
+                    display: false,
+                },
+            },
+        });
+    }
 }

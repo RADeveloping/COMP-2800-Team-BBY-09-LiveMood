@@ -202,7 +202,7 @@ function groupClicked(event) {
                 callback: function() {
                     if (typeof(groupID) == "string") {
 
-                        getGroupScoreToday(5, groupID, groupName);
+                        getGroupScoreToday(groupID, groupName);
                     }
                 }
             },
@@ -242,7 +242,11 @@ function removeSelfFromGroup(groupID) {
 }
 
 //Group score
-function getGroupScoreToday(month, groupID, groupName) {
+function getGroupScoreToday(groupID, groupName) {
+    let d = new Date();
+    let n = d.getMonth();
+    month = n + 1;
+
     let groupScoreList;
     let formatYear = new Date().getFullYear();
     let formatMonth;
@@ -335,7 +339,7 @@ function calculateAverage(groupScoreList, groupName) {
             num = 0;
         }
 
-        setGraph(5, groupAvgArray, groupName);
+        setGraph(groupAvgArray, groupName);
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
 
@@ -348,13 +352,11 @@ function calculateAverage(groupScoreList, groupName) {
 
 
 /* Handle month select */
-function setGraph(month, chartData, groupName) {
+function setGraph(chartData, groupName) {
     // Display heading
+    document.getElementById("chartHelp").classList.add("d-none");
     document.getElementById("groupName").innerText =
-        "Month Group Chart For " + groupName;
-
-    console.log(chartData);
-
+        "Average Monthly Group Chart For " + groupName;
 
     // Display graph
     var colors = [ // Color
@@ -365,6 +367,7 @@ function setGraph(month, chartData, groupName) {
         "#dc3545",
         "#6c757d",
     ];
+
 
     var chLine = document.getElementById("chLine"); // Type of chart
     var chartData = {

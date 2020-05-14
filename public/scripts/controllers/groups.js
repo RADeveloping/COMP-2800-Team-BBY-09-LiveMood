@@ -333,6 +333,7 @@ function calculateAverage(groupScoreList) {
             num = 0;
         }
 
+        setGraph(5, groupAvgArray);
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
 
@@ -341,4 +342,85 @@ function calculateAverage(groupScoreList) {
 
     }, 2000);
 
+}
+
+
+/* Handle month select */
+function setGraph(month, chartData) {
+
+    // Display heading
+    document.getElementById("chartText").innerText =
+        "Personal Chart for " + month;
+
+    // Display graph
+    var colors = [ // Color
+        "#007bff",
+        "#28a745",
+        "#333333",
+        "#c3e6cb",
+        "#dc3545",
+        "#6c757d",
+    ];
+
+    var chLine = document.getElementById("chLine"); // Type of chart
+    var chartData = {
+        labels: [ // Labels
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+        ],
+        datasets: [{
+            data: getMonthScore(month), // Get user data!
+            backgroundColor: "transparent",
+            borderColor: colors[0],
+            borderWidth: 4,
+            pointBackgroundColor: colors[0],
+        }, ],
+    };
+
+    if (chLine) {
+        new Chart(chLine, {
+            type: "line",
+            data: chartData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                    }, ],
+                },
+                legend: {
+                    display: false,
+                },
+            },
+        });
+    }
 }

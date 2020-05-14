@@ -6,7 +6,7 @@ function goToProfilePage() {
 }
 
 /* Handle month select */
-function setGraph(month) {
+function setGraph(month, data) {
 
   // Convert Month Name to number
   let monthNum = new Date(Date.parse(month +" 1, 2020")).getMonth()+1
@@ -26,7 +26,7 @@ function setGraph(month) {
   ];
 
   var chLine = document.getElementById("chLine"); // Type of chart
-  let surveyData = getMonthScore(monthNum);
+  //let surveyData = getMonthScore(monthNum);
   
   var chartData = {
     labels: [ // Labels
@@ -63,7 +63,7 @@ function setGraph(month) {
     ],
     datasets: [
       {
-        data: surveyData, // Get user data!
+        data: data, // Get user data!
         backgroundColor: "transparent",
         borderColor: colors[0],
         borderWidth: 4,
@@ -98,10 +98,12 @@ function setGraph(month) {
  * Retrieve and display user score
  */
 function getMonthScore(month) {
+
   let monthScore = [];
   let year = new Date().getFullYear();
   let daysInMonth = new Date(year, month, 0).getDate();
   let formatMonth;
+  let monthName = document.getElementById(month).innerText;
 
   // Format month to 2 digit
   if (month < 10) {
@@ -132,17 +134,20 @@ function getMonthScore(month) {
         if (doc.exists) {
           // Get past score
           monthScore.push(doc.data()["score"]);
+
         } else {
           // No score for the day
           monthScore.push(0);
         }
+        setGraph(monthName, monthScore);
       })
       .catch(function (error) {
         console.log("Error getting document:", error);
       });
   }
+ 
+
   console.log(monthScore);
-  return monthScore;
 }
 
 function logout() {

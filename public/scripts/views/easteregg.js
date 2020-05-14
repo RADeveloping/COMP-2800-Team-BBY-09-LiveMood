@@ -84,6 +84,11 @@ $('#easterEgg').click(function() {
 		$('.fade16').addClass('hideEgg');
 	}
 	window.setTimeout(fade16, 11000);
+	// hide dashboard main section
+	function fade16half() {
+		$('.fade16half').addClass('hideEgg');
+	}
+	window.setTimeout(fade16half, 12000);
 	// hide arrow
 	function fade17() {
 		$('.fade17').addClass('hideEgg');
@@ -125,21 +130,49 @@ $('#easterEgg').click(function() {
 	}
 	window.setTimeout(fade24, 14500);
 	// hide dashboard
-	function fade25() {
-		$('.fade25').addClass('hideEgg');
-	}
-	window.setTimeout(fade25, 15500);
-	// hide goose
-	function fadedone() {
-		$('#easterEggImg').removeClass('walk');
-		// show goose
-		$('#easterEggImg').addClass('hideEgg');
-	}
-	window.setTimeout(fadedone, 16100);
+	// function fade25() {
+	// 	$('.fade25').addClass('hideEgg');
+	// }
+	// window.setTimeout(fade25, 15500);
 	// hide dashboard
 	function eggEnd() {
 		$('#eggend').removeClass('hideEgg');
 		$('#eggend').addClass('eggend');
 	}
-	window.setTimeout(eggEnd, 16100);
+	window.setTimeout(eggEnd, 15000);
+	// revert page
+	function aftereggEnd() {
+		$('#easterEggImg').removeClass('walk');
+		// 	// show goose
+		$('#easterEggImg').addClass('hideEgg');
+		$('#eggend').addClass('hideEgg');
+		$('#eggend').removeClass('eggend');
+		$('.fade1').removeClass('hideEgg');
+		$('.fade2').removeClass('hideEgg');
+		$('.fade3').removeClass('hideEgg');
+		$('.fade4').removeClass('hideEgg');
+		$('.fade5').removeClass('hideEgg');
+		$('.fade6').removeClass('hideEgg');
+		$('.fade7').removeClass('hideEgg');
+		$('.fade8').removeClass('hideEgg');
+		$('.fade9').removeClass('hideEgg');
+		$('.fade10').removeClass('hideEgg');
+		$('.fade11').removeClass('hideEgg');
+		$('.fade12').removeClass('hideEgg');
+		$('.fade13').removeClass('hideEgg');
+		$('.fade14').removeClass('hideEgg');
+		$('.fade15').removeClass('hideEgg');
+		$('.fade16').removeClass('hideEgg');
+		$('.fade16half').removeClass('hideEgg');
+		$('.fade17').removeClass('hideEgg');
+		$('.fade18').removeClass('hideEgg');
+		$('.fade19').removeClass('hideEgg');
+		$('.fade20').removeClass('hideEgg');
+		$('.fade21').removeClass('hideEgg');
+		$('.fade22').removeClass('hideEgg');
+		$('.fade23').removeClass('hideEgg');
+		$('.fade24').removeClass('hideEgg');
+		// $('.fade25').removeClass('hideEgg');
+	}
+	window.setTimeout(aftereggEnd, 20000);
 });

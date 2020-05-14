@@ -7,9 +7,9 @@
 .walk {
 	/* transform: rotateY(180deg); */
 	position: relative;
-	width: 50px;
+	width: 100px;
 	animation-name: move_goose;
-	animation-duration: 16s;
+	animation-duration: 15s;
 	animation-timing-function: ease-in-out;
 	z-index: 1;
 	margin-bottom: -10%;
@@ -29,7 +29,7 @@
 		0% {
 			left: 0vw;
 			top: 0vh;
-			width: 50px;
+			width: 100px;
 		}
 		20% {
 			left: 95vw;
@@ -39,13 +39,13 @@
 		40% {
 			left: 80vw;
 			top: 9vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		50% {
 			left: 75vw;
 			top: 8vh;
-			width: 50px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		65% {
@@ -56,20 +56,24 @@
 		75% {
 			left: 30vw;
 			top: 10vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		85% {
 			left: 2vw;
 			top: 50vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
+		/* 95% {
+			left: 0vw;
+			top: 0vh;
+			width: 100px;
+		} */
 		100% {
 			left: 0vw;
 			top: 0vh;
 			width: 100px;
-			transform: rotateY(180deg);
 		}
 	}
 }
@@ -79,7 +83,7 @@
 		0% {
 			left: 0vw;
 			top: 0vh;
-			width: 50px;
+			width: 100px;
 		}
 		20% {
 			left: 95vw;
@@ -89,13 +93,13 @@
 		40% {
 			left: 80vw;
 			top: 9vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		50% {
 			left: 75vw;
 			top: 8vh;
-			width: 50px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		65% {
@@ -106,13 +110,13 @@
 		75% {
 			left: 50vw;
 			top: 10vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		85% {
 			left: 2vw;
 			top: 30vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		100% {
@@ -129,7 +133,7 @@
 		0% {
 			left: 0vw;
 			top: 0vh;
-			width: 50px;
+			width: 100px;
 		}
 		20% {
 			left: 95vw;
@@ -139,13 +143,13 @@
 		40% {
 			left: 80vw;
 			top: 9vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		50% {
 			left: 75vw;
 			top: 8vh;
-			width: 50px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		65% {
@@ -156,13 +160,13 @@
 		75% {
 			left: 50vw;
 			top: 10vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		85% {
 			left: 2vw;
 			top: 30vh;
-			width: 150px;
+			width: 100px;
 			transform: rotateY(180deg);
 		}
 		100% {

@@ -181,7 +181,8 @@ function showGroups() {
 
 function groupClicked(event) {
 
-    let groupID = event.srcElement.offsetParent.id;
+    let groupID = event.srcElement.id;
+    let groupName = event.srcElement.innerText;
 
     bootbox.dialog({
         title: event.target.innerText,
@@ -200,7 +201,8 @@ function groupClicked(event) {
                 className: 'btn-info',
                 callback: function() {
                     if (typeof(groupID) == "string") {
-                        getGroupScoreToday(5, groupID);
+
+                        getGroupScoreToday(5, groupID, groupName);
                     }
                 }
             },
@@ -240,7 +242,7 @@ function removeSelfFromGroup(groupID) {
 }
 
 //Group score
-function getGroupScoreToday(month, groupID) {
+function getGroupScoreToday(month, groupID, groupName) {
     let groupScoreList;
     let formatYear = new Date().getFullYear();
     let formatMonth;
@@ -299,7 +301,7 @@ function getGroupScoreToday(month, groupID) {
 
                 };
 
-                calculateAverage(groupScoreList);
+                calculateAverage(groupScoreList, groupName);
 
             }).catch(function(error) {
                 console.log("Error getting document:", error);
@@ -311,7 +313,7 @@ function getGroupScoreToday(month, groupID) {
     });
 }
 
-function calculateAverage(groupScoreList) {
+function calculateAverage(groupScoreList, groupName) {
 
     setTimeout(() => {
 
@@ -333,7 +335,7 @@ function calculateAverage(groupScoreList) {
             num = 0;
         }
 
-        setGraph(5, groupAvgArray);
+        setGraph(5, groupAvgArray, groupName);
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
 
@@ -346,11 +348,13 @@ function calculateAverage(groupScoreList) {
 
 
 /* Handle month select */
-function setGraph(month, chartData) {
-
+function setGraph(month, chartData, groupName) {
     // Display heading
-    document.getElementById("chartText").innerText =
-        "Personal Chart for " + month;
+    document.getElementById("groupName").innerText =
+        "Month Group Chart For " + groupName;
+
+    console.log(chartData);
+
 
     // Display graph
     var colors = [ // Color
@@ -397,7 +401,7 @@ function setGraph(month, chartData) {
             "30",
         ],
         datasets: [{
-            data: getMonthScore(month), // Get user data!
+            data: chartData, // Get user data!
             backgroundColor: "transparent",
             borderColor: colors[0],
             borderWidth: 4,

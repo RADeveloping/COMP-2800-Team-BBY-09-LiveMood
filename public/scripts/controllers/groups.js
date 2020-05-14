@@ -23,6 +23,7 @@ function checkCred() {
 
 let user;
 
+
 function init() {
     user = firebase.auth().currentUser;
     showGroups();
@@ -60,7 +61,6 @@ function createGroup() {
         },
         callback: function(result) {
 
-            console.log(result.length);
             if (result === null || result.length == 0) {
 
             } else {
@@ -92,7 +92,6 @@ function createGroup() {
                     });
 
             }
-
 
         }
     });
@@ -207,6 +206,15 @@ function groupClicked(event) {
                     console.log('Custom OK clicked');
                 }
             },
+            chart: {
+                label: "View Chart",
+                className: 'btn-info',
+                callback: function() {
+                    if (typeof(groupID) == "string") {
+                        getGroupScoreToday(5, groupID);
+                    }
+                }
+            },
             invite: {
                 label: "Group Invite Code",
                 className: 'btn-primary',
@@ -243,7 +251,7 @@ function removeSelfFromGroup(groupID) {
 }
 
 //Group score
-function getGroupScoreToday(month) {
+function getGroupScoreToday(month, groupID) {
     let groupScoreList;
     let formatYear = new Date().getFullYear();
     let formatMonth;
@@ -255,79 +263,91 @@ function getGroupScoreToday(month) {
     }
 
     // Get group IDs
-    let groupList;
     let userRef = db.collection('users').doc(user.uid);
 
     userRef.get().then(function(userDoc) {
         // Get groups the user is in
         groupList = userDoc.data()["groups"];
 
-        // Each group
-        groupList.forEach(groupId => {
-            let groupRef = db.collection('groups').doc(groupId);
+        let groupRef = db.collection('groups').doc(groupID);
 
-            // Get group members
-            groupRef.get().then(function(groupDoc) {
+        // Get group members
+        groupRef.get()
+            .then(function(groupDoc) {
                 let memberList = groupDoc.data()["users"];
                 groupScoreList = [];
-
 
                 // Get member's score
                 for (let i = 0; i < memberList.length; i++) {
                     let memberId = memberList[i];
-                    groupScoreList.push([])
-                        // Ref to memeber
-                    let memberRef = db.collection('users').doc(memberId);
+                    groupScoreList.push([]);
+                    // Ref to memeber
+                    /// [[.....]]
+                    // Iterate over days
+                    let daysInMonth = new Date(formatYear, formatMonth, 0).getDate();
+                    for (let dd = 1; dd <= daysInMonth; dd++) {
+                        // Format Day to 2 digit
+                        let day;
+                        if (dd < 10) {
+                            day = "0" + dd;
+                        } else {
+                            day = dd;
+                        }
+                        // Member's score in a day
+                        let scoreDocId = "" + formatYear + formatMonth + day;
 
-                    memberRef.get()
-                        .then(function(memberDoc) {
+                        let userDayScoreRef = db.collection('users').doc(memberId)
+                            .collection('surveyTaken').doc(scoreDocId);
 
-                            // Iterate over days
-                            let daysInMonth = new Date(formatYear, formatMonth, 0).getDate();
-                            for (let dd = 1; dd <= daysInMonth; dd++) {
-
-                                // Format Day to 2 digit
-                                let day;
-                                if (dd < 10) {
-                                    day = "0" + dd;
-                                } else {
-                                    day = dd;
-                                }
-                                // Member's score in a day
-                                let scoreDocId = "" + formatYear + formatMonth + day;
-
-                                let userDayScoreRef = db.collection('users').doc(user.uid)
-                                    .collection('surveyTaken').doc(scoreDocId);
-
-                                // Daily score
-                                userDayScoreRef.get().then(function(doc) {
-                                    groupScoreList[i].push(doc.data()["score"]);
-
-                                }).catch(function(error) {
-                                    groupScoreList[i].push(null);
-                                });
-
-                            }
-
+                        // Daily score
+                        userDayScoreRef.get().then(function(doc) {
+                            groupScoreList[i].push(doc.data()["score"]);
+                            // Debug info
                         }).catch(function(error) {
-                            console.log("Error getting document:", error);
-
+                            groupScoreList[i].push(null);
                         });
-                }; // End of day loop for a member
+                    }
 
-                // Debug info
-                console.log(groupScoreList)
+                };
+
+                calculateAverage(groupScoreList);
 
             }).catch(function(error) {
                 console.log("Error getting document:", error);
-
             }); // End of member loop for a group
 
-        }); // End of groups loop for a user 
-
-        return (groupScoreList);
 
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
+}
+
+function calculateAverage(groupScoreList) {
+
+    setTimeout(() => {
+
+        let groupAvgArray = [];
+        let num = 0;
+        //sEzBH6cBlqQ3JZkfAXNH
+        for (let day = 0; day < groupScoreList[0].length - 1; day++) {
+            let totalOfDay = 0
+
+            for (let mem = 0; mem <= groupScoreList.length - 1; mem++) {
+
+                if (groupScoreList[mem][day] != null) {
+                    totalOfDay += groupScoreList[mem][day];
+                    num++;
+                }
+            }
+
+            groupAvgArray.push(totalOfDay / num)
+            num = 0;
+        }
+
+        // Save to local storage 
+        localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
+
+
+    }, 2000);
+
 }

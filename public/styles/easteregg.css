@@ -22,54 +22,60 @@
 }
 /* easter egg css */
 @media (min-width: 1280px) {
-	.eggend img {
-		width: 40%;
-	}
 	@keyframes move_goose {
+		/* start */
 		0% {
 			left: 0vw;
 			top: 0vh;
 			width: 100px;
 		}
+		/* username */
 		20% {
 			left: 95vw;
 			top: 1vh;
 			width: 100px;
 		}
-		40% {
+		/* months */
+		30% {
 			left: 80vw;
-			top: 9vh;
+			top: 13vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
-		50% {
+		/* month box */
+		45% {
 			left: 75vw;
 			top: 8vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
-		65% {
-			left: 40vw;
-			top: 25vh;
+		/* footer */
+		55% {
+			left: 60vw;
+			top: 30vh;
 			width: 100px;
 		}
-		75% {
-			left: 30vw;
+		/* graph */
+		65% {
+			left: 35vw;
 			top: 10vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
+		75% {
+			left: 12vw;
+			top: 5vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		/* nav menu */
 		85% {
 			left: 2vw;
 			top: 50vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
-		/* 95% {
-			left: 0vw;
-			top: 0vh;
-			width: 100px;
-		} */
+		/* end */
 		100% {
 			left: 0vw;
 			top: 0vh;

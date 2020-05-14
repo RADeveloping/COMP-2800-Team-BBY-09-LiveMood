@@ -13,87 +13,87 @@ $('#easterEgg').click(function() {
 	function fade2() {
 		$('.fade2').addClass('hideEgg');
 	}
-	window.setTimeout(fade2, 5000);
+	window.setTimeout(fade2, 4500);
 	// hide Febuary
 	function fade3() {
 		$('.fade3').addClass('hideEgg');
 	}
-	window.setTimeout(fade3, 5100);
+	window.setTimeout(fade3, 4600);
 	// hide March
 	function fade4() {
 		$('.fade4').addClass('hideEgg');
 	}
-	window.setTimeout(fade4, 5200);
+	window.setTimeout(fade4, 4700);
 	// hide April
 	function fade5() {
 		$('.fade5').addClass('hideEgg');
 	}
-	window.setTimeout(fade5, 5300);
+	window.setTimeout(fade5, 4800);
 	// hide May
 	function fade6() {
 		$('.fade6').addClass('hideEgg');
 	}
-	window.setTimeout(fade6, 5400);
+	window.setTimeout(fade6, 4900);
 	// hide June
 	function fade7() {
 		$('.fade7').addClass('hideEgg');
 	}
-	window.setTimeout(fade7, 5500);
+	window.setTimeout(fade7, 5000);
 	// hide July
 	function fade8() {
 		$('.fade8').addClass('hideEgg');
 	}
-	window.setTimeout(fade8, 5600);
+	window.setTimeout(fade8, 5100);
 	// hide August
 	function fade9() {
 		$('.fade9').addClass('hideEgg');
 	}
-	window.setTimeout(fade9, 5700);
+	window.setTimeout(fade9, 5200);
 	// hide September
 	function fade10() {
 		$('.fade10').addClass('hideEgg');
 	}
-	window.setTimeout(fade10, 5800);
+	window.setTimeout(fade10, 5300);
 	// hide October
 	function fade11() {
 		$('.fade11').addClass('hideEgg');
 	}
-	window.setTimeout(fade11, 5900);
+	window.setTimeout(fade11, 5400);
 	// hide November
 	function fade12() {
 		$('.fade12').addClass('hideEgg');
 	}
-	window.setTimeout(fade12, 6000);
+	window.setTimeout(fade12, 5500);
 	// hide December
 	function fade13() {
 		$('.fade13').addClass('hideEgg');
 	}
-	window.setTimeout(fade13, 6100);
+	window.setTimeout(fade13, 5600);
 	// hide month header
 	function fade14() {
 		$('.fade14').addClass('hideEgg');
 	}
-	window.setTimeout(fade14, 7300);
+	window.setTimeout(fade14, 6300);
 	// hide footer
 	function fade15() {
 		$('.fade15').addClass('hideEgg');
 	}
-	window.setTimeout(fade15, 9600);
+	window.setTimeout(fade15, 8200);
 	// hide graph
 	function fade16() {
 		$('.fade16').addClass('hideEgg');
 	}
-	window.setTimeout(fade16, 11000);
+	window.setTimeout(fade16, 9500);
 	// hide dashboard main section
 	function fade16half() {
 		$('.fade16half').addClass('hideEgg');
 	}
-	window.setTimeout(fade16half, 12000);
+	window.setTimeout(fade16half, 11000);
 	// hide arrow
 	function fade17() {
 		$('.fade17').addClass('hideEgg');
 	}
-	window.setTimeout(fade17, 13500);
+	window.setTimeout(fade17, 13000);
 	// hide logout
 	function fade18() {
 		$('.fade18').addClass('hideEgg');
@@ -174,5 +174,5 @@ $('#easterEgg').click(function() {
 		$('.fade24').removeClass('hideEgg');
 		// $('.fade25').removeClass('hideEgg');
 	}
-	window.setTimeout(aftereggEnd, 20000);
+	window.setTimeout(aftereggEnd, 22000);
 });

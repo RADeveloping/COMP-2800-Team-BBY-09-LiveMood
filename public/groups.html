@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
 
-    
+
 
 </head>
 
@@ -178,57 +178,85 @@
                         <!-- Content Row -->
                         <div class="row">
                             <!-- Area Chart -->
-                            <div class="col-xl-12">
+                            <div class="col-lg-3">
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3 d-flex flex-row">
-                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="addnew">Create New Group</h6>
-                                        <h6 class="m-0 font-weight-bold text-primary text-right" id="joingroup">Join Group</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="joingroup">Join Group</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary text-right" id="addnew">+</h6>
+
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
                                         <div class="content-area">
                                             <!-- ADDDD MAIN CONTENT HERE-->
-                                            <div class="container-flex">
-                                                <div class="card-deck" id="groupslist">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="card text-center" style="width:100%">
+                                                        <ul class="list-group list-group-flush" id="groupslist"></ul>
+                                                    </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Content Row -->
+                            <!-- Area Chart -->
+                            <div class="col-lg-9">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row">
+                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="groupName">Group Chart For</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="content-area">
+                                            <!-- ADDDD MAIN CONTENT HERE-->
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="card text-center" style="width:100%">
+                                                        <ul class="list-group list-group-flush" id="groupslist"></ul>
+                                                    </div>
+                                                </div>
 
-                        </div>
-
-                        <!-- End of Main Content -->
-
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </footer>
-                        <!-- End of Footer -->
+                        </div>
                     </div>
-                    <!-- End of Content Wrapper -->
                 </div>
-                <!-- End of Page Wrapper -->
+                <!-- End of Main Content -->
 
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
-                <!--Firebase Config-->
-                <script src="scripts/config/FirebaseConfig.js"></script>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Page Wrapper -->
 
-                <!-- Custom scripts for all pages-->
-                <script src="scripts/vendor/sb-admin-2.min.js"></script>
-                <!-- Local Scripts -->
-                <script src="scripts/controllers/groups.js"></script>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <!--Firebase Config-->
+        <script src="scripts/config/FirebaseConfig.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="scripts/vendor/sb-admin-2.min.js"></script>
+        <!-- Local Scripts -->
+        <script src="scripts/controllers/groups.js"></script>
 
 
     </body>

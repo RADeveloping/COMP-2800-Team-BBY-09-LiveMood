@@ -160,22 +160,11 @@ function showGroups() {
                     console.log(doc.id)
                     let groupElement = document.getElementById("groupslist");
 
-                    let divCard = document.createElement("div");
-                    divCard.classList.add("card");
-                    divCard.classList.add("ml-1");
-                    divCard.classList.add("mr-1");
+                    let divCard = document.createElement("li");
+                    divCard.classList.add("list-group-item");
                     divCard.id = doc.id;
                     divCard.onclick = groupClicked;
-
-                    let divCardBody = document.createElement("div");
-                    divCardBody.classList.add("card-body");
-
-                    let cardTitle = document.createElement("h5");
-                    cardTitle.classList.add("card-title");
-                    cardTitle.innerText = doc.data().name;
-                    divCardBody.appendChild(cardTitle);
-                    divCard.appendChild(divCardBody);
-
+                    divCard.innerText = doc.data().name;
                     groupElement.appendChild(divCard);
                 } else {
                     // doc.data() will be undefined in this case
@@ -346,6 +335,8 @@ function calculateAverage(groupScoreList) {
 
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
+
+
 
 
     }, 2000);

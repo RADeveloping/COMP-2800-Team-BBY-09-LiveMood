@@ -437,12 +437,20 @@ function setGraph(chartData, groupName) {
             "30",
         ],
         datasets: [{
-            data: chartData, // Get user data!
-            backgroundColor: "transparent",
-            borderColor: colors[0],
-            borderWidth: 4,
-            pointBackgroundColor: colors[0],
-        }, ],
+            label: "Average Mood Score",
+            lineTension: 0.1,
+            backgroundColor: "rgba(78, 115, 223, 0.05)",
+            borderColor: "rgba(78, 115, 223, 1)",
+            pointRadius: 1,
+            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointBorderColor: "rgba(78, 115, 223, 1)",
+            pointHoverRadius: 1,
+            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+            pointHitRadius: 1,
+            pointBorderWidth: 2,
+            data: chartData,
+        }],
     };
 
     if (chLine) {
@@ -450,16 +458,47 @@ function setGraph(chartData, groupName) {
             type: "line",
             data: chartData,
             options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                hover: false,
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
                 scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'day'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 31
+                        }
+                    }],
                     yAxes: [{
                         ticks: {
-                            beginAtZero: false,
+                            maxTicksLimit: 100,
+                            padding: 0
                         },
-                    }, ],
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
                 },
                 legend: {
-                    display: false,
-                },
+                    display: false
+                }
             },
         });
     }

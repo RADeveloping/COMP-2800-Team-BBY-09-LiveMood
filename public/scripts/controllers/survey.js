@@ -65,9 +65,14 @@ function readDB() {
 			if (doc.exists) {
 				// Get past score
 				scoreList = doc.data()['scoreList'];
+				document.getElementById("saveButton").innerHTML = "Update";
+				$('#infoMsg').css('display', 'block');
+
+				
 			} else {
 				// New deafault score
 				scoreList = new Array(5).fill(defaultMood, 0, 4);
+				document.getElementById("saveButton").innerHTML = "Save";
 			}
 
 			// Load data onto page
@@ -155,9 +160,6 @@ function save() {
 		})
 		.then(function() {
 			console.log('Updated Document');
-			$('#successMsg').css('display', 'block');
-			document.body.scrollTop = 0; // For Safari
-			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 			window.location = 'activity.html';
 		})
 		.catch(function(error) {
@@ -176,6 +178,8 @@ function save() {
 					// The document doesn't exist.
 					console.error('Error adding document: ', error);
 					$('#warnMsg').css('display', 'block');
+					document.body.scrollTop = 0; // For Safari
+					document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 				});
 		});
 }

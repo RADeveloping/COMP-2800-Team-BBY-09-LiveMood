@@ -90,12 +90,12 @@ function renderSuggestion(doc, userDoc) {
 	let activityRate = document.createElement('h3');
 	activityLink.classList.add('link');
 	activityName.textContent = doc.data().name;
-	activityInfo.textContent = doc.data().info;
-	activityLink.innerHTML = '<br>Click here for more info';
+	activityInfo.innerHTML = doc.data().info;
+	activityLink.innerHTML = '<br>Click here for more info<br>';
 	activityImg.src = doc.data().image;
 	activityLink.href = doc.data().link;
 	activityInfo.href = doc.data().link;
-	activityRate.innerHTML = '<h3>Your personal mood score is: ' + userDoc.data().score + '</h2>';
+	activityRate.innerHTML = '<h3>You scored: ' + userDoc.data().score + ' /100</h2>';
 	actSug.prepend(activityRate);
 	actSug.appendChild(activityName);
 	activity.appendChild(activityInfo);

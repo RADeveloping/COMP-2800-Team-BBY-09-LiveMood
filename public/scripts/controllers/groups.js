@@ -51,6 +51,7 @@ function createGroup() {
     bootbox.prompt({
         title: "Please enter a group name",
         inputType: 'text',
+        centerVertical: true,
         buttons: {
             cancel: {
                 label: '<i class="fa fa-times"></i> Cancel'
@@ -103,6 +104,7 @@ function joinGroup() {
     bootbox.prompt({
         title: "Please paste your group code",
         inputType: 'text',
+        centerVertical: true,
         buttons: {
             cancel: {
                 label: '<i class="fa fa-times"></i> Cancel'
@@ -193,10 +195,11 @@ function groupClicked(event) {
         title: event.target.innerText,
         message: "<p>What would you like to do to?</p>",
         size: 'large',
+        centerVertical: true,
         buttons: {
             ok: {
                 label: "Cancel",
-                className: 'btn-info',
+                className: 'btn-secondary',
                 callback: function() {
                     console.log('Custom OK clicked');
                 }
@@ -230,19 +233,44 @@ function groupClicked(event) {
 }
 
 function removeSelfFromGroup(groupID) {
-    var userGroupRef = db.collection("users").doc(user.uid);
 
-    console.log(user.uid);
-    userGroupRef.update({
-        groups: firebase.firestore.FieldValue.arrayRemove(groupID)
-    }).then(function() {
-        var GroupUserRef = db.collection("groups").doc(groupID);
-        GroupUserRef.update({
-            users: firebase.firestore.FieldValue.arrayRemove(user.uid)
-        }).then(function() {
-            window.location.reload();
-        })
-    })
+    // Prompt the user to re-provide their sign-in credentials
+    bootbox.confirm({
+        title: "MAYDAY MAYDAY!",
+        message: "Do you want to permanently be removed from the group? This cannot be undone.",
+        centerVertical: true,
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Cancel'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Confirm',
+                className: 'btn-danger'
+
+            }
+        },
+        callback: function(result) {
+            if (result == true) {
+                // delete all db items
+
+                var userGroupRef = db.collection("users").doc(user.uid);
+
+                console.log(user.uid);
+                userGroupRef.update({
+                    groups: firebase.firestore.FieldValue.arrayRemove(groupID)
+                }).then(function() {
+                    var GroupUserRef = db.collection("groups").doc(groupID);
+                    GroupUserRef.update({
+                        users: firebase.firestore.FieldValue.arrayRemove(user.uid)
+                    }).then(function() {
+                        window.location.reload();
+                    })
+                })
+
+            }
+        }
+    });
+
 
 }
 

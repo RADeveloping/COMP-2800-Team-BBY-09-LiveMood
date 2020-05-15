@@ -162,9 +162,13 @@ function showGroups() {
 
                     let divCard = document.createElement("li");
                     divCard.classList.add("list-group-item");
-                    divCard.id = doc.id;
-                    divCard.onclick = groupClicked;
-                    divCard.innerText = doc.data().name;
+
+                    let a = document.createElement("a");
+                    a.href = "#";
+                    a.innerText = doc.data().name;
+                    a.id = doc.id;
+                    a.onclick = groupClicked;
+                    divCard.append(a);
                     groupElement.appendChild(divCard);
                 } else {
                     // doc.data() will be undefined in this case
@@ -180,6 +184,7 @@ function showGroups() {
 
 
 function groupClicked(event) {
+
 
     let groupID = event.srcElement.id;
     let groupName = event.srcElement.innerText;

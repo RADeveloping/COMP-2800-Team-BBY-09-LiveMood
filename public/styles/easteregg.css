@@ -89,6 +89,9 @@
 			width: 100px;
 		}
 	}
+	.eggEndDiv {
+		margin-left: 35%;
+	}
 }
 /* easter egg moble css */
 @media (max-width: 500px) {
@@ -153,5 +156,8 @@
 			top: 0vh;
 			width: 50px;
 		}
+	}
+	.eggEndDiv {
+		width: 100%;
 	}
 }

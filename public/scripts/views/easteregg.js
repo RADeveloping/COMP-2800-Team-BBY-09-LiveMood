@@ -142,6 +142,7 @@ $('#backToDash').click(function() {
 	//  // show goose
 	$('#easterEggImg').addClass('hideEgg');
 	$('#eggend').removeClass('eggend');
+	$('#eggend').removeClass('eggEndDiv');
 	$('#eggend').addClass('hideEgg');
 
 	$('.fade1').removeClass('hideEgg');

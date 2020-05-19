@@ -1,0 +1,163 @@
+#easterEgg {
+	color: rgba(254, 255, 255, 0);
+}
+.hideEgg {
+	display: none;
+}
+.easterEggTop {
+	height: 0em;
+}
+.walk {
+	position: relative;
+	animation-name: move_goose;
+	animation-duration: 15s;
+	width: 100px;
+	animation-timing-function: ease-in-out;
+	z-index: 2;
+	margin-bottom: -10%;
+}
+.eggend {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 5%;
+	width: 30%;
+}
+.eggEndDiv {
+	display: flex;
+	flex-direction: column;
+}
+/* easter egg desktop css */
+@media (min-width: 1201px) {
+	@keyframes move_goose {
+		/* start */
+		0% {
+			left: 0vw;
+			top: 0vh;
+			width: 100px;
+		}
+		/* username */
+		20% {
+			left: 93vw;
+			top: 1vh;
+			width: 100px;
+		}
+		/* months */
+		30% {
+			left: 80vw;
+			top: 13vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		/* month box */
+		45% {
+			left: 75vw;
+			top: 8vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		/* footer */
+		55% {
+			left: 60vw;
+			top: 48vh;
+			width: 100px;
+		}
+		/* graph */
+		65% {
+			left: 35vw;
+			top: 25vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		75% {
+			left: 15vw;
+			top: 5vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		/* nav menu */
+		85% {
+			left: 2vw;
+			top: 50vh;
+			width: 100px;
+			transform: rotateY(180deg);
+		}
+		/* end */
+		100% {
+			left: 0vw;
+			top: 0vh;
+			width: 100px;
+		}
+	}
+	.eggEndDiv {
+		margin-left: 35%;
+	}
+}
+/* easter egg moble css */
+@media (max-width: 500px) {
+	@keyframes move_goose {
+		/* start */
+		0% {
+			left: 0vw;
+			top: 0vh;
+			width: 50px;
+		}
+		/* username */
+		20% {
+			left: 93vw;
+			top: 1vh;
+			width: 50px;
+		}
+		/* months */
+		30% {
+			left: 30vw;
+			top: 70vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* month box */
+		45% {
+			left: 50vw;
+			top: 45vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* footer */
+		55% {
+			left: 80vw;
+			top: 50vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* graph */
+		65% {
+			left: 40vw;
+			top: 25vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* dashboard */
+		75% {
+			left: 30vw;
+			top: 6vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* nav menu */
+		85% {
+			left: 6vw;
+			top: 80vh;
+			width: 50px;
+			transform: rotateY(180deg);
+		}
+		/* end */
+		100% {
+			left: 0vw;
+			top: 0vh;
+			width: 50px;
+		}
+	}
+	.eggEndDiv {
+		width: 100%;
+	}
+}

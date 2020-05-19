@@ -1,5 +1,15 @@
 .register-button {
-    font-size: .8rem;
-    border-radius: 10rem;
-    padding: .75rem 1rem;
+	font-size: .8rem;
+	border-radius: 10rem;
+	padding: .75rem 1rem;
+}
+.hide {
+	display: none;
+}
+.showMessage {
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-left: 25%;
+	width: 50%;
+	text-align: center;
 }

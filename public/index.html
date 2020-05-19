@@ -54,6 +54,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
 
+
     <body id="page-top">
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -140,7 +141,12 @@
 
                 <!-- Main Content -->
                 <div id="content">
-
+                    <div class="alert alert-warning alert-dismissible fade show d-block" id="coronaBanner" role="alert">
+                        <span id="covidinfo"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 

@@ -1,9 +1,7 @@
-/* .avatar {
-	padding: 10px;
-} */
-@media screen and (min-width: 500px) and (max-width: 1200) {
-	.d-lg-flex {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-	}
+.avatar {
+    padding: 10px;
+}
+
+#googleMap {
+    height: 70%;
 }

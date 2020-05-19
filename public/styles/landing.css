@@ -1,7 +1,9 @@
 html {
     scroll-behavior: smooth;
 }
-
+#loginButton, #registerButton, #dashboardButton{
+    display: none;
+}
 
 .jumbotron{
     text-align: center;
@@ -19,6 +21,7 @@ div.card-deck{
     max-height: 500px;
     padding: 1%;
     margin-bottom: 10px;
+    border-color: #4e73df;
 }
 
 .sub-title{

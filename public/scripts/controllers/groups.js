@@ -1,3 +1,8 @@
+let user;
+
+/**
+ * @desc Log user out of website and redirect to login page.
+ */
 function logout() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
@@ -8,8 +13,9 @@ function logout() {
 }
 
 
-checkCred();
-
+/**
+ * @desc Check user credentials, if not logged in, redirect to login.html. 
+ */
 function checkCred() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
@@ -19,18 +25,20 @@ function checkCred() {
         }
     });
 }
+checkCred();
 
-
-let user;
-
-
+/**
+ * @desc initialize user and call show groups and set username function.
+ */
 function init() {
     user = firebase.auth().currentUser;
     showGroups();
     setUserName();
 }
 
-
+/**
+ * @desc set username for the page.
+ */
 function setUserName() {
     document.getElementById("username").innerText = user.displayName;
 
@@ -46,6 +54,10 @@ function addOnClickHandlers() {
 
 }
 addOnClickHandlers();
+
+/**
+ * @desc creates a new group and adds data to Firebase Database.
+ */
 
 function createGroup() {
     bootbox.prompt({
@@ -85,8 +97,6 @@ function createGroup() {
                             window.location.reload();
                         });
 
-
-
                     })
                     .catch(function(error) {
                         console.error("Error adding document: ", error);
@@ -99,6 +109,10 @@ function createGroup() {
 
 }
 
+
+/**
+ * @desc Checks firebase for valid group code and adds user to the group.
+ */
 
 function joinGroup() {
     bootbox.prompt({
@@ -125,7 +139,6 @@ function joinGroup() {
                         if (docSnapshot.exists) {
                             groupRefArray.onSnapshot((doc) => {
                                 // valid invite code
-
                                 let groupRef = db.collection("users").doc(user.uid);
                                 groupRef.update({
                                     groups: firebase.firestore.FieldValue.arrayUnion(result)
@@ -149,7 +162,9 @@ function joinGroup() {
 }
 
 
-
+/**
+ * @desc Pulls all the groups from firebase and displays to user.
+ */
 function showGroups() {
 
     let groupsRef = db.collection("groups");
@@ -185,8 +200,11 @@ function showGroups() {
 }
 
 
-function groupClicked(event) {
+/**
+ * @desc Group button clicked, shows a popup menu with options. 
+ */
 
+function groupClicked(event) {
 
     let groupID = event.srcElement.id;
     let groupName = event.srcElement.innerText;
@@ -232,6 +250,9 @@ function groupClicked(event) {
     });
 }
 
+/**
+ * @desc removes user from a Firebase groups.
+ */
 function removeSelfFromGroup(groupID) {
 
     // Prompt the user to re-provide their sign-in credentials
@@ -274,7 +295,11 @@ function removeSelfFromGroup(groupID) {
 
 }
 
-//Group score
+/**
+ * @desc Pull group score data from firebase
+ * @param groupID The groupd id to pull the score first.
+ * @param groupName The group name the goes with the GroupID.
+ */
 function getGroupScoreToday(groupID, groupName) {
     let d = new Date();
     let n = d.getMonth();
@@ -350,6 +375,11 @@ function getGroupScoreToday(groupID, groupName) {
     });
 }
 
+/**
+ * @desc Calculates the average of the group scores.
+ * @param groupScoreList array of scores
+ * @param groupName the group name array belongs to.
+ */
 function calculateAverage(groupScoreList, groupName) {
 
     setTimeout(() => {
@@ -376,15 +406,16 @@ function calculateAverage(groupScoreList, groupName) {
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
 
-
-
-
     }, 2000);
 
 }
 
 
-/* Handle month select */
+/**
+ * @desc sets the graph for the month using the chart data.
+ * @param chartData array of scores
+ * @param groupName the group name array belongs to.
+ */
 function setGraph(chartData, groupName) {
     // Display heading
     document.getElementById("chartHelp").classList.add("d-none");

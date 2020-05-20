@@ -1,6 +1,23 @@
 html {
     scroll-behavior: smooth;
 }
+
+#dropdownMenuButton{
+    position: fixed; 
+    bottom: 1em; 
+    left: 1em; 
+    z-index: 1000;
+}
+
+div.dropdown-menu{
+    max-width: 10px;
+}
+div.sharingButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+
 #loginButton, #registerButton, #dashboardButton{
     display: none;
 }

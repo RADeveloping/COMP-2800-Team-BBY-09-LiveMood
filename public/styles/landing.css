@@ -73,3 +73,7 @@ footer .row div{
         align-items: center;
     }
 }
+
+footer .row .paraText ul{
+    padding-left: 10px ;
+}

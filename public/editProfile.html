@@ -11,50 +11,40 @@
     <title>LiveMood - Edit Profile</title>
 
     <!----------------------------------------------->
-    <!----------------  FAVICON --------------------->
+    <!----------------  FAVICON ---------- ---------->
     <!----------------------------------------------->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
 
+    <!----------------------------------------------->
+    <!-----------  EXTERNAL RESOURCES --------------->
+    <!----------------------------------------------->
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
-
     <!--Firebase-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
     <!-- CSS -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
-
-
 </head>
 
-<body>
-
+<body id="page-top">
     <!----------------------------------------------->
     <!--  LOAD FIREBASE JS -->
     <!----------------------------------------------->
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
-
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
@@ -63,228 +53,218 @@
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
-    <body id="page-top">
-        <!-- Page Wrapper -->
-        <div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <img src="images/logo.png" width="38px" height="38px">
-                    </div>
-                    <div class="sidebar-brand-text mx-3">LiveMood</div>
-                </a>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Nav Item - Groups -->
-                <li class="nav-item">
-                    <a class="nav-link" href="groups.html">
-                        <i class="fas fa-users"></i>
-                        <span>Groups</span></a>
-                </li>
-
-                <!-- Nav Item - Survey -->
-                <li class="nav-item">
-                    <a class="nav-link" href="survey.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Survey</span></a>
-                </li>
-
-                <!-- Nav Item - Activities -->
-                <li class="nav-item">
-                    <a class="nav-link" href="activity.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Activities</span></a>
-                </li>
-
-
-                <!-- Nav Item - About -->
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>About Us</span></a>
-                </li>
-
-
-                <!-- Nav Item - Edit Profile -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="editProfile.html">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>Edit Profile</span></a>
-                </li>
-
-                <!-- Nav Item - About -->
-                <li class="nav-item">
-                    <a class="nav-link" href="" id="logoutButton">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
-
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="images/logo.png" width="38px" height="38px">
                 </div>
+                <div class="sidebar-brand-text mx-3">LiveMood</div>
+            </a>
 
-            </ul>
-            <!-- End of Sidebar -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                    <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <!-- Nav Item - Groups -->
+            <li class="nav-item">
+                <a class="nav-link" href="groups.html">
+                    <i class="fas fa-users"></i>
+                    <span>Groups</span></a>
+            </li>
 
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
+            <!-- Nav Item - Survey -->
+            <li class="nav-item">
+                <a class="nav-link" href="survey.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Survey</span></a>
+            </li>
 
-                        <!-- Topbar Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Nav Item - User Information -->
-                            <li class="nav-item dropdown no-arrow">
-                                <span id="username"></span>
-                        </ul>
+            <!-- Nav Item - Activities -->
+            <li class="nav-item">
+                <a class="nav-link" href="activity.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Activities</span></a>
+            </li>
 
-                    </nav>
-                    <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
+            <!-- Nav Item - About -->
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About Us</span></a>
+            </li>
 
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
-                        </div>
 
-                        <div class="alert alert-warning alert-dismissible fade show d-none" role="alert"
-                            id="notverifiedbar">
-                            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <!-- Nav Item - Edit Profile -->
+            <li class="nav-item active">
+                <a class="nav-link" href="editProfile.html">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Edit Profile</span></a>
+            </li>
+
+            <!-- Nav Item - About -->
+            <li class="nav-item">
+                <a class="nav-link" href="" id="logoutButton">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span
+                                        id="username"></span></span>
+                            </a>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
+                    </div>
+
+                    <div class="alert alert-warning alert-dismissible fade show d-none" role="alert" id="notverifiedbar">
+                        <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span> -->
-                            </button>
-                        </div>
+                        </button>
+                    </div>
 
-                        <!-- Content Row -->
-                        <div class="row">
-                            <!-- Area Chart -->
-                            <div class="col-xl-12">
-                                <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-                                        <div class="content-area">
-                                            <!-- ADDDD MAIN CONTENT HERE-->
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm-12 col-md-12 col-lg-10 mx-auto mt-2">
-                                                        <div class="card-body">
-                                                            <p class="text-center">Use the form below to make your
-                                                                changes!</p>
-                                                            <form class="form-edit">
-                                                                <div class="form-label-group">
-                                                                    <input type="text" id="inputName"
-                                                                        class="form-control" placeholder="Name" required
-                                                                        autofocus>
-                                                                    <label for="inputName">Full Name</label>
-                                                                </div>
-                                                                <div class="form-label-group">
-                                                                    <input type="email" id="inputEmail"
-                                                                        class="form-control" placeholder="Email address"
-                                                                        required>
-                                                                    <label for="inputEmail">Email address</label>
-                                                                </div>
-                                                                <div class="form-label-group">
-                                                                    <input type="password" id="inputPassword"
-                                                                        class="form-control" placeholder="*******">
-                                                                    <label for="inputPassword">New Password</label>
-                                                                </div>
-                                                            </form>
-                                                            <button class="btn-primary btn-block button-style"
-                                                                id="savechanges">Save Changes</button>
-                                                        </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-xl-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="content-area">
+                                        <!-- ADDDD MAIN CONTENT HERE-->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-10 mx-auto mt-2">
+                                                    <div class="card-body">
+                                                        <p class="text-center">Use the form below to make your changes!
+                                                        </p>
+                                                        <form class="form-edit">
+                                                            <div class="form-label-group">
+                                                                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                                                                <label for="inputName">Full Name</label>
+                                                            </div>
+                                                            <div class="form-label-group">
+                                                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                                                <label for="inputEmail">Email address</label>
+                                                            </div>
+                                                            <div class="form-label-group">
+                                                                <input type="password" id="inputPassword" class="form-control" placeholder="*******">
+                                                                <label for="inputPassword">New Password</label>
+                                                            </div>
+                                                        </form>
+                                                        <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- ENDDD MAIN CONTENT HERE-->
                                         </div>
                                     </div>
+                                    <!-- ENDDD MAIN CONTENT HERE-->
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Permanently Delete Account</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>By clicking the button below all your data will be deleted and you will no
-                                            longer be able to use our services. You must create a new account to use
-                                            LiveMood again.</p>
-                                        <button href="" id="deleteuserbutton" onclick="deleteUser()"
-                                            class="btn btn-danger btn-icon-split float-right">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Permanently Delete Account</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>By clicking the button below all your data will be deleted and you will no longer be able to use our services. You must create a new account to use LiveMood again.</p>
+                                    <button href="" id="deleteuserbutton" onclick="deleteUser()" class="btn btn-danger btn-icon-split float-right">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>
                                             <span class="text">Delete My Account Forver</span>
                                         </button>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
 
-                        <!-- End of Main Content -->
-
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and
-                                        Jason</span>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- End of Footer -->
                     </div>
-                    <!-- End of Content Wrapper -->
                 </div>
-                <!-- End of Page Wrapper -->
 
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
-                <!--Firebase Config-->
-                <script src="scripts/config/FirebaseConfig.js"></script>
+                <!-- End of Main Content -->
 
-                <!-- Custom scripts for all pages-->
-                <script src="scripts/vendor/sb-admin-2.min.js"></script>
-                <script src="scripts/controllers/editprofile.js"></script>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and
+                                        Jason</span>
+                        </div>
+                    </div>
+            </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!--Firebase Config-->
+    <script src="scripts/config/FirebaseConfig.js"></script>
 
+    <!-- Custom scripts for all pages-->
+    <script src="scripts/vendor/sb-admin-2.min.js"></script>
+    <script src="scripts/controllers/editprofile.js"></script>
 
-    </body>
+</body>
 
 </html>

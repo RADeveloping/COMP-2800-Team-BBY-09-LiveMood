@@ -1,6 +1,9 @@
-// Global variables
+// Global variables for scores
 let questions = [];
-let ansWords = [ [], [] ];
+let ansWords = [
+	[],
+	[]
+];
 let scoreList = [];
 let minMood = '0';
 let defaultMood = '50';
@@ -16,7 +19,7 @@ let today = new Date(year, month, day, 0, 0, 0);
 // Get userId
 let userId;
 let user;
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		userId = user.uid;
 		setUserName();
@@ -27,25 +30,38 @@ firebase.auth().onAuthStateChanged(function(user) {
 	}
 });
 
+
+/**
+ * Get display name
+ */
 function setUserName() {
 	user = firebase.auth().currentUser;
 	document.getElementById('username').innerText = user.displayName;
 }
 
+
+/**
+ * Clear login session
+ */
 function logout() {
 	firebase
 		.auth()
 		.signOut()
-		.then(function() {
+		.then(function () {
 			// Sign-out successful.
 			window.location = 'login.html';
+
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			window.alert(error);
+
 		});
 }
 
-// Read DB data, questions and scores
+
+/**
+ * Read survey questions and survey scores if any
+ */
 function readDB() {
 	// Read questions
 	db.collection('survey').get().then((querySnapshot) => {
@@ -61,14 +77,14 @@ function readDB() {
 
 	userDayScoreRef
 		.get()
-		.then(function(doc) {
+		.then(function (doc) {
 			if (doc.exists) {
 				// Get past score
 				scoreList = doc.data()['scoreList'];
 				document.getElementById("saveButton").innerHTML = "Update";
 				$('#infoMsg').css('display', 'block');
 
-				
+
 			} else {
 				// New deafault score
 				scoreList = new Array(5).fill(defaultMood, 0, 4);
@@ -78,16 +94,23 @@ function readDB() {
 			// Load data onto page
 			loadPage();
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			console.log('Error getting document:', error);
 		});
 }
 
+
+/**
+ * Get user in current session
+ */
 function getUser() {
 	user = firebase.auth().currentUser;
 }
 
-// Create survey dynamically
+
+/**
+ * Create survey (Questions and sliders) dynamically
+ */
 function loadPage() {
 	for (let i = 0; i < questions.length; i++) {
 		let q = questions[i];
@@ -101,7 +124,7 @@ function loadPage() {
 		let sliderDiv = document.createElement('DIV');
 		sliderDiv.className = 'form-control-range mb-4 sliderCont';
 
-		// Slider
+		// Slider with values
 		let slider = document.createElement('INPUT');
 		slider.className = 'form-control-range slider';
 		slider.setAttribute('type', 'range');
@@ -130,11 +153,15 @@ function loadPage() {
 		qDiv.appendChild(questionPara);
 		qDiv.appendChild(sliderDiv);
 
+		// Add all to page
 		$('.qContainer').append(qDiv);
 	}
 }
 
-// Write scores to DB when save
+
+/**
+ * Write mood scores to DB when save
+ */
 function save() {
 	let scoreList = [];
 	let sum = 0;
@@ -154,37 +181,42 @@ function save() {
 	// Update if exist
 	return userDayScoreRef
 		.update({
-			score     : score,
-			date      : Date(),
-			scoreList : scoreList
+			score: score,
+			date: Date(),
+			scoreList: scoreList
 		})
-		.then(function() {
+		.then(function () {
 			console.log('Updated Document');
 			window.location = 'activity.html';
 		})
-		.catch(function(error) {
-			// Create new doc
+		.catch(function (error) {
+
+			// Else create new doc
 			userDayScoreRef
 				.set({
-					score     : score,
-					date      : Date(),
-					scoreList : scoreList
+					score: score,
+					date: Date(),
+					scoreList: scoreList
 				})
-				.then(function() {
+				.then(function () {
 					console.log('New document successfully written');
 					window.location = 'activity.html';
 				})
-				.catch(function(error) {
+				.catch(function (error) {
 					// The document doesn't exist.
 					console.error('Error adding document: ', error);
 					$('#warnMsg').css('display', 'block');
 					document.body.scrollTop = 0; // For Safari
 					document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 				});
+
 		});
 }
 
-// Generate Doc ID (YYYYMMDD)
+
+/**
+ * Generate Survey Doc ID (YYYYMMDD)
+ */
 function getDocId() {
 	let tempMonth;
 	let tempDay;

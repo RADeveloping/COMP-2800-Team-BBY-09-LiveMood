@@ -82,6 +82,7 @@ const actSuggestion = document.querySelector('.suggestion');
 const actSug = document.querySelector('#actSug');
 // Render the suggestion to the user
 function renderSuggestion(doc, userDoc) {
+	$('#noMoodScore').addClass('hide');
 	let activity = document.createElement('div');
 	let activityName = document.createElement('span');
 	let activityInfo = document.createElement('h2');
@@ -101,16 +102,14 @@ function renderSuggestion(doc, userDoc) {
 	activity.appendChild(activityInfo);
 	activity.appendChild(activityLink);
 	activity.appendChild(activityImg);
-	// activity.style.backgroundImage = 'url(' + doc.data().image + ')';
 
 	actSuggestion.appendChild(activity);
 }
-// document.getElementById('curMood').onclick = indActivity;
+
 // get the activity base on current mood score
 function indActivity(userDoc) {
 	db.collection('individualActivities').get().then((snapshot) => {
 		snapshot.docs.forEach((doc) => {
-			// console.log(doc.data());
 			if (doc.data().rating == moodScore) {
 				renderSuggestion(doc, userDoc);
 			}

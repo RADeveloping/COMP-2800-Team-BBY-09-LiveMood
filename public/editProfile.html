@@ -22,17 +22,23 @@
     <!-----------  EXTERNAL RESOURCES --------------->
     <!----------------------------------------------->
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
     <!--Firebase-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/edit-profile.css">
 </head>
@@ -74,7 +80,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -84,21 +91,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="groups.html">
                     <i class="fas fa-users"></i>
-                    <span>Groups</span></a>
+                    <span>Groups</span>
+                </a>
             </li>
 
             <!-- Nav Item - Survey -->
             <li class="nav-item">
                 <a class="nav-link" href="survey.html">
                     <i class="fas fa-info-circle"></i>
-                    <span>Survey</span></a>
+                    <span>Survey</span>
+                </a>
             </li>
 
             <!-- Nav Item - Activities -->
             <li class="nav-item">
                 <a class="nav-link" href="activity.html">
                     <i class="fas fa-info-circle"></i>
-                    <span>Activities</span></a>
+                    <span>Activities</span>
+                </a>
             </li>
 
 
@@ -106,7 +116,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="about.html">
                     <i class="fas fa-info-circle"></i>
-                    <span>About Us</span></a>
+                    <span>About Us</span>
+                </a>
             </li>
 
 
@@ -114,14 +125,16 @@
             <li class="nav-item active">
                 <a class="nav-link" href="editProfile.html">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Edit Profile</span></a>
+                    <span>Edit Profile</span>
+                </a>
             </li>
 
             <!-- Nav Item - About -->
             <li class="nav-item">
                 <a class="nav-link" href="" id="logoutButton">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
+                    <span>Logout</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -157,6 +170,7 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span
                                         id="username"></span></span>
                             </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
@@ -168,10 +182,11 @@
                         <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
                     </div>
 
-                    <div class="alert alert-warning alert-dismissible fade show d-none" role="alert" id="notverifiedbar">
+                    <div class="alert alert-warning alert-dismissible fade show d-none" role="alert"
+                        id="notverifiedbar">
                         <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span> -->
-                        </button>
+                              <span aria-hidden="true">&times;</span>
+                        </button> -->
                     </div>
 
                     <!-- Content Row -->
@@ -192,19 +207,23 @@
                                                         </p>
                                                         <form class="form-edit">
                                                             <div class="form-label-group">
-                                                                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                                                                <input type="text" id="inputName" class="form-control"
+                                                                    placeholder="Name" required autofocus>
                                                                 <label for="inputName">Full Name</label>
                                                             </div>
                                                             <div class="form-label-group">
-                                                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                                                                <input type="email" id="inputEmail" class="form-control"
+                                                                    placeholder="Email address" required>
                                                                 <label for="inputEmail">Email address</label>
                                                             </div>
                                                             <div class="form-label-group">
-                                                                <input type="password" id="inputPassword" class="form-control" placeholder="*******">
+                                                                <input type="password" id="inputPassword"
+                                                                    class="form-control" placeholder="*******">
                                                                 <label for="inputPassword">New Password</label>
                                                             </div>
                                                         </form>
-                                                        <button class="btn-primary btn-block button-style" id="savechanges">Save Changes</button>
+                                                        <button class="btn-primary btn-block button-style"
+                                                            id="savechanges">Save Changes</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,17 +241,19 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Permanently Delete Account</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>By clicking the button below all your data will be deleted and you will no longer be able to use our services. You must create a new account to use LiveMood again.</p>
-                                    <button href="" id="deleteuserbutton" onclick="deleteUser()" class="btn btn-danger btn-icon-split float-right">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span class="text">Delete My Account Forver</span>
-                                        </button>
+                                    <p>By clicking the button below all your data will be deleted and you will no longer
+                                        be able to use our services. You must create a new account to use LiveMood
+                                        again.</p>
+                                    <button href="" id="deleteuserbutton" onclick="deleteUser()"
+                                        class="btn btn-danger btn-icon-split float-right">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Delete My Account Forver</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -243,11 +264,11 @@
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
                             <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and
-                                        Jason</span>
+                                Jason</span>
                         </div>
                     </div>
+                </footer>
             </div>
-            </footer>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->

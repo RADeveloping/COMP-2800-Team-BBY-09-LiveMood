@@ -1,6 +1,14 @@
 const individualActivitiesArr = [
 	{
 		name   : 'Helplines',
+		rating : 0,
+		link   : 'https://www.ctvnews.ca/health/mental-health-care-in-canada-where-to-find-help-1.3767445',
+		info   :
+			'It looks like you’re have a hard time. Help is always here for you. <br><br> In case of emergency dial 911',
+		image  : 'images/help.png'
+	},
+	{
+		name   : 'Helplines',
 		rating : 1,
 		link   : 'https://www.ctvnews.ca/health/mental-health-care-in-canada-where-to-find-help-1.3767445',
 		info   : 'It looks like you’re have a hard time. Help is always here for you.',

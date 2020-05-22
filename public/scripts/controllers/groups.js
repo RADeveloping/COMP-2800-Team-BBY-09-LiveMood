@@ -1,3 +1,8 @@
+let user;
+
+/**
+ * @desc Log user out of website and redirect to login page.
+ */
 function logout() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
@@ -8,8 +13,9 @@ function logout() {
 }
 
 
-checkCred();
-
+/**
+ * @desc Check user credentials, if not logged in, redirect to login.html. 
+ */
 function checkCred() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
@@ -19,18 +25,20 @@ function checkCred() {
         }
     });
 }
+checkCred();
 
-
-let user;
-
-
+/**
+ * @desc initialize user and call show groups and set username function.
+ */
 function init() {
     user = firebase.auth().currentUser;
     showGroups();
     setUserName();
 }
 
-
+/**
+ * @desc set username for the page.
+ */
 function setUserName() {
     document.getElementById("username").innerText = user.displayName;
 
@@ -47,10 +55,15 @@ function addOnClickHandlers() {
 }
 addOnClickHandlers();
 
+/**
+ * @desc creates a new group and adds data to Firebase Database.
+ */
+
 function createGroup() {
     bootbox.prompt({
         title: "Please enter a group name",
         inputType: 'text',
+        centerVertical: true,
         buttons: {
             cancel: {
                 label: '<i class="fa fa-times"></i> Cancel'
@@ -84,8 +97,6 @@ function createGroup() {
                             window.location.reload();
                         });
 
-
-
                     })
                     .catch(function(error) {
                         console.error("Error adding document: ", error);
@@ -99,10 +110,15 @@ function createGroup() {
 }
 
 
+/**
+ * @desc Checks firebase for valid group code and adds user to the group.
+ */
+
 function joinGroup() {
     bootbox.prompt({
         title: "Please paste your group code",
         inputType: 'text',
+        centerVertical: true,
         buttons: {
             cancel: {
                 label: '<i class="fa fa-times"></i> Cancel'
@@ -123,7 +139,6 @@ function joinGroup() {
                         if (docSnapshot.exists) {
                             groupRefArray.onSnapshot((doc) => {
                                 // valid invite code
-
                                 let groupRef = db.collection("users").doc(user.uid);
                                 groupRef.update({
                                     groups: firebase.firestore.FieldValue.arrayUnion(result)
@@ -147,7 +162,9 @@ function joinGroup() {
 }
 
 
-
+/**
+ * @desc Pulls all the groups from firebase and displays to user.
+ */
 function showGroups() {
 
     let groupsRef = db.collection("groups");
@@ -162,9 +179,13 @@ function showGroups() {
 
                     let divCard = document.createElement("li");
                     divCard.classList.add("list-group-item");
-                    divCard.id = doc.id;
-                    divCard.onclick = groupClicked;
-                    divCard.innerText = doc.data().name;
+
+                    let a = document.createElement("a");
+                    a.href = "#";
+                    a.innerText = doc.data().name;
+                    a.id = doc.id;
+                    a.onclick = groupClicked;
+                    divCard.append(a);
                     groupElement.appendChild(divCard);
                 } else {
                     // doc.data() will be undefined in this case
@@ -179,6 +200,10 @@ function showGroups() {
 }
 
 
+/**
+ * @desc Group button clicked, shows a popup menu with options. 
+ */
+
 function groupClicked(event) {
 
     let groupID = event.srcElement.id;
@@ -188,10 +213,11 @@ function groupClicked(event) {
         title: event.target.innerText,
         message: "<p>What would you like to do to?</p>",
         size: 'large',
+        centerVertical: true,
         buttons: {
             ok: {
                 label: "Cancel",
-                className: 'btn-info',
+                className: 'btn-secondary',
                 callback: function() {
                     console.log('Custom OK clicked');
                 }
@@ -224,24 +250,56 @@ function groupClicked(event) {
     });
 }
 
+/**
+ * @desc removes user from a Firebase groups.
+ */
 function removeSelfFromGroup(groupID) {
-    var userGroupRef = db.collection("users").doc(user.uid);
 
-    console.log(user.uid);
-    userGroupRef.update({
-        groups: firebase.firestore.FieldValue.arrayRemove(groupID)
-    }).then(function() {
-        var GroupUserRef = db.collection("groups").doc(groupID);
-        GroupUserRef.update({
-            users: firebase.firestore.FieldValue.arrayRemove(user.uid)
-        }).then(function() {
-            window.location.reload();
-        })
-    })
+    // Prompt the user to re-provide their sign-in credentials
+    bootbox.confirm({
+        title: "MAYDAY MAYDAY!",
+        message: "Do you want to permanently be removed from the group? This cannot be undone.",
+        centerVertical: true,
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Cancel'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Confirm',
+                className: 'btn-danger'
+
+            }
+        },
+        callback: function(result) {
+            if (result == true) {
+                // delete all db items
+
+                var userGroupRef = db.collection("users").doc(user.uid);
+
+                console.log(user.uid);
+                userGroupRef.update({
+                    groups: firebase.firestore.FieldValue.arrayRemove(groupID)
+                }).then(function() {
+                    var GroupUserRef = db.collection("groups").doc(groupID);
+                    GroupUserRef.update({
+                        users: firebase.firestore.FieldValue.arrayRemove(user.uid)
+                    }).then(function() {
+                        window.location.reload();
+                    })
+                })
+
+            }
+        }
+    });
+
 
 }
 
-//Group score
+/**
+ * @desc Pull group score data from firebase
+ * @param groupID The groupd id to pull the score first.
+ * @param groupName The group name the goes with the GroupID.
+ */
 function getGroupScoreToday(groupID, groupName) {
     let d = new Date();
     let n = d.getMonth();
@@ -317,6 +375,11 @@ function getGroupScoreToday(groupID, groupName) {
     });
 }
 
+/**
+ * @desc Calculates the average of the group scores.
+ * @param groupScoreList array of scores
+ * @param groupName the group name array belongs to.
+ */
 function calculateAverage(groupScoreList, groupName) {
 
     setTimeout(() => {
@@ -343,15 +406,16 @@ function calculateAverage(groupScoreList, groupName) {
         // Save to local storage 
         localStorage["groupAvgArray"] = JSON.stringify(groupAvgArray);
 
-
-
-
     }, 2000);
 
 }
 
 
-/* Handle month select */
+/**
+ * @desc sets the graph for the month using the chart data.
+ * @param chartData array of scores
+ * @param groupName the group name array belongs to.
+ */
 function setGraph(chartData, groupName) {
     // Display heading
     document.getElementById("chartHelp").classList.add("d-none");
@@ -404,12 +468,20 @@ function setGraph(chartData, groupName) {
             "30",
         ],
         datasets: [{
-            data: chartData, // Get user data!
-            backgroundColor: "transparent",
-            borderColor: colors[0],
-            borderWidth: 4,
-            pointBackgroundColor: colors[0],
-        }, ],
+            label: "Average Mood Score",
+            lineTension: 0.1,
+            backgroundColor: "rgba(78, 115, 223, 0.05)",
+            borderColor: "rgba(78, 115, 223, 1)",
+            pointRadius: 1,
+            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointBorderColor: "rgba(78, 115, 223, 1)",
+            pointHoverRadius: 1,
+            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+            pointHitRadius: 1,
+            pointBorderWidth: 2,
+            data: chartData,
+        }],
     };
 
     if (chLine) {
@@ -417,16 +489,47 @@ function setGraph(chartData, groupName) {
             type: "line",
             data: chartData,
             options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                hover: false,
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
                 scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'day'
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 31
+                        }
+                    }],
                     yAxes: [{
                         ticks: {
-                            beginAtZero: false,
+                            maxTicksLimit: 100,
+                            padding: 0
                         },
-                    }, ],
+                        gridLines: {
+                            color: "rgb(234, 236, 244)",
+                            zeroLineColor: "rgb(234, 236, 244)",
+                            drawBorder: false,
+                            borderDash: [2],
+                            zeroLineBorderDash: [2]
+                        }
+                    }],
                 },
                 legend: {
-                    display: false,
-                },
+                    display: false
+                }
             },
         });
     }

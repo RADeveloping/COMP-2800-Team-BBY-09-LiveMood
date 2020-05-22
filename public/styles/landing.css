@@ -2,6 +2,25 @@ html {
     scroll-behavior: smooth;
 }
 
+#dropdownMenuButton{
+    position: fixed; 
+    bottom: 1em; 
+    left: 1em; 
+    z-index: 1000;
+}
+
+div.dropdown-menu{
+    max-width: 10px;
+}
+div.sharingButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#loginButton, #registerButton, #dashboardButton{
+    display: none;
+}
 
 .jumbotron{
     text-align: center;
@@ -19,6 +38,7 @@ div.card-deck{
     max-height: 500px;
     padding: 1%;
     margin-bottom: 10px;
+    border-color: #4e73df;
 }
 
 .sub-title{
@@ -69,4 +89,8 @@ footer .row div{
     div#card-deck.card-deck{
         align-items: center;
     }
+}
+
+footer .row .paraText ul{
+    padding-left: 10px ;
 }

@@ -1,7 +1,7 @@
 let credential;
 
 /**
- * @desc adds onclick to buttons
+ * @desc adds onclick to buttons and asks user for password for validation
  */
 function init() {
     document.getElementById("savechanges").onclick = updateProfile;
@@ -28,7 +28,6 @@ function init() {
                     user.email,
                     result
                 );
-
 
                 user.reauthenticateWithCredential(credential).then(function() {
 
@@ -113,6 +112,9 @@ function loadUserInfo() {
 }
 
 
+/**
+ * @desc sends verification email to user
+ */
 function sendVerificationEmail() {
     let user = firebase.auth().currentUser;
     user.sendEmailVerification().then(function() {
@@ -121,6 +123,7 @@ function sendVerificationEmail() {
         alert(error);
     });
 }
+
 /**
  * @desc update user password 
  */
@@ -200,6 +203,9 @@ function updateProfile() {
 
 }
 
+/**
+ * @desc delete the current user from the firebase database and the auth.
+ */
 function deleteUser() {
     // Prompt the user to re-provide their sign-in credentials
     bootbox.confirm({

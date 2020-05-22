@@ -19,33 +19,22 @@
     <link rel="manifest" href="images/favicon/site.webmanifest">
 
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
-        integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
     <link href="styles/easteregg.css" rel="stylesheet">
 
-    <!-- Material Design Bootstrap -->
-    <!-- <link href="css/mdb.min.css" rel="stylesheet" /> -->
-
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
     <!-- Style sheets -->
     <link rel="stylesheet" type="text/css" href="styles/dashboard.css" />
 </head>
@@ -68,12 +57,12 @@
 
     <body id="page-top">
         <!-- Page Wrapper -->
-        <div>
+        <div class="easterEggTop">
             <img src="images/goose.gif" id="easterEggImg" class="hideEgg"></img>
-        </div class=''>
+        </div>
         <div id="wrapper">
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion fade24" id="accordionSidebar">
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled fade24" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -124,10 +113,9 @@
                         <span>About Us</span></a>
                 </li>
 
-
                 <!-- Nav Item - Edit Profile -->
                 <li class="nav-item fade19">
-                    <a class="nav-link" href="editprofile.html">
+                    <a class="nav-link" href="editProfile.html">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Edit Profile</span></a>
                 </li>
@@ -161,6 +149,12 @@
                 <!-- Main Content -->
                 <div id="content">
 
+                    <div class="alert alert-warning alert-dismissible fade show d-block" id="coronaBanner" role="alert">
+                        <span id="covidinfo"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -173,12 +167,7 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="editProfile.html" id="userDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span id="username"
-                                            class='fade1'></span></span>
-                                </a>
-
+                                <span id="username"></span>
                         </ul>
 
                     </nav>
@@ -199,8 +188,7 @@
                                 <div class="card shadow mb-4 fade16">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3 d-flex flex-row">
-                                        <h6 id="chartText" class="m-0 font-weight-bold text-primary text-left"
-                                            id="addnew">Personal Chart</h6>
+                                        <h6 id="chartText" class="m-0 font-weight-bold text-primary text-left" id="addnew">Personal Chart</h6>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
@@ -225,8 +213,8 @@
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3 d-flex flex-row">
                                         <h6 class="m-0 font-weight-bold text-primary text-left" id="addnew">
-                                            Personal
-                                            Chart</h6>
+                                            Personal Chart
+                                        </h6>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
@@ -305,7 +293,6 @@
                                             </a>
 
 
-
                                             <!-- ENDDD MAIN CONTENT HERE-->
 
                                         </div>
@@ -315,7 +302,6 @@
                         </div>
 
                     </div>
-
 
                     <!-- End of Main Content -->
 
@@ -333,10 +319,15 @@
                 <!-- End of Content Wrapper -->
                 <div id='eggend' class="hideEgg">
                     <img src='images/positiveMessage.png'>
+                    <br>
+                    <div class="btn btn-primary mb-1">
+                        <span class="icon text-white-50">
+                        </span>
+                        <span class="text" id="backToDash">Return to Dashboard</span>
+                    </div>
                 </div>
             </div>
             <!-- End of Page Wrapper -->
-
 
             <!-- Scroll to Top Button-->
             <a class="scroll-to-top rounded" href="#page-top">
@@ -350,7 +341,6 @@
             <!-- Local Scripts -->
             <script src="scripts/controllers/dashboard.js"></script>
             <script src="scripts/views/easteregg.js"></script>
-
 
     </body>
 

@@ -1,27 +1,26 @@
 img {
-    /* background-repeat: no-repeat;
+	/* background-repeat: no-repeat;
     background-size: contain; */
-    width: 90%;
-    height: auto;
+	width: 80%;
+	height: auto;
 }
 
 .activity {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
 }
 
 .activity div {
-    height: 70%;
-    padding-bottom: 1%;
+	height: 70%;
+	padding-bottom: 1%;
 }
 
 .link {
-    font-weight: bold;
-    font-size: 20pt;
+	font-weight: bold;
+	font-size: 20pt;
 }
-
 
 /* @media screen and (min-width: 401px) and (max-width: 1279px) {
 	.activity div {
@@ -35,10 +34,9 @@ img {
 } */
 
 h1 span {
-    color: rgb(2, 11, 133);
-    font-size: 28pt;
+	color: rgb(2, 11, 133);
+	font-size: 28pt;
 }
-
 
 /* .activity h3 {
 	margin-top: -100%;

@@ -1,3 +1,6 @@
+// Array of activities
+// to reload to firebase uncomment the on click function and relevent html on activity.html
+
 const individualActivitiesArr = [
 	{
 		name   : 'Helplines',
@@ -78,7 +81,7 @@ const individualActivitiesArr = [
 		image  : 'images/call.jpg'
 	}
 ];
-
+// Used to automatically re-add array to firebase
 // document.getElementById('test').onclick = addArrToFirebase;
 
 function addArrToFirebase() {

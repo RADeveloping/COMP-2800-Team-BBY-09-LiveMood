@@ -18,10 +18,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
 
+    <!----------------------------------------------->
+    <!-----------  EXTERNAL RESOURCES --------------->
+    <!----------------------------------------------->
+
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -30,215 +33,205 @@
         crossorigin="anonymous"></script>
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/30575d44de.js" crossorigin="anonymous"></script>
-
     <!--Firebase-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
     <!-- Bootstrap tooltips -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
-    <!-- Style sheets -->
-
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/groups.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="styles/vendor/sb-admin-2.min.css" rel="stylesheet">
-
-
-
 </head>
 
-<body>
-
+<body id="page-top">
     <!----------------------------------------------->
     <!--  LOAD FIREBASE JS -->
     <!----------------------------------------------->
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
-
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-
     <!-- Boostrap Modal-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
-    <body id="page-top">
-        <!-- Page Wrapper -->
-        <div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <img src="images/logo.png" width="38px" height="38px">
-                    </div>
-                    <div class="sidebar-brand-text mx-3">LiveMood</div>
-                </a>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Nav Item - Groups -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="groups.html">
-                        <i class="fas fa-users"></i>
-                        <span>Groups</span></a>
-                </li>
-
-                <!-- Nav Item - Survey -->
-                <li class="nav-item">
-                    <a class="nav-link" href="survey.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Survey</span></a>
-                </li>
-
-                <!-- Nav Item - Activities -->
-                <li class="nav-item">
-                    <a class="nav-link" href="activity.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Activities</span></a>
-                </li>
-
-                <!-- Nav Item - About -->
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span>About Us</span></a>
-                </li>
-
-
-                <!-- Nav Item - Edit Profile -->
-                <li class="nav-item">
-                    <a class="nav-link" href="editprofile.html">
-                        <i class="fas fa-fw fa-user"></i>
-                        <span>Edit Profile</span></a>
-                </li>
-
-                <!-- Nav Item - Logout -->
-                <li class="nav-item">
-                    <a class="nav-link" href="" id="logoutButton">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
-
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="images/logo.png" width="38px" height="38px">
                 </div>
+                <div class="sidebar-brand-text mx-3">LiveMood</div>
+            </a>
 
-            </ul>
-            <!-- End of Sidebar -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                    <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <!-- Nav Item - Groups -->
+            <li class="nav-item active">
+                <a class="nav-link" href="groups.html">
+                    <i class="fas fa-users"></i>
+                    <span>Groups</span></a>
+            </li>
 
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
+            <!-- Nav Item - Survey -->
+            <li class="nav-item">
+                <a class="nav-link" href="survey.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Survey</span></a>
+            </li>
 
-                        <!-- Topbar Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Nav Item - User Information -->
-                            <li class="nav-item dropdown no-arrow">
-                                <span id="username"></span>
-                        </ul>
+            <!-- Nav Item - Activities -->
+            <li class="nav-item">
+                <a class="nav-link" href="activity.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Activities</span></a>
+            </li>
 
-                    </nav>
-                    <!-- End of Topbar -->
+            <!-- Nav Item - About -->
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About Us</span></a>
+            </li>
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Groups</h1>
+            <!-- Nav Item - Edit Profile -->
+            <li class="nav-item">
+                <a class="nav-link" href="editprofile.html">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Edit Profile</span></a>
+            </li>
+
+            <!-- Nav Item - Logout -->
+            <li class="nav-item">
+                <a class="nav-link" href="" id="logoutButton">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="editprofile.html" id="userDropdown"> <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small"><span
+                                        id="username"></span></span>
+                            </a>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Groups</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-lg-3">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row">
+                                    <h6 class="m-0 font-weight-bold text-primary text-left" id="joingroup"><a
+                                            href="#">Join Group</a></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary text-right" id="addnew"><a
+                                            href="#">+</a></h6>
+
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="content-area">
+                                        <!-- ADDDD MAIN CONTENT HERE-->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="card text-center" style="width:100%">
+                                                    <ul class="list-group list-group-flush" id="groupslist"></ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Content Row -->
-                        <div class="row">
-                            <!-- Area Chart -->
-                            <div class="col-lg-3">
-                                <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
-                                    <div class="card-header py-3 d-flex flex-row">
-                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="joingroup"><a
-                                                href="#">Join Group</a></h6>
-                                        <h6 class="m-0 font-weight-bold text-primary text-right" id="addnew"><a
-                                                href="#">+</a></h6>
-
-                                    </div>
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-                                        <div class="content-area">
-                                            <!-- ADDDD MAIN CONTENT HERE-->
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="card text-center" style="width:100%">
-                                                        <ul class="list-group list-group-flush" id="groupslist"></ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                        <!-- Area Chart -->
+                        <div class="col-lg-9">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row">
+                                    <h6 class="m-0 font-weight-bold text-primary text-left" id="groupName">Group Chart
+                                    </h6>
                                 </div>
-                            </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <p id="chartHelp">Please select a group to display the monthly chart</p>
 
-                            <!-- Content Row -->
-                            <!-- Area Chart -->
-                            <div class="col-lg-9">
-                                <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
-                                    <div class="card-header py-3 d-flex flex-row">
-                                        <h6 class="m-0 font-weight-bold text-primary text-left" id="groupName">Group
-                                            Chart</h6>
-                                    </div>
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-                                        <p id="chartHelp">Please select a group to display the monthly chart</p>
-
-                                        <div class="content-area">
-                                            <!-- ADDDD MAIN CONTENT HERE-->
-                                            <div class="container">
-                                                <div class="card-body">
-                                                    <canvas id="chLine"
-                                                        style="position: relative; height:50vh; width:80vw"></canvas>
-                                                </div>
-                                                <!-- ENDDD MAIN CONTENT HERE-->
+                                    <div class="content-area">
+                                        <!-- ADDDD MAIN CONTENT HERE-->
+                                        <div class="container">
+                                            <div class="card-body">
+                                                <canvas id="chLine"
+                                                    style="position: relative; height:50vh; width:80vw"></canvas>
                                             </div>
+                                            <!-- ENDDD MAIN CONTENT HERE-->
                                         </div>
                                     </div>
                                 </div>
@@ -246,35 +239,32 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; 2020 | A COMP2800 Project | By Rahim, Laura, Kyle and Jason</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-        <!--Firebase Config-->
-        <script src="scripts/config/FirebaseConfig.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="scripts/vendor/sb-admin-2.min.js"></script>
-        <!-- Local Scripts -->
-        <script src="scripts/controllers/groups.js"></script>
-
-
-    </body>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!--Firebase Config-->
+    <script src="scripts/config/FirebaseConfig.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="scripts/vendor/sb-admin-2.min.js"></script>
+    <!-- Local Scripts -->
+    <script src="scripts/controllers/groups.js"></script>
+</body>
 
 </html>

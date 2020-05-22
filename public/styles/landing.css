@@ -1,72 +1,95 @@
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
-
-.jumbotron{
-    text-align: center;
-    height: 450px;
+#dropdownMenuButton {
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+	z-index: 1000;
 }
 
-div.card-deck{
-    margin: 0% 10px 0% ;
-    justify-content: space-evenly ;
+div.dropdown-menu {
+	max-width: 10px;
+}
+div.sharingButtons {
+	display: flex;
+	flex-direction: column;
 }
 
-.card{
-    max-width: 300px;
-    min-width: 200px ;
-    max-height: 500px;
-    padding: 1%;
-    margin-bottom: 10px;
+#loginButton,
+#registerButton,
+#dashboardButton,
+#logoutButton {
+	display: none;
 }
 
-.sub-title{
-    text-align: center;
-    padding-bottom: 5px;
-
-    font-size: 2.5rem;
-    font-weight: 300;
-    line-height: 1.2;
+.jumbotron {
+	text-align: center;
+	height: 450px;
 }
 
-.sub-title-hr{
-    width: 500px;
+div.card-deck {
+	margin: 0% 10px 0%;
+	justify-content: space-evenly;
 }
 
-.carousel{
-    max-width: 750px;
-    margin: 10px auto 0px;
+.card {
+	max-width: 300px;
+	min-width: 200px;
+	max-height: 500px;
+	padding: 1%;
+	margin-bottom: 10px;
+	border-color: #4e73df;
 }
 
-.carousel-caption{
-    background-color: rgba(0, 0, 0, 0.4);
-    
+.sub-title {
+	text-align: center;
+	padding-bottom: 5px;
+
+	font-size: 2.5rem;
+	font-weight: 300;
+	line-height: 1.2;
 }
 
-footer .row div{
-    margin: 4px;
+.sub-title-hr {
+	width: 500px;
 }
 
+.carousel {
+	max-width: 750px;
+	margin: 10px auto 0px;
+}
+
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+footer .row div {
+	margin: 4px;
+}
 
 @media only screen and (max-width: 767px) {
-    li.nav-item {
-        padding-top: 1em;
-    }
+	li.nav-item {
+		padding-top: 1em;
+	}
 
-    #banner-background{
-        max-width: 100%;
-    }
+	#banner-background {
+		max-width: 100%;
+	}
 }
 @media only screen and (min-width: 767px) {
-    li.nav-item {
-        margin-left: 1em;
-    }
-
+	li.nav-item {
+		margin-left: 1em;
+	}
 }
 
 @media only screen and (max-width: 576px) {
-    div#card-deck.card-deck{
-        align-items: center;
-    }
+	div#card-deck.card-deck {
+		align-items: center;
+	}
+}
+
+footer .row .paraText ul {
+	padding-left: 10px;
 }

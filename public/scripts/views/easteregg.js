@@ -1,3 +1,8 @@
+//*****************************************************************************
+// function to animate the goose Easter egg
+// Then return to the dashboard
+//*****************************************************************************
+
 $('#easterEgg').click(function() {
 	event.preventDefault();
 	// show goose
@@ -129,7 +134,7 @@ $('#easterEgg').click(function() {
 		$('.fade24').addClass('hideEgg');
 	}
 	window.setTimeout(fade24, 14500);
-	// hide dashboard
+	// hide remaining elements
 	function eggEnd() {
 		$('#eggend').removeClass('hideEgg');
 		$('#eggend').addClass('eggend');
@@ -137,9 +142,12 @@ $('#easterEgg').click(function() {
 	}
 	window.setTimeout(eggEnd, 15000);
 });
+//*****************************************************************************
+// back to dashboard. on click of button
+//*****************************************************************************
 $('#backToDash').click(function() {
+	console.log('test');
 	$('#easterEggImg').removeClass('walk');
-	//  // show goose
 	$('#easterEggImg').addClass('hideEgg');
 	$('#eggend').removeClass('eggend');
 	$('#eggend').removeClass('eggEndDiv');

@@ -45,40 +45,40 @@
 		/* months */
 		30% {
 			left: 80vw;
-			top: 13vh;
+			top: 18vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
 		/* month box */
 		45% {
 			left: 75vw;
-			top: 8vh;
+			top: 11vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
 		/* footer */
 		55% {
 			left: 60vw;
-			top: 48vh;
+			top: 55vh;
 			width: 100px;
 		}
 		/* graph */
 		65% {
 			left: 35vw;
-			top: 25vh;
+			top: 30vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
 		75% {
 			left: 15vw;
-			top: 5vh;
+			top: 8vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}
 		/* nav menu */
 		85% {
 			left: 2vw;
-			top: 50vh;
+			top: 53vh;
 			width: 100px;
 			transform: rotateY(180deg);
 		}

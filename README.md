@@ -80,5 +80,7 @@ It has the following subfolders and files:
 * Based on the score of the group, suggests activities to all members for the day. 
 ### Dashboard and Groups Page Graph Improvement
 * Make the graph more responsive - Allow user to select a custom time range.
+* The interface was intended to be optimized for portrait as well as landscape view, however due to time constraints this was not fully implemented as intended. When viewing the dashboard, please adjust the view accordingly before using any of it's features.
+Thank you for understanding and I apologize for the inconvenience.
 ## Installation:
 Simply clone the repository from GitHub, and open public/index.html to begin. No credential required.

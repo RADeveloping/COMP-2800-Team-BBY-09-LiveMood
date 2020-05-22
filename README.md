@@ -5,6 +5,7 @@
 * [Hosting](#hosting)
 * [File Structure](#file-structure)
 * [To Do List](#to-do-list)
+* [Installation](#installation)
 
 ## Overview
 LiveMood is a web application, made to track the user's mood, receive activity suggestions based on their mood. It is a group project for the 5-week CST course COMP 2800, at BCIT.

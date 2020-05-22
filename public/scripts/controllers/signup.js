@@ -44,7 +44,6 @@ function register() {
 									$('#createAccountBox').addClass('hide');
 									$('#emailMessage').removeClass('hide');
 									$('#emailMessage').addClass('showMessage');
-									// window.location.assign("index.html");
 								})
 								.catch(function(error) {
 									alert(error);

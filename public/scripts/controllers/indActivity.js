@@ -34,9 +34,14 @@ function init() {
 	userId = user.uid;
 	setUserName();
 	getUserMood();
+	document.getElementById('logoutButton').onclick = logout;
 }
 
 let moodScore;
+
+//*****************************************************************************
+// Get the current date YYYY/MM/DD  as a string
+//*****************************************************************************
 
 let day = new Date().getDate();
 let month = new Date().getMonth();
@@ -56,7 +61,9 @@ function getDocId() {
 	today = '' + year + month + day;
 	return today;
 }
-
+//*****************************************************************************
+// Retrives the users mood for fot today's date
+//*****************************************************************************
 function getUserMood() {
 	getDocId();
 	console.log('in get user mood');
@@ -78,6 +85,9 @@ function getUserMood() {
 		.catch((error) => console.log('error'));
 }
 
+//*****************************************************************************
+// Renders the activity to the page
+//*****************************************************************************
 const actSuggestion = document.querySelector('.suggestion');
 const actSug = document.querySelector('#actSug');
 // Render the suggestion to the user
@@ -105,8 +115,9 @@ function renderSuggestion(doc, userDoc) {
 
 	actSuggestion.appendChild(activity);
 }
-
-// get the activity base on current mood score
+//*****************************************************************************
+// Get the activity base on current mood score
+//*****************************************************************************
 function indActivity(userDoc) {
 	db.collection('individualActivities').get().then((snapshot) => {
 		snapshot.docs.forEach((doc) => {

@@ -82,7 +82,7 @@ export const global = {
 		});
 	},
 	//*****************************************************************************
-	// Logs current user out of app. Redirects to landing page. Called by
+	// Logs current user out of app. Redirects to login page. Called by
 	// /controllers/global.js.
 	//
 	//*****************************************************************************
@@ -91,7 +91,7 @@ export const global = {
 			.auth()
 			.signOut()
 			.then(function() {
-				window.location.href = '/landing.html';
+				window.location.href = '/login.html';
 			})
 			.catch(function(error) {
 				console.log(error);

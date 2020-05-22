@@ -39,7 +39,8 @@ Technologies that were used for this project:
 
 ## Hosting
 LiveMood is hosted publicly at [https://livemood-a14e0.web.app](https://livemood-a14e0.web.app). 
-
+## Testing History
+LiveMood's Testing History [https://docs.google.com/spreadsheets/d/13jbFxtwUmg2aTGUuzGaTLbbIkcb0wKa9LpKKyGoC4KM/edit#gid=0](https://docs.google.com/spreadsheets/d/13jbFxtwUmg2aTGUuzGaTLbbIkcb0wKa9LpKKyGoC4KM/edit#gid=0). 
 ## File Structure
 Content of the project folder:
 

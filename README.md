@@ -7,7 +7,6 @@
 * [To Do List](#to-do-list)
 
 ## Overview
-------
 LiveMood is a web application, made to track the user's mood, receive activity suggestions based on their mood. It is a group project for the 5-week CST course COMP 2800, at BCIT.
 
 LiveMood also has a groups feature, where user can join or create groups, then view the average score for the whole group.
@@ -19,13 +18,11 @@ This team project demonstrates:
 * Handling of asynchronous in JavaScript
 
 ## Team Information
-------
-The team consists of two CST term 2 students [Laura Gillespie](https://github.com/legillespie5). and [Kyle Herrmann](https://github.com/kyle-herrmann)., and two CST term 1 student [Rahim Askarzadeh](https://github.com/RADeveloping) and [Jason Pan](https://github.com/Spoonzio). 
+The team consists of two CST term 2 students [Laura Gillespie](https://github.com/legillespie5). and [Kyle Herrmann](https://github.com/kyle-herrmann)., and two CST term 1 students [Rahim Askarzadeh](https://github.com/RADeveloping) and [Jason Pan](https://github.com/Spoonzio). 
 
 As a team, we developed this web application, using the Agile development process. This process had our team face new challenges and requirements weekly. In which, we vanquished through with daily scrums and weekly sprint planning.
 
 ## Technologies Used
-------
 Technologies that were used for this project:
 * HTML, CSS
 * JavaScript
@@ -39,11 +36,9 @@ Technologies that were used for this project:
 * Third-parties API ([Google Map](https://developers.google.com/maps/documentation) and [COVID-19 Data by Kyle Redelinghuys](https://covid19api.com/))
 
 ## Hosting
-------
 LiveMood is hosted publicly at [https://livemood-a14e0.web.app](https://livemood-a14e0.web.app). 
 
 ## File Structure
-------
 Content of the project folder:
 
 ```
@@ -81,18 +76,9 @@ It has the following subfolders and files:
 ```
 
 ## To Do List:
-------
 ### Group Activity Suggestion 
 * Based on the score of the group, suggests activities to all members for the day. 
-### Dashboard Improvement
+### Dashboard and Groups Page Graph Improvement
 * Make the graph more responsive - Allow user to select a custom time range.
-
 ## Installation:
-------
 Simply clone the repository from GitHub, and open public/index.html to begin. No credential required.
-
-# Dashboard Development Note:
-The interface was intended to be optimized for portrait as well as landscape view.
-Unfortunately I, Kyle, was unable to do so before the deadline. When viewing the dashboard,
-please adjust the view accordingly before using any of it's features.
-Thank you for understanding and I apologize for the inconvenience.

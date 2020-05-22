@@ -33,6 +33,7 @@ Technologies that were used for this project:
 * [JQuery](https://jquery.com/)
 * [Bootstrap 4.0](https://getbootstrap.com/)
 * [Bootstrap Theme - SB Admin 2](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2)
+* [BootBoxJS](http://bootboxjs.com)
 * Social Media Share Integration
 * Third-parties API ([Google Map](https://developers.google.com/maps/documentation) and [COVID-19 Data by Kyle Redelinghuys](https://covid19api.com/))
 
